@@ -13,4 +13,10 @@ class Batch extends Model
         'visible',
         'status',
     ];
+
+    
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
 }

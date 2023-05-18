@@ -31,7 +31,7 @@
                 </div>
 
                 <li class="menu--item">
-                    <a href="online_class.php" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Live Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-online']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
                     <a href="online_class_tutes.php" class="menu--link"> <i class='uil uil-comments menu--icon'></i> <span class="menu--label">Download Paid Class

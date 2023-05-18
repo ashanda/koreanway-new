@@ -11,15 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('contactnumber');
+            $table->string('stnumber')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('fullname');
+            $table->date('dob');
+            $table->string('gender');
+            $table->string('district');
+            $table->string('town');
+            $table->string('contactnumber');
+            $table->string('address');
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('batch_id');
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
+            $table->rememberToken();
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('batch_id')->references('id')->on('batches')->onDelete('cascade');
         });
     }
 

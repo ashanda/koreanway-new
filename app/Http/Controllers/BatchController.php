@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Batch;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class BatchController extends Controller
@@ -79,5 +80,15 @@ class BatchController extends Controller
         $batch->delete();
 
         return redirect()->route('batch.index')->with('success', 'Batch deleted successfully');
+    }
+
+
+    //batch get in selected course
+    public function getBatch($courseId)
+    {
+        $course = Course::find($courseId);
+        $batches = Batch::where('id',$course->batch_id)->get();
+
+        return response()->json($batches);
     }
 }

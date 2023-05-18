@@ -14,4 +14,10 @@ class Course extends Model
         'name',
         'status',
     ];
+
+    
+    public function batches()
+    {
+        return $this->hasMany(Batch::class);
+    }
 }

@@ -308,3 +308,43 @@ function changeInputs() {
 		document.getElementById("schedule").style.display = "none";
 	}
 }
+
+$(document).ready(function() {
+    var batchSelect = $('#batch'); // Cache the batch select element
+
+    // On page load, trigger the AJAX request for the default course
+    loadBatches($('#course').val());
+
+    // Handle the course selection change event
+    $('#course').on('change', function() {
+        var courseId = $(this).val();
+        loadBatches(courseId);
+    });
+
+    // Function to load batches based on the selected course ID
+    function loadBatches(courseId) {
+        var url = '/get_batch/' + courseId ; // Update the URL based on your routes
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                batchSelect.empty(); // Clear the existing options
+
+                // Append the default option
+               
+
+                // Append the new batch options
+                $.each(data, function(index, batch) {
+                    batchSelect.append($('<option></option>')
+                        .val(batch.id)
+                        .text(batch.name));
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+});
