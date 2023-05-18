@@ -55,9 +55,9 @@
                    
 
                 </div>
-                <div class="sign_footer">
+                <!-- <div class="sign_footer">
                     Copyrights 2021
-                    © {{ config('app.name', 'Laravel') }} | Website by <a target="_blank" title="Click to visit" href="https://yogeemedia.com/">yogeemedia.com</div>
+                    © {{ config('app.name', 'Laravel') }} | Website by <a target="_blank" title="Click to visit" href="https://yogeemedia.com/">yogeemedia.com</div> -->
             </div>
         </div>
     </div>

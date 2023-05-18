@@ -25,7 +25,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
 
     return view('welcome');
-
 });
 
 
@@ -37,8 +36,7 @@ Route::get('/logout', [AuthController::class, 'studentLogout'])->name('student_l
 
 
 Route::middleware(['auth.check', 'auth:student'])->group(function () {
-    Route::get('/dashboard', [AuthController::class , 'dashboard'])->name('dashboard'); 
-    
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 });
 
 //teacher routes 
@@ -47,8 +45,7 @@ Route::post('/teacher/login', [AuthController::class, 'TeacherLogin']);
 Route::get('/teacher/logout', [AuthController::class, 'teacherLogout'])->name('teacher_logout');
 
 Route::middleware(['auth.check', 'auth:teacher'])->group(function () {
-    Route::get('/teacher/dashboard', [AuthController::class , 'dashboard'])->name('teacher_dashboard'); 
-    
+    Route::get('/teacher/dashboard', [AuthController::class, 'dashboard'])->name('teacher_dashboard');
 });
 
 //admin routes 
@@ -57,9 +54,9 @@ Route::post('/admin/login', [AuthController::class, 'AdminLogin']);
 Route::get('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin_logout');
 
 Route::middleware(['auth.check', 'auth:admin'])->group(function () {
-    Route::get('/admin/dashboard', [AuthController::class , 'dashboard'])->name('admin_dashboard'); 
-       // Batches routes
-       Route::resource('/admin/batch', BatchController::class);
+    Route::get('/admin/dashboard', [AuthController::class, 'dashboard'])->name('admin_dashboard');
+    // Batches routes
+    Route::resource('/admin/batch', BatchController::class);
 
        // Courses routes
        Route::resource('/admin/course', CourseController::class);
@@ -71,4 +68,3 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
        Route::resource('/admin/teacher', TeachersController::class);
     
 });
- 
