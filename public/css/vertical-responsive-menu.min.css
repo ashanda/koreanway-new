@@ -130,7 +130,7 @@
 
 .menu--link:hover,
 .menu--link:hover .menu--label {
-    background: #738f1e;
+    background: #2e9d8a;
 }
 span.menu--label:hover {
     color: #fff;
@@ -245,7 +245,7 @@ span.menu--label:hover {
         height: 60px;
         padding: 0;
         border: 0;
-        background: #ed2a26;
+        background: #2e9d8a;
         color: #fff;
         font-size: 30px;
         margin: 0;

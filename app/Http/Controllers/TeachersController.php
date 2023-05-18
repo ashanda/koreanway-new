@@ -9,4 +9,6 @@ class TeachersController extends Controller
     public function login(Request $request){
         return view('teacher.auth.login');
        } 
+
+       
 }

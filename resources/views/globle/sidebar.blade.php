@@ -13,8 +13,6 @@
                     <a href="edit_profile.php" class="menu--link"> <i class='uil uil-analysis menu--icon'></i> <span class="menu--label">Edit My Profile</span> </a>
                 </li>
 
-
-
                 <div class="line_section">
                 </div>
                 <li class="menu--item">
@@ -94,205 +92,52 @@
                 @elseif(Auth::guard('admin')->check())
 
 
-                <li class="menu--item">Main Menu</li>
-                <li class="menu--item"><a href="home.php" class="menu--link" aria-expanded="false">
-                        <i class="la la-home"></i>
-                        <span class="nav-text">Dashboard</span>
-                    </a>
+                <li class="menu--item">
+                    <a href="/" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Dashboard</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a class="ai-icon" href="admin.php" class="menu--link" aria-expanded="false">
-                        <i class="la la-user-secret"></i>
-                        <span class="nav-text">Admin</span>
-                    </a>'
+                    <a href="{{ route('teacher.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Teachers</span> </a>
                 </li>
-                <li class="menu--item"><a class="has-arrow" class="menu--link" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-th-list"></i>
-                        <span class="nav-text">Filters</span>
+                <li class="menu--item">
+                    <a href="javascript:void()" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Filters</span>
                     </a>
-                    <ul aria-expanded="false">
+                    <ul>
                         <li class="menu--item">
-                            <a href="{{ route('batch.index') }}">Batch</a>
+                            <a href="{{ route('batch.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Batches</span> </a>
                         </li>
                         <li class="menu--item">
-                            <a href="{{ route('course.index') }}">Course</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-users"></i>
-                        <span class="nav-text">Students</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item">
-                            <a href="students.php" aria-expanded="false">
-                                <i class="la la-users"></i>
-                                <span class="nav-text">Students</span>
-                            </a>
-                        </li>
-                        <li class="menu--item">
-                            <a href="student_grade.php" aria-expanded="false">
-                                <i class="la la-users"></i>
-                                <span class="nav-text">Grade wise Students</span>
-                            </a>
-                        </li>
-                        <li class="menu--item">
-                            <a href="student_import.php" aria-expanded="false">
-                                <i class="la la-users"></i>
-                                <span class="nav-text">Student Import</span>
-                            </a>
-
-
+                            <a href="{{ route('course.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Courses</span> </a>
                         </li>
                     </ul>
                 </li>
                 <li class="menu--item">
-                    <a href="attendence.php" aria-expanded="false">
-                        <i class="la la-file-text"></i>
-                        <span class="nav-text">Students Attendence</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="teachers.php" aria-expanded="false">
-                        <i class="la la-black-tie"></i>
-                        <span class="nav-text">Teachers</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="class_schedule.php" aria-expanded="false">
-                        <i class="la la-slideshare"></i>
-                        <span class="nav-text">Class Schedule</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="class_tute.php" aria-expanded="false">
-                        <i class="la la-book"></i>
-                        <span class="nav-text">Class Tute</span>
-                    </a>
-                </li>
-
-                <li class="menu--item">
-                    <a href="video_lessons.php" aria-expanded="false">
-                        <i class="la la-play-circle-o"></i>
-                        <span class="nav-text">Video Lessons</span>
-                    </a>
-                </li>
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-money"></i>
-                        <span class="nav-text">Payments</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item"><a href="manual_payments.php">Manual Payments</a></li>
-                        <li class="menu--item"><a href="bank_payaments.php">Pending - Bank Payments</a></li>
-                        <li class="menu--item"><a href="paid_bank_payaments.php">Paid - Bank Payments</a></li>
-                        <li class="menu--item"><a href="reject_bank_payaments.php">Reject - Bank Payments</a></li>
-                        <li class="menu--item"><a href="online_payments.php">Online Payments</a></li>
-                        <li class="menu--item"><a href="teacher_payment.php">Teacher Payment</a></li>
-                        <li class="menu--item"><a href="payment_report.php">Payment Report</a></li>
-                    </ul>
-                </li>
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-leanpub"></i>
-                        <span class="nav-text">Mcq Exams</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item"><a href="exam.php">Exam Details</a></li>
-                        <li class="menu--item"><a href="exam_results.php">Exam Results</a></li>
-                    </ul>
-                </li>
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-leanpub"></i>
-                        <span class="nav-text">Online Paper Exams</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item"><a href="online_exams.php">Add Online Exams</a></li>
-                        <li class="menu--item"><a href="submissions.php">Student Submitted</a></li>
-                    </ul>
-                </li>
-                <li class="menu--item"><a href="reviews.php" aria-expanded="false">
-                        <i class="la la-comments-o"></i>
-                        <span class="nav-text">Reviews</span>
-                    </a>
-                </li>
-                <li class="menu--item"><a href="gallery.php" aria-expanded="false">
-                        <i class="la la-camera-retro"></i>
-                        <span class="nav-text">Gallery</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="sms.php" aria-expanded="false">
-                        <i class="la la-envelope-o"></i>
-                        <span class="nav-text">SMS</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="getway.php" aria-expanded="false">
-                        <i class="la la-university"></i>
-                        <span class="nav-text">Payment Getway Settings</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="settings.php" aria-expanded="false">
-                        <i class="la la-cog"></i>
-                        <span class="nav-text">Settings</span>
-                    </a>
+                    <a href="{{ route('lmsclass.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Class</span> </a>
                 </li>
 
 
                 @elseif(Auth::guard('teacher')->check())
 
-                <li class="menu--item">Main Menu</li>
-                <li class="menu--item"><a href="home.php" aria-expanded="false">
-                        <i class="la la-home"></i>
-                        <span class="nav-text">Dashboard</span>
-                    </a>
+                <li class="menu--item">
+                    <a href="/" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Dashboard</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="class_schedule.php" aria-expanded="false">
-                        <i class="la la-slideshare"></i>
-                        <span class="nav-text">Class Schedule</span>
-                    </a>
+                    <a href="{{ route('teacher.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Teachers</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="class_tute.php" aria-expanded="false">
-                        <i class="la la-book"></i>
-                        <span class="nav-text">Class Tute</span>
+                    <a href="javascript:void()" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Filters</span>
                     </a>
-                </li>
-                <li class="menu--item">
-                    <a href="video_lessons.php" aria-expanded="false">
-                        <i class="la la-play-circle-o"></i>
-                        <span class="nav-text">Video Lessons</span>
-                    </a>
-                </li>
-                <li class="menu--item">
-                    <a href="attendence.php" aria-expanded="false">
-                        <i class="la la-file-text"></i>
-                        <span class="nav-text">Students Attendence</span>
-                    </a>
-
-                </li>
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-leanpub"></i>
-                        <span class="nav-text">Mcq Exams</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item"><a href="exam.php">Exam Details</a></li>
-                        <li class="menu--item"><a href="exam_results.php">Exam Results</a></li>
+                    <ul>
+                        <li class="menu--item">
+                            <a href="{{ route('batch.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Batches</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('course.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Courses</span> </a>
+                        </li>
                     </ul>
                 </li>
-                <li class="menu--item"><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-money"></i>
-                        <span class="nav-text">Payments</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li class="menu--item"><a href="payment_list.php?type=Manual">Manual Payments</a></li>
-                        <li class="menu--item"><a href="payment_list.php?type=Bank">Bank Payments</a></li>
-                        <li class="menu--item"><a href="payment_list.php?type=Card">Online Payments</a></li>
-                    </ul>
+                <li class="menu--item">
+                    <a href="{{ route('lmsclass.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Class</span> </a>
                 </li>
-
 
                 @endif
             </ul>
