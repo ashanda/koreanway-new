@@ -160,7 +160,7 @@
         </a>
     </li>
     <li class="menu--item">
-    <a href="class_schedule.php" aria-expanded="false">
+    <a href="{{ route('lesson.index') }}" aria-expanded="false">
             <i class="la la-slideshare"></i>
             <span class="nav-text">Class Schedule</span>
           </a>
