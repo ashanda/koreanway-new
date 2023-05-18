@@ -22,7 +22,7 @@ class AuthController extends Controller
     public function StudentLogin(Request $request)
     {
         $credentials = $request->only('contactnumber', 'password');
-
+       
         if (Auth::guard('student')->attempt($credentials)) {
             
             return redirect()->intended('/dashboard');
@@ -90,14 +90,15 @@ class AuthController extends Controller
 
     public function TeacherLogin(Request $request)
     {
-        $credentials = $request->only('username', 'password');
-        
+        $credentials = $request->only('email', 'password');
+       
         if (Auth::guard('teacher')->attempt($credentials)) {
             return redirect()->intended('/teacher/dashboard');
         }
 
         return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
+            'password' => 'The provided credentials do not match our records.',
         ]);
     }
 
@@ -118,6 +119,7 @@ class AuthController extends Controller
 
         return redirect()->back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
+            'password' => 'The provided credentials do not match our records.',
         ]);
     }
 

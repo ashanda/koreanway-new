@@ -20,9 +20,8 @@ class CreateUsersSeeder extends Seeder
             [
 
                'name'=>'User',
-
                'email'=>'user@user.com',
-                'contactnumber' => '123456789',
+                'contactnumber' => '1234567890',
                'password'=> bcrypt('123456'),
 
             ],

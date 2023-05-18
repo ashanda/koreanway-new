@@ -20,7 +20,7 @@
                             <div class="col-lg-12">
                                 <div class="single-form">
                                     <label style="font-weight:bold;float:left;">Email</label>
-                                    <input type="email" placeholder="Email" id="email" class="form-control phone_val" placeholder="Your Email"  style="border: 2px solid #ccc;" name="username" required autofocus>
+                                    <input type="email" placeholder="Email" id="email" class="form-control phone_val" placeholder="Your Email"  style="border: 2px solid #ccc;" name="email" required autofocus>
                                   
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
