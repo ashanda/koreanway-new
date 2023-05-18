@@ -123,7 +123,7 @@
 }
 
 .menu--link:hover {
-    background: #738f1e;
+    background: #2E9D8A;
 
     color: #d7d7d7 !important;
 }
@@ -184,7 +184,7 @@
 
 .menu--link:hover,
 .menu--link:hover .menu--label {
-    background: #738f1e;
+    background: #2E9D8A;
 }
 
 .menu--icon {

@@ -106,22 +106,12 @@
                             <a href="{{ route('batch.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Batches</span> </a>
                         </li>
                         <li class="menu--item">
-                            <a href="student_grade.php" aria-expanded="false">
-                                <i class="la la-users"></i>
-                                <span class="nav-text">Grade wise Students</span>
-                            </a>
+                            <a href="{{ route('course.index') }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Courses</span> </a>
                         </li>
-                        <li class="menu--item">
-                            <a href="student_import.php" aria-expanded="false">
-                                <i class="la la-users"></i>
-                                <span class="nav-text">Student Import</span>
-                            </a>
-
-
-                        </li>
+                        
                     </ul>
                 </li>
-                <li class="menu--item">
+                <!-- <li class="menu--item">
                     <a href="attendence.php" aria-expanded="false">
                         <i class="la la-file-text"></i>
                         <span class="nav-text">Students Attendence</span>
@@ -211,7 +201,7 @@
                         <i class="la la-cog"></i>
                         <span class="nav-text">Settings</span>
                     </a>
-                </li>
+                </li> -->
 
 
                 @elseif(Auth::guard('teacher')->check())

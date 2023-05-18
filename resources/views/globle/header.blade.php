@@ -17,8 +17,8 @@
 <style>
 	.btn-primary,
 	.btn-primary:hover {
-		background-color: #738F1E;
-		border-color: #738F1E;
+		background-color: #2E9D8A;
+		border-color: #2E9D8A;
 		color: #ffffff;
 	}
 </style>

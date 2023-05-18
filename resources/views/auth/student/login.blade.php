@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="sign_in_up_bg" style="height: inherit;">
+<div class="sign_in_up_bg">
     <div class="container">
         <div class="row justify-content-lg-center justify-content-md-center">
             <!--<div class="col-lg-12">-->
