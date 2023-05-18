@@ -27,6 +27,7 @@
                         <div class="form-group">
                             <label>Details:</label>
                             {{ $batch->status }}
+                            {{ $batch->visible }}
                         </div>
                     </div>
                 </div>
