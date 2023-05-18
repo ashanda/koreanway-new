@@ -81,15 +81,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="school" class="col-md-4 col-form-label text-md-end text-start">School</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control @error('school') is-invalid @enderror" id="school" name="school">
-                            @if ($errors->has('school'))
-                            <span class="text-danger">{{ $errors->first('school') }}</span>
-                            @endif
-                        </div>
-                    </div>
+                    
                     <div class="mb-3 row">
                         <label for="district" class="col-md-4 col-form-label text-md-end text-start">District</label>
                         <div class="col-md-6">
@@ -134,15 +126,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="pcontactnumber" class="col-md-4 col-form-label text-md-end text-start">Parent Contact Number</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control @error('pcontactnumber') is-invalid @enderror" id="pcontactnumber" name="pcontactnumber">
-                            @if ($errors->has('pcontactnumber'))
-                            <span class="text-danger">{{ $errors->first('pcontactnumber') }}</span>
-                            @endif
-                        </div>
-                    </div>
+                    
                     <div class="mb-3 row">
                         <label for="contactnumber" class="col-md-4 col-form-label text-md-end text-start">Contact Number</label>
                         <div class="col-md-6">
@@ -162,11 +146,27 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="image" class="col-md-4 col-form-label text-md-end text-start">Image</label>
+                        <label for="course" class="col-md-4 col-form-label text-md-end text-start">Course</label>
                         <div class="col-md-6">
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
-                            @if ($errors->has('image'))
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                            <select class="form-control @error('course') is-invalid @enderror" name="course" id="course">
+                                @foreach ( $courses as $course)
+                                   <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                @endforeach
+                                
+                                
+                            </select>
+                            @if ($errors->has('course'))
+                            <span class="text-danger">{{ $errors->first('course') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="batch" class="col-md-4 col-form-label text-md-end text-start">Batch</label>
+                        <div class="col-md-6">
+                            <select class="form-control @error('batch') is-invalid @enderror" name="batch" id="batch">                                
+                            </select>
+                            @if ($errors->has('batch'))
+                            <span class="text-danger">{{ $errors->first('batch') }}</span>
                             @endif
                         </div>
                     </div>

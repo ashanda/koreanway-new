@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
@@ -35,48 +38,53 @@ class AuthController extends Controller
 
     public function StudentshowRegisterForm()
     {
-        return view('auth.student.register');
+        $courses = Course::where('status', 'Publish')->get();
+        return view('auth.student.register' ,compact('courses'));
     }
 
     public function Studentregister(Request $request)
     {
+
         
-        $request->validate([
-            'stnumber' => 'required|string',
-            'email' => 'required|email|max:250|unique:students',
-            'fullname' => 'required|string|max:250',
-            'dob' => 'required|string',
-            'gender' => 'required|string',
-            'school' => 'required|string|max:250',
-            'district' => 'required|string|max:250',
-            'town' => 'required|string|max:250',
-            'pcontactnumber' => 'required|digits:10',
-            'contactnumber' => 'required|digits:10',
-            'address' => 'required|string|max:250',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'password' => 'required|min:8|confirmed'
-        ]);
-        dd('Please');
-        DB::table('lmsregister')->insert([
-            'stnumber' => $request->stnumber,
-            'email' => $request->email,
-            'fullname' => $request->fullname,
-            'dob' => $request->dob,
-            'gender' => $request->gender,
-            'school' => $request->school,
-            'district' => $request->district,
-            'town' => $request->town,
-            'pcontactnumber' => $request->pcontactnumber,
-            'contactnumber' => $request->contactnumber,
-            'address' => $request->address,
-            'image' => $request->image,
-            'password' => Hash::make($request->password),
-            'created_at' => now(),
-            'updated_at' => now()
+        $validator = Validator::make($request->all(), [
+            'stnumber' => 'required',
+            'email' => 'required|email',
+            'fullname' => 'required',
+            'dob' => 'required|date',
+            'gender' => 'required',
+            'district' => 'required',
+            'town' => 'required',
+            'contactnumber' => 'required',
+            'address' => 'required',
+            'course' => 'required',
+            'batch' => 'required',
+            'password' => 'required|min:6|confirmed',
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Validation passed, store the data
+        $student = new Student([
+            'stnumber' => $request->input('stnumber'),
+            'email' => $request->input('email'),
+            'fullname' => $request->input('fullname'),
+            'dob' => $request->input('dob'),
+            'gender' => $request->input('gender'),
+            'district' => $request->input('district'),
+            'town' => $request->input('town'),
+            'contactnumber' => $request->input('contactnumber'),
+            'address' => $request->input('address'),
+            'course_id' => $request->input('course'),
+            'batch_id' => $request->input('batch'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        $student->save();
+
         $credentials = $request->only('contactnumber', 'password');
-        Auth::attempt($credentials);
+        Auth::guard('student')->attempt($credentials);
         $request->session()->regenerate();
         return redirect()->intended('/dashboard')
             ->withSuccess('You have successfully registered & logged in!');

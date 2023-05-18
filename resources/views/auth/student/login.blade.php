@@ -55,7 +55,7 @@
                     </form>
                     <p class="sgntrm145">Or <a href="forgot_password.php">Forgot My Password</a>.</p>
 
-                    <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="register.php">Register</a></p>
+                    <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="{{ route('student_register') }}">Register</a></p>
 
                 </div>
                 <!-- <div class="sign_footer">
