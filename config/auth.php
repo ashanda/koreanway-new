@@ -76,16 +76,16 @@ return [
     'providers' => [
         'admins' => [
             'driver' => 'database',
-            'table' => 'lmsusers',
+            'table' => 'admins',
         ],
         'teachers' => [
             'driver' => 'database',
-            'table' => 'lmstealmsr',
+            'table' => 'teachers',
         ],
         
          'students' => [
              'driver' => 'database',
-             'table' => 'lmsregister',
+             'table' => 'users',
          ],
          'users' => [
             'driver' => 'eloquent',

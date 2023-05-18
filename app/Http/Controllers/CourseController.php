@@ -21,8 +21,9 @@ class CourseController extends Controller
     public function create()
     {
         $batch_data = Batch::all();
+        
         $teacher_data = Teacher::all(); 
-        return view('admin.filters.course.create', compact('batch_data', 'teacher_data'));
+        return view('pages.lesson.course.create', compact('batch_data', 'teacher_data'));
     }
 
     public function store(Request $request)
@@ -40,14 +41,14 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        return view('admin.filters.course.show', compact('course'));
+        return view('pages.lesson.course.show', compact('course'));
     }
 
     public function edit(Course $course)
     {
         $batch_data = Batch::all();
         $teacher_data = Teacher::all(); 
-        return view('admin.filters.course.edit', compact('course' , 'batch_data' , 'teacher_data'));
+        return view('pages.lesson.course.edit', compact('course' , 'batch_data' , 'teacher_data'));
     }
 
     public function update(Request $request, Course $course)

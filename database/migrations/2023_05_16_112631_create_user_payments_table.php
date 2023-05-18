@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('user_payments', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('student_id');
+            $table->bigInteger('course_id');
+            $table->bigInteger('lesson_id');
+            $table->string('paymet_type');
+            $table->integer('amount');
+            $table->string('file_name');
+            $table->integer('status')->comment('1=active, 2=pending, 3=rejected');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

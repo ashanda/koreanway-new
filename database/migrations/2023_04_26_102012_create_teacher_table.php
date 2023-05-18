@@ -11,20 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lmstealmsr', function (Blueprint $table) {
-            $table->bigIncrements('tid');
-            $table->string('systemid')->nullable();
-            $table->string('fullname')->nullable();
-            $table->text('address')->nullable();
-            $table->string('contactnumber')->nullable();
-            $table->text('subdetails')->nullable();
-            $table->text('qualification')->nullable();
-            $table->string('username')->nullable();
+        Schema::create('teachers', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('image')->nullable();
-            $table->decimal('percentage', 5, 2)->default(0);
-            $table->tinyInteger('status')->default(0);
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

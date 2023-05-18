@@ -11,24 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lmsusers', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->string('user_name');
-            $table->string('user_email');
-            $table->string('user_pass');
-            $table->string('admintype');
-            $table->string('admin');
-            $table->string('students');
-            $table->string('teachers');
-            $table->string('class');
-            $table->string('subject');
-            $table->string('lesson');
-            $table->string('payments');
-            $table->string('class_schedule');
-            $table->string('mail');
-            $table->string('joining_date');
-            $table->string('status');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 
