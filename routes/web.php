@@ -65,7 +65,7 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
        Route::resource('/admin/course', CourseController::class);
    
        // Classes routs
-       Route::resource('/admin/lmsclass', LessonController::class);
+       Route::resource('/admin/lesson', LessonController::class);
    
        // Classes routs
        Route::resource('/admin/teacher', TeachersController::class);

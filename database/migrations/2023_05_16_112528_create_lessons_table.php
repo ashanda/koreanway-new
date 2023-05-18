@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('link')->nullable();
             $table->string('available_days')->nullable();
             $table->unsignedBigInteger('no_of_views')->nullable();
-            $table->string('level')->nullable();
             $table->string('password')->nullable();
             $table->string('status');
             $table->rememberToken();

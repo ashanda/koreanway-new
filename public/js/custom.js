@@ -288,3 +288,23 @@ $(document).on('click', 'a.nav-icon-list', function(e) {
 	e.preventDefault();
 	$('.lecture-sidebar').toggle();
 });
+
+
+
+function changeInputs() {
+	var x = document.getElementById("classtype").value;
+
+	if (x == 'Schedule') {
+		document.getElementById("schedule").style.display = "block";
+		document.getElementById("tute").style.display = "none";
+		document.getElementById("video").style.display = "none";
+	} else if (x == 'Tute') {
+		document.getElementById("tute").style.display = "block";
+		document.getElementById("schedule").style.display = "none";
+		document.getElementById("video").style.display = "none";
+	} else if (x == 'Video') {
+		document.getElementById("video").style.display = "block";
+		document.getElementById("tute").style.display = "none";
+		document.getElementById("schedule").style.display = "none";
+	}
+}
