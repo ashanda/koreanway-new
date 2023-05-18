@@ -28,6 +28,7 @@
                         <th>No</th>
                         <th>Batch Name</th>
                         <th>Status</th>
+                        <th>Form Visibility</th>
                         <th>Action</th>
                     </tr>
                     @foreach ($batches as $batch)
@@ -37,7 +38,17 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{ $batch->name }}</td>
-                        <td>{{ $batch->status }}</td>
+                        @if ($batch->status == 1)
+                        <td>{{ 'Published' }}</td>
+                        @else
+                        <td>{{ 'Unpublished' }}</td>
+                        @endif
+
+                        @if ($batch->visible == 1)
+                        <td>{{ 'Visible' }}</td>
+                        @else
+                        <td>{{ 'Unvisible' }}</td>
+                        @endif
                         <td>
                             <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
             

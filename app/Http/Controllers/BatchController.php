@@ -58,13 +58,14 @@ class BatchController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Batch $batch)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'status' => 'required',
-        ]);
-
+     
+        
+        $batch = Batch::find($id);
+        // Set other fields as needed
+        
+        // Save the changes
         $batch->update($request->all());
 
         return redirect()->route('batch.index')->with('success', 'Batch updated successfully');
