@@ -51,7 +51,7 @@
             <td>{{ $lesson->title }}</td>
             <td>{{ $lesson->classtype }}</td>
             <td>{{ $lesson->paytype }}</td>
-            <td>{{ etTeacherData($lesson->teacher_id)->name }}</td>
+            <td>{{ getTeacherData($lesson->teacher_id)->name }}</td>
             <td>{{ getBatchData($lesson->batch_id)->name }}</td>
             <td>{{ $lesson->course_id }}</td>
             <td>{{ $lesson->lesson }}</td>
@@ -60,7 +60,6 @@
             <td>{{ $lesson->link }}</td>
             <td>{{ $lesson->available_days }}</td>
             <td>{{ $lesson->no_of_views }}</td>
-            <td>{{ $lesson->level }}</td>
             <td>{{ $lesson->password }}</td>
             <td>{{ $lesson->status }}</td>
             <td>

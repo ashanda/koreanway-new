@@ -42,8 +42,8 @@
                             <div class="form-group">
                                 <label for="classtype" class="form-label">Class Type:</label>
                                 <select class="form-control" name="classtype" id="classtype" onchange="changeInputs()">
-                                    <option value="Schedule">Class Schedule</option>
-                                    <option value="Tute">Class Tute</option>
+                                    <option value="Live">Class Live</option>
+                                    <option value="Paper">Class Tute</option>
                                     <option value="Video">Video Lesson</option>
                                 </select>
                             </div>
@@ -111,6 +111,13 @@
                                 <input type="text" name="link" class="form-control" placeholder="Class Link">
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="published_date">Published Date</label>
+                                <input type="date" id="published_date" name="published_date" class="form-control">
+                            </div>
+                        </div>
+                        
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <label>Available Days</label>

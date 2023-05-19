@@ -15,12 +15,26 @@
 
                 <div class="line_section">
                 </div>
+                
                 <li class="menu--item">
-                    <a href="free_class.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Live Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Free Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="free_class_tutes.php" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Download Free Class
-                            Tutes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Next Month's Free Live Classes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">This Month's Free Class
+                            Paper</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">All Previous Free Class
+                            Paper</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Free Recorded Classes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Free Recorded Classes</span> </a>
                 </li>
                 <li class="menu--item">
                     <a href="exam_list.php?type=0" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Free Exams</span> </a>
@@ -29,19 +43,18 @@
 
                 <div class="line_section">
                 </div>
-
+                
                 <li class="menu--item">
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-online']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Live Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">This Month's Paid Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="online_class_tutes.php" class="menu--link"> <i class='uil uil-comments menu--icon'></i> <span class="menu--label">Download Paid Class
-                            Tutes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Next Month's Paid Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="paper_class.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Paid Paper Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">This Month's Paid Paper Classes</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="paper_class_tutes.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Download Paid Paper Class Tutes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">All Previous Paid Paper Classes</span> </a>
                 </li>
                 <li class="menu--item">
                     <a href="exam_list.php?type=1" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Paid Exams</span> </a>
@@ -50,14 +63,12 @@
                 </div>
 
                 <li class="menu--item">
-                    <a href="paid_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Recordings</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Recordings</span> </a>
                 </li>
                 <li class="menu--item">
-                    <a href="old_video_lessons.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Recordings</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Recordings</span> </a>
                 </li>
-                <li class="menu--item">
-                    <a href="free_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Recorded Classes</span> </a>
-                </li>
+                
 
                 <div class="line_section">
                 </div>

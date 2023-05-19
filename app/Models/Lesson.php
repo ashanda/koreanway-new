@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lesson extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
     protected $fillable = [
         'title',
         'classtype',
@@ -16,6 +17,7 @@ class Lesson extends Model
         'batch_id',
         'course_id',
         'lesson',
+        'published_date',
         'status',
     ];
 }
