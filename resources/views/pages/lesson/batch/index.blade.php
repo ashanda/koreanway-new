@@ -1,48 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper">
-    <div class="sa4d25">
-        <div class="container-fluid">
-            <div class="container">
-                <a class="btn btn-secondary btn-sm" href="{{ route('admin_dashboard') }}">Back to Dashboard</a>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="float-start">
-                            <h3>Batches</h3>
-                        </div>
-                        <div class="float-end">
-                            <a class="btn btn-success btn-sm" href="{{ route('batch.create') }}"> Create New Batch</a>
-                        </div>
-                    </div>
-                </div>
-            
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
-            
-                <table class="table table-bordered">
-                    <tr>
-                        <th>No</th>
-                        <th>Batch Name</th>
-                        <th>Status</th>
-                        <th>Form Visibility</th>
-                        <th>Action</th>
-                    </tr>
-                    @foreach ($batches as $batch)
-                    @php
-                        $i=1;
-                    @endphp
-                    <tr>
-                        <td>{{ $i }}</td>
-                        <td>{{ $batch->name }}</td>
-                        @if ($batch->status == 1)
-                        <td>{{ 'Published' }}</td>
-                        @else
-                        <td>{{ 'Unpublished' }}</td>
-                        @endif
+<div class="pt-2">
+    <a class="btn btn-secondary btn-sm" href="{{ route('admin_dashboard') }}">Back to Dashboard</a>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="float-start">
+                <h3>Batches</h3>
+            </div>
+            <div class="float-end">
+                <a class="btn btn-success btn-sm" href="{{ route('batch.create') }}"> Create New Batch</a>
+            </div>
+        </div>
+    </div>
+
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
+    <table class="table table-bordered">
+        <tr>
+            <th>No</th>
+            <th>Batch Name</th>
+            <th>Status</th>
+            <th>Form Visibility</th>
+            <th>Action</th>
+        </tr>
+        @foreach ($batches as $batch)
+        @php
+        $i=1;
+        @endphp
+        <tr>
+            <td>{{ $i }}</td>
+            <td>{{ $batch->name }}</td>
+            @if ($batch->status == 1)
+            <td>{{ 'Published' }}</td>
+            @else
+            <td>{{ 'Unpublished' }}</td>
+            @endif
 
             @if ($batch->visible == 1)
             <td>{{ 'Visible' }}</td>

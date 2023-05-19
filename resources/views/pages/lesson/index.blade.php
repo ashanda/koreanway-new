@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper">
-    <div class="sa4d25">
-        <div class="container-fluid">
-
-
-<div class="container">
+<div class="pt-2">
     <a href="{{ route('admin_dashboard') }}">Dashboard</a>
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -19,11 +14,11 @@
         </div>
     </div>
 
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
-                </div>
-                @endif
+    @if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
 
     <table class="table table-bordered">
         <tr>
@@ -66,26 +61,26 @@
             <td>
                 <form action="{{ route('lesson.destroy',$lesson->id) }}" method="POST">
 
-                                <a class="btn btn-sm btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
+                    <a class="btn btn-sm btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
 
-                                <a class="btn btn-sm btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
 
-                                @csrf
-                                @method('DELETE')
+                    @csrf
+                    @method('DELETE')
 
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
-                        </td>
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
 
-                    </tr>
-                    @endforeach
-                </table>
-           
+        </tr>
+        @endforeach
+    </table>
 
 
-{!! $lessons->links() !!}
+
+    {!! $lessons->links() !!}
 </div>
-</div>
+
 
 
 @endsection
