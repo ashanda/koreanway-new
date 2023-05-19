@@ -38,6 +38,7 @@ Route::get('/get_batch/{courseId}', [BatchController::class, 'getBatch'])->name(
 Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
+    Route::get('/lesson/{lessontype}/{id}', [LessonController::class, 'singleLesson'])->name('single-lesson');
 
 });
 

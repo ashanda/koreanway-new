@@ -7,7 +7,7 @@ use App\Models\Batch;
 use App\Models\Teacher;
 use App\Models\Course;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 class LessonController extends Controller
 {
     /**
@@ -211,7 +211,17 @@ class LessonController extends Controller
 
         }
 
-        return view('pages.lesson.index', compact('lessons'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('pages.lesson.index', compact('lessons','lessontype'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+
+    public function singleLesson(Request $request, $lessontype, $id)
+    {
+        $lessontype = Crypt::decrypt($lessontype);
+        $id = Crypt::decrypt($id);
+        
+        dd($lessontype);
+        // Rest of your code...
     }
 }
 

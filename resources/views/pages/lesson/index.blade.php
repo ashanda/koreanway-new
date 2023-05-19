@@ -77,7 +77,11 @@ Class : <select name="fsubject" required="" class="form-control" style="border: 
                                     <p class="user-status-tag online">Teacher</p>	
                                     <br>
                                     @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
-                                    <a href="student_profile.php" class="save_btn btn-block">Watch Lesson</a>
+                                    @php
+                                        $encryptedLessontype = encrypt(['lessontype' => $lessontype]);
+                                        $encryptedLessonid = encrypt(['id' => $lesson->id]);
+                                    @endphp
+                                    <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a>
                                     @elseif (StudentPaymentCheck()->status == 2 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
                                     <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
                                     @else
