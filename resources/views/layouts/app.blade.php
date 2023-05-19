@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, shrink-to-fit=9">
 	<meta name="description" content="Online Learning Platforms ">
 	<meta name="author" content="Online Learning Platforms ">
@@ -13,13 +13,25 @@
 	<!-- Favicon Icon -->
 	<link rel="icon" type="image/png" href="images/fav.png">
 
-            @include('globle.header')
-            @include('globle.navigation')
-            @include('globle.sidebar')
-                @yield('content')
+	@include('globle.header')
 
-            @include('globle.footer')
+<body>
 
+	@include('globle.navigation')
+	<div class="body_content">
+		<div class="container-fluid">
+			<div class="row flex-nowrap">
+				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+					@include('globle.sidebar')
+				</div>
+				<div class="col">
+					@yield('content')
+				</div>
+			</div>
+		</div>
+	</div>
+
+	@include('globle.footer')
 </body>
 
 </html>

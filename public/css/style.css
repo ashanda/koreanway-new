@@ -484,6 +484,7 @@ input[type="text"] {
 
 header {
     position: fixed;
+    top: 0;
     z-index: 999;
     width: 100%;
     background: rgb(14, 14, 14);
@@ -8662,6 +8663,3 @@ a.nav-icon-list:hover {
 }
 
 /* 2023.5.18 kasun */
-.wrapper{
-    min-height: calc(100vh - 65px) ;
-}
