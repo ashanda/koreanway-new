@@ -13,23 +13,25 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Batch Name:</label>
-                {{ $batch->name }}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label>Batch Name:</label>
+                            {{ $batch->name }}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label>Details:</label>
+                            {{ $batch->status }}
+                            {{ $batch->visible }}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Details:</label>
-                {{ $batch->status }}
-                {{ $batch->visible }}
-            </div>
-        </div>
-    </div>
 
 </div>
+
 
 
 @endsection

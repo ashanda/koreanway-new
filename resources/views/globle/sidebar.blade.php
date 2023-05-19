@@ -14,54 +14,54 @@
             <a href="edit_profile.php" class="menu--link"> <i class='uil uil-analysis menu--icon'></i> <span class="menu--label">Edit My Profile</span> </a>
         </li>
 
-        <div class="line_section">
-        </div>
-        <li class="menu--item">
-            <a href="free_class.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Live Classes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="free_class_tutes.php" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Download Free Class
-                    Tutes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="exam_list.php?type=0" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Free Exams</span> </a>
-        </li>
+                <div class="line_section">
+                </div>
+                <li class="menu--item">
+                    <a href="free_class.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Live Classes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="free_class_tutes.php" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Download Free Class
+                            Tutes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="exam_list.php?type=0" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Free Exams</span> </a>
+                </li>
 
 
-        <div class="line_section">
-        </div>
+                <div class="line_section">
+                </div>
 
-        <li class="menu--item">
-            <a href="{{ route('lesson', ['lessontype' => 'paid-online']) }}" class="menu--link"> <i class='bi-house menu--icon'></i> <span class="menu--label">Paid Live Classes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="online_class_tutes.php" class="menu--link"> <i class='uil uil-comments menu--icon'></i> <span class="menu--label">Download Paid Class
-                    Tutes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="paper_class.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Paid Paper Classes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="paper_class_tutes.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Download Paid Paper Class Tutes</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="exam_list.php?type=1" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Paid Exams</span> </a>
-        </li>
-        <div class="line_section">
-        </div>
+                <li class="menu--item">
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-online']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Live Classes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="online_class_tutes.php" class="menu--link"> <i class='uil uil-comments menu--icon'></i> <span class="menu--label">Download Paid Class
+                            Tutes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="paper_class.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Paid Paper Classes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="paper_class_tutes.php" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">Download Paid Paper Class Tutes</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="exam_list.php?type=1" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Paid Exams</span> </a>
+                </li>
+                <div class="line_section">
+                </div>
 
-        <li class="menu--item">
-            <a href="paid_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Recordings</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="old_video_lessons.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Recordings</span> </a>
-        </li>
-        <li class="menu--item">
-            <a href="free_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Recorded Classes</span> </a>
-        </li>
+                <li class="menu--item">
+                    <a href="paid_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Recordings</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="old_video_lessons.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Recordings</span> </a>
+                </li>
+                <li class="menu--item">
+                    <a href="free_lesson.php" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Free Recorded Classes</span> </a>
+                </li>
 
-        <div class="line_section">
-        </div>
+                <div class="line_section">
+                </div>
 
         <li class="menu--item">
             <a href="paper_exam_list.php" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">Paper Exams</span> </a>
