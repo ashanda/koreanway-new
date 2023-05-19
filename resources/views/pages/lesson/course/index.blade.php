@@ -38,8 +38,8 @@
                     @endphp
                     <tr>
                         <td>{{ $i }}</td>
-                        <td>{{ $course->batch_id }}</td>
-                        <td>{{ $course->teacher_id }}</td>
+                        <td>{{ getBatchData($course->batch_id)->name }}</td>
+                        <td>{{ getTeacherData($course->teacher_id)->name }}</td>
                         <td>{{ $course->name}}</td>
                         <td>{{ $course->status }}</td>
                         <td>

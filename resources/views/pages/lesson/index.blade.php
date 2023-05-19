@@ -51,8 +51,8 @@
             <td>{{ $lesson->title }}</td>
             <td>{{ $lesson->classtype }}</td>
             <td>{{ $lesson->paytype }}</td>
-            <td>{{ $lesson->teacher_id }}</td>
-            <td>{{ $lesson->batch_id }}</td>
+            <td>{{ etTeacherData($lesson->teacher_id)->name }}</td>
+            <td>{{ getBatchData($lesson->batch_id)->name }}</td>
             <td>{{ $lesson->course_id }}</td>
             <td>{{ $lesson->lesson }}</td>
             <td><img width="50" src="{{ asset('/kycs/img/' . $lesson->image) }}" alt="Class Image"></td>

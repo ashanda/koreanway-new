@@ -27,8 +27,7 @@ return new class extends Migration
             $table->string('password');
             $table->timestamps();
             $table->rememberToken();
-            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('batch_id')->references('id')->on('batches')->onDelete('cascade');
+     
         });
     }
 

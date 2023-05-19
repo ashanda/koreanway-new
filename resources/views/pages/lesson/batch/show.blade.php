@@ -26,8 +26,21 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <label>Details:</label>
-                            {{ $batch->status }}
-                            {{ $batch->visible }}
+                            {{ $batch->fee }}
+                            @if ($batch->status == 1)
+                                {{ 'Published' }}
+                            @else
+                               {{ 'Unpublish' }}
+                            @endif
+
+                           
+                            @if ($batch->visible == 1)
+                                {{ 'Visible' }}
+                            @else
+                                 {{ 'Unvisible' }}
+                            @endif
+
+                            
                         </div>
                     </div>
                 </div>

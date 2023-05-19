@@ -33,6 +33,8 @@ class BatchController extends Controller
         $request->validate([
             'name' => 'required',
             'status' => 'required',
+            'visible' => 'required',
+            'fee' => 'required',
         ]);
 
         Batch::create($request->all());

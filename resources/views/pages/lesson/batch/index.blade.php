@@ -27,6 +27,7 @@
                     <tr>
                         <th>No</th>
                         <th>Batch Name</th>
+                        <th>Fee</th>
                         <th>Status</th>
                         <th>Form Visibility</th>
                         <th>Action</th>
@@ -38,6 +39,7 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{ $batch->name }}</td>
+                        <td>{{ $batch->fee }}</td>
                         @if ($batch->status == 1)
                         <td>{{ 'Published' }}</td>
                         @else

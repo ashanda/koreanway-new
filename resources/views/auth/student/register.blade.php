@@ -15,15 +15,15 @@
                 <div class="sign_form">
                     <h2>Welcome to {{ config('app.name', 'Laravel') }} </h2>
                     <p>Register Now & Start Learning Today!</p>
-                    <form action="{{ route('student_register') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+                <form action="{{ route('student_register') }}" method="post" enctype="multipart/form-data">
+                    @csrf
 
-                        <div class="mb-3 row">
-                            @php
-                            $code_feed = "0123456789";
-                            $code_length = 5; // Set this to be your desired code length
-                            $final_code = "";
-                            $feed_length = strlen($code_feed);
+                    <div class="mb-3 row">
+                                        @php
+                                          $code_feed = "0123456789";
+										$code_length = 5;  // Set this to be your desired code length
+										$final_code = "";
+										$feed_length = strlen($code_feed);
 
 										for ($i = 0; $i < $code_length; $i++) {
 											$feed_selector = rand(0, $feed_length - 1);
@@ -81,15 +81,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="school" class="col-md-4 col-form-label text-md-end text-start">School</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control @error('school') is-invalid @enderror" id="school" name="school">
-                            @if ($errors->has('school'))
-                            <span class="text-danger">{{ $errors->first('school') }}</span>
-                            @endif
-                        </div>
-                    </div>
+                    
                     <div class="mb-3 row">
                         <label for="district" class="col-md-4 col-form-label text-md-end text-start">District</label>
                         <div class="col-md-6">
@@ -134,15 +126,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="mb-3 row">
-                        <label for="pcontactnumber" class="col-md-4 col-form-label text-md-end text-start">Parent Contact Number</label>
-                        <div class="col-md-6">
-                            <input type="text" class="form-control @error('pcontactnumber') is-invalid @enderror" id="pcontactnumber" name="pcontactnumber">
-                            @if ($errors->has('pcontactnumber'))
-                            <span class="text-danger">{{ $errors->first('pcontactnumber') }}</span>
-                            @endif
-                        </div>
-                    </div>
+                    
                     <div class="mb-3 row">
                         <label for="contactnumber" class="col-md-4 col-form-label text-md-end text-start">Contact Number</label>
                         <div class="col-md-6">
@@ -162,11 +146,27 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="image" class="col-md-4 col-form-label text-md-end text-start">Image</label>
+                        <label for="course" class="col-md-4 col-form-label text-md-end text-start">Course</label>
                         <div class="col-md-6">
-                            <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
-                            @if ($errors->has('image'))
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                            <select class="form-control @error('course') is-invalid @enderror" name="course" id="course">
+                                @foreach ( $courses as $course)
+                                   <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                @endforeach
+                                
+                                
+                            </select>
+                            @if ($errors->has('course'))
+                            <span class="text-danger">{{ $errors->first('course') }}</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="batch" class="col-md-4 col-form-label text-md-end text-start">Batch</label>
+                        <div class="col-md-6">
+                            <select class="form-control @error('batch') is-invalid @enderror" name="batch" id="batch">                                
+                            </select>
+                            @if ($errors->has('batch'))
+                            <span class="text-danger">{{ $errors->first('batch') }}</span>
                             @endif
                         </div>
                     </div>
@@ -186,16 +186,15 @@
                         </div>
                     </div>
 
-                        <div class="mb-3 row">
-                            <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
-                        </div>
+                    <div class="mb-3 row">
+                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Register">
+                    </div>
 
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+
 
 
 @endsection

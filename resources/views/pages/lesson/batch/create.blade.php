@@ -39,10 +39,25 @@
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
+                                <label>Fee:</label>
+                                <input type="text" name="fee" class="form-control" placeholder="Fee">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
                                 <label for="status" class="form-label">Status:</label>
                                 <select class="form-control" name="status" id="status">
-                                    <option>Publish</option>
-                                    <option>Unpublish</option>
+                                    <option value="1">Publish</option>
+                                    <option value="0">Unpublish</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label for="status" class="form-label">Status:</label>
+                                <select class="form-control" name="visible" id="visible">
+                                    <option value="1">Visible</option>
+                                    <option value="0">Unvisible</option>
                                 </select>
                             </div>
                         </div>
