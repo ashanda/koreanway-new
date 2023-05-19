@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('student_id');
             $table->bigInteger('course_id');
-            $table->bigInteger('lesson_id');
+            $table->bigInteger('batch_id');
             $table->string('paymet_type');
             $table->integer('amount');
             $table->string('file_name');

@@ -20,10 +20,10 @@ class LessonController extends Controller
         $type = $request->query('lessontype');
 
         if ($type == 'free-live-today') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Free')->whereDate('published_date', '<=', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Free')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
 
         }elseif ($type == 'free-live-next-day') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereDate('published_date', '>', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
         } elseif ($type == 'free-paper-this-month') {
             $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
@@ -38,10 +38,10 @@ class LessonController extends Controller
             $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
         } elseif ($type == 'paid-live-today') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->whereDate('published_date', '<=', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
 
         }elseif ($type == 'paid-live-next-day') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->whereDate('published_date', '>', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
         } elseif ($type == 'paid-paper-this-month') {
             $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
@@ -176,7 +176,7 @@ class LessonController extends Controller
             $lessons = Lesson::where('classtype', 'Live')->where('paytype', '=', 'Free')->where('published_date', '=', now()->toDateString())->latest() ->paginate(5);
             
         }elseif ($lessontype == 'free-live-next-day') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Free')->whereDate('published_date', '>', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
         } elseif ($lessontype == 'free-paper-this-month') {
             $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
@@ -191,10 +191,11 @@ class LessonController extends Controller
             $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
         } elseif ($lessontype == 'paid-live-today') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->whereDate('published_date', '=', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', '=', now()->toDateString())->latest()->paginate(5);
+            
 
         }elseif ($lessontype == 'paid-live-next-day') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->whereDate('published_date', '>', now()->toDateString())->latest()->paginate(5);
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
         } elseif ($lessontype == 'paid-paper-this-month') {
             $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);

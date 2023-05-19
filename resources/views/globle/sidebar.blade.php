@@ -45,7 +45,7 @@
                 </div>
                 
                 <li class="menu--item">
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">This Month's Paid Live Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Today Paid Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
                     <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Next Month's Paid Live Classes</span> </a>
