@@ -4,8 +4,6 @@
         <div class="left_section">
             <ul>
                 @if (Auth::guard('student')->check())
-
-
                 <li class="menu--item">
                     <a href="student_profile.php" class="menu--link"> <i class='uil uil-book-alt menu--icon'></i> <span class="menu--label">Main Menu</span> </a>
                 </li>
