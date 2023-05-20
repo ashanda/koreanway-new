@@ -17,7 +17,7 @@
                 </div>
                 
                 <li class="menu--item">
-                    <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Free Live Classes</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Today Free Live Classes</span> </a>
                 </li>
                 <li class="menu--item">
                     <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Next Month's Free Live Classes</span> </a>
