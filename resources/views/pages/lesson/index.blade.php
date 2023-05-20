@@ -76,17 +76,23 @@ Class : <select name="fsubject" required="" class="form-control" style="border: 
                                     <p class="user-status-title"><span class="bold">{{ getTeacherData($lesson->teacher_id)->name }}</span></p>
                                     <p class="user-status-tag online">Teacher</p>	
                                     <br>
+                                    @if (StudentPaymentCheck() == null)
+                                    <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
+                                    @else
                                     @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
                                     @php
                                         $encryptedLessontype = encrypt(['lessontype' => $lessontype]);
                                         $encryptedLessonid = encrypt(['id' => $lesson->id]);
                                     @endphp
                                     <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a>
-                                    @elseif (StudentPaymentCheck()->status == 2 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
+                                    @elseif (StudentPaymentCheck()->status == 2)
                                     <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
                                     @else
-                                    <a href="student_profile.php" class="save_btn btn-block">Payment Here</a> 
+                                    <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
                                     @endif
+                                    @endif
+
+                                   
                                      
                                                                                        
                                     </div>
@@ -107,6 +113,42 @@ Class : <select name="fsubject" required="" class="form-control" style="border: 
 </div>
 </div> 
  
+
+<div class="modal" id="paymentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Payment Here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Modal content goes here -->
+          <form id="paymentForm" action="{{ route('process.payment') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+              <label for="name">Amount:</label>
+              <input type="text" class="form-control" id="amount" name="amount">
+              <input type="hidden" id="course_id" name="course_id" class="course_id">
+              <input type="hidden" id="batch_id" name="batch_id" class="batch_id">
+              <input type="hidden" id="teacher_id" name="teacher_id" class="teacher_id">
+             
+            </div>
+            <div class="form-group">
+                <label for="file">Upload File:</label>
+                <input type="file" name="image" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @else
 <div class="container">
     <a href="{{ route('admin_dashboard') }}">Dashboard</a>

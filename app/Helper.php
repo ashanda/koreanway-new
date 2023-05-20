@@ -3,6 +3,8 @@
 use App\Models\Batch;
 use App\Models\Teacher;
 use App\Models\UserPayment;
+use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 
 function sendSMS($phone,$message)
@@ -53,6 +55,16 @@ function  getBatchData($batchID) {
 
 function  getTeacherData($teacherID) {
     $teacherdata = Teacher::findorfail($teacherID)->first();
+    return $teacherdata;
+}
+
+function  getCourseData($courseID) {
+    $teacherdata = Course::findorfail($courseID)->first();
+    return $teacherdata;
+}
+
+function  getUserData($userID) {
+    $teacherdata = Student::findorfail($userID)->first();
     return $teacherdata;
 }
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
-
+use App\Http\Controllers\UserPaymentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,8 +37,10 @@ Route::get('/get_batch/{courseId}', [BatchController::class, 'getBatch'])->name(
 
 Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
-    Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
+    
     Route::get('/lesson/{lessontype}/{id}', [LessonController::class, 'singleLesson'])->name('single-lesson');
+    Route::post('/process-payment', [UserPaymentController::class , 'saveData'])->name('process.payment');
+
 
 });
 
@@ -69,5 +71,15 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
    
        // Classes routs
        Route::resource('/admin/teacher', TeachersController::class);
+
+       Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');
+       Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
     
+});
+
+
+//All Acessroutes
+Route::middleware(['auth.check','auth:teacher,admin,student'])->group(function () {
+
+    Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
 });

@@ -16,12 +16,13 @@ return new class extends Migration
             $table->bigInteger('student_id');
             $table->bigInteger('course_id');
             $table->bigInteger('batch_id');
-            $table->string('paymet_type');
+            $table->bigInteger('teacher_id');
+            $table->string('payment_type');
             $table->integer('amount');
             $table->string('file_name');
             $table->integer('status')->comment('1=active, 2=pending, 3=rejected');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

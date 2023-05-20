@@ -348,3 +348,77 @@ $(document).ready(function() {
         });
     }
 });
+
+
+function openModel(course_id, batch_id, teacher_id) {
+	$('.course_id').val(course_id);
+    $('.batch_id').val(batch_id);
+    $('.teacher_id').val(teacher_id);
+    $('#paymentModal').modal('show');
+  }
+
+  $(document).ready(function() {
+	$('.edit-btn').click(function() {
+	  var image = $(this).data('image');
+	  var id = $(this).data('id');
+	  var amount = $(this).data('amount');
+  
+	  // Update modal inputs and image
+	  $('.paymentId').val(id);
+	  $('.paymentAmount').val(amount);
+	  $('.paymentImage').attr('src', image);
+  
+	  // Open the modal
+	  $('#editModal').modal('show');
+	});
+  });
+  $(document).ready(function() {
+	// Set up CSRF token for AJAX requests
+	$.ajaxSetup({
+	  headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	  }
+	});
+  
+	// Handle form submission
+	$('#editForm').submit(function(event) {
+	  event.preventDefault(); // Prevent the default form submission
+	  
+	  // Collect the form data
+	  var formData = {
+		paymentId: $('.paymentId').val(),
+		paymentAmount: $('.paymentAmount').val(),
+		paymentStart: $('[name="paymentstart"]').val(),
+		paymentEnd: $('[name="paymentend"]').val(),
+		paymentStatus: $('#paymentType').val()
+		// Add more fields as needed
+	  };
+	  var paymentId = $('.paymentId').val();
+	  var url = '/payment/' + paymentId;
+	  // Submit the form data via Ajax
+	  $.ajax({
+		url: url, // Replace with the actual URL for submitting the form
+		type: 'POST',
+		data: formData,
+		success: function(response) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Success!',
+				text: 'Payment updated successfully.',
+				showConfirmButton: false,
+				timer: 2000 // Display the success message for 2 seconds
+			  }).then(function() {
+				// Perform any necessary actions after the success message
+				location.reload(); // Example: Reload the page
+			  });
+		  },
+		error: function(xhr, status, error) {
+		  // Handle the error response from the server
+		  console.error(xhr.responseText);
+		  // Perform any necessary actions (e.g., show an error message, etc.)
+		}
+	  });
+	});
+  });
+
+ 

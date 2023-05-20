@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('vendor/semantic/semantic.min.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-awesome/dist/line-awesome/css/line-awesome.min.css">
 
+
 <style>
 	.btn-primary,
 	.btn-primary:hover {

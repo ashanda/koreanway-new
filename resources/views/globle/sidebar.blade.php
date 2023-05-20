@@ -120,6 +120,72 @@
                         
                     </ul>
                 </li>
+                <li class="menu--item">
+                    <a href="javascript:void()" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Lesson</span>
+                    </a>
+                    <ul>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Today Free Live Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">Next Month's Free Live Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">This Month's Free Class
+                                    Paper</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="menu--link"> <i class='uil uil-star menu--icon'></i> <span class="menu--label">All Previous Free Class
+                                    Paper</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Free Recorded Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Free Recorded Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Today Paid Live Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Next Month's Paid Live Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">This Month's Paid Paper Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="menu--link"> <i class='uil uil-bell menu--icon'></i> <span class="menu--label">All Previous Paid Paper Classes</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">This Month's Recordings</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="menu--link"> <i class='uil uil-award menu--icon'></i> <span class="menu--label">All Previous Recordings</span> </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li class="menu--item">
+                    <a href="javascript:void()" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Payments</span>
+                    </a>
+                    <ul>
+                        <li class="menu--item">
+                            <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Pending Bank</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('payment', ['paytype' => 'paid-bank-tranfer']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Bank</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('payment', ['paytype' => 'paid-manual-payments']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Manaul</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('payment', ['paytype' => 'paid-online-payments']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Paid Online</span> </a>
+                        </li>
+                        <li class="menu--item">
+                            <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="menu--link"> <i class='uil uil-plus-circle menu--icon'></i> <span class="menu--label">Reject Bank</span> </a>
+                        </li>
+                    </ul>
+                </li>
                 <!-- <li class="menu--item">
                     <a href="attendence.php" aria-expanded="false">
                         <i class="la la-file-text"></i>
