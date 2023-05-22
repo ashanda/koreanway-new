@@ -6,6 +6,7 @@ use App\Models\Lesson;
 use App\Models\Batch;
 use App\Models\Teacher;
 use App\Models\Course;
+use App\Models\UserCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
@@ -172,45 +173,50 @@ class LessonController extends Controller
     public function lesson(Request $request ,$lessontype)
     {
         
-        if(Auth::guard('admin')->check() || Auth::guard('student')->check){
+        if(Auth::guard('student')->check()){
         
         if ($lessontype == 'free-live-today') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', '=', 'Free')->where('published_date', '=', now()->toDateString())->latest() ->paginate(5);
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', '=', 'Free')->where('published_date', '=', now()->toDateString())->latest()->get();
+            $lessons =  getUserCourseData($lessons);
             
         }elseif ($lessontype == 'free-live-next-day') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->get();
+            $lessons =  getUserCourseData($lessons);
+       
         } elseif ($lessontype == 'free-paper-this-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
         } elseif ($lessontype == 'free-paper-previous-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
+       
         }elseif ($lessontype == 'free-video-this-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
+        
         }elseif ($lessontype == 'free-video-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
+        
         } elseif ($lessontype == 'paid-live-today') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', '=', now()->toDateString())->latest()->paginate(5);
-            
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', now()->toDateString())->latest()->get();
+            $lessons =  getUserCourseData($lessons);
 
         }elseif ($lessontype == 'paid-live-next-day') {
-            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'Live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->get();
+            $lessons =  getUserCourseData($lessons); 
         } elseif ($lessontype == 'paid-paper-this-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
         }elseif ($lessontype == 'paid-paper-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
         }elseif ($lessontype == 'paid-video-this-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
         }elseif ($lessontype == 'paid-video-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
-
+            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->get();
+            $lessons =  getUserCourseData($lessons);
         }
 
     }else{

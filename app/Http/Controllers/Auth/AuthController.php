@@ -12,6 +12,7 @@ use App\Models\Course;
 use App\Models\Teacher;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\UserCourse;
 use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
@@ -56,8 +57,6 @@ class AuthController extends Controller
             'town' => 'required',
             'contactnumber' => 'required',
             'address' => 'required',
-            'course' => 'required',
-            'batch' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
 
@@ -76,12 +75,21 @@ class AuthController extends Controller
             'town' => $request->input('town'),
             'contactnumber' => $request->input('contactnumber'),
             'address' => $request->input('address'),
-            'course_id' => $request->input('course'),
-            'batch_id' => $request->input('batch'),
             'password' => bcrypt($request->input('password')),
         ]);
 
         $student->save();
+
+        $userCourse = new UserCourse([
+            'user_id' => $student->id,
+            'stnumber' => $student->stnumber,
+            'course_id' => $request->input('course'),
+            'batch_id' => $request->input('batch'),
+
+        ]);
+
+        $userCourse->save();
+
 
         $credentials = $request->only('contactnumber', 'password');
         Auth::guard('student')->attempt($credentials);

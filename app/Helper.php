@@ -5,6 +5,7 @@ use App\Models\Teacher;
 use App\Models\UserPayment;
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\UserCourse;
 use Illuminate\Support\Facades\Auth;
 
 function sendSMS($phone,$message)
@@ -66,6 +67,37 @@ function  getCourseData($courseID) {
 function  getUserData($userID) {
     $teacherdata = Student::findorfail($userID)->first();
     return $teacherdata;
+}
+
+function getUserCourseData($lessons) {
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+        
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+        
+        $currentPage = request()->get('page', 1);
+        $perPage = 5;
+        $total = $filteredLessons->count();
+        $lessons = $filteredLessons->forPage($currentPage, $perPage);
+        
+        $lessonsPaginated = new \Illuminate\Pagination\LengthAwarePaginator(
+            $lessons,
+            $total,
+            $perPage,
+            $currentPage,
+            ['path' => request()->url()]
+        );
+
+		return $lessonsPaginated ;
 }
 
 function StudentPaymentCheck(){

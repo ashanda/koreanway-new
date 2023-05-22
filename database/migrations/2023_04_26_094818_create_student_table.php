@@ -22,8 +22,6 @@ return new class extends Migration
             $table->string('town');
             $table->string('contactnumber');
             $table->string('address');
-            $table->unsignedBigInteger('course_id');
-            $table->unsignedBigInteger('batch_id');
             $table->string('password');
             $table->timestamps();
             $table->rememberToken();
