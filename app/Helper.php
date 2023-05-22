@@ -71,7 +71,7 @@ function  getUserData($userID) {
 
 function getUserCourseData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
-        
+	
         $filteredLessons = collect();
         
         foreach ($UserCourseDatas as $UserCourseData) {
@@ -83,7 +83,7 @@ function getUserCourseData($lessons) {
                 $filteredLessons->push($matchingLesson);
             }
         }
-        
+		
         $currentPage = request()->get('page', 1);
         $perPage = 5;
         $total = $filteredLessons->count();

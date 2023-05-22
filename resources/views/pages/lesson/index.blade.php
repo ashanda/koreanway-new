@@ -13,27 +13,16 @@
             </div>
             <div class="col-lg-12">
                 <div class="widget-box bg-light mb-2">
-                    <form method="post" data-np-autofill-type="other" data-np-checked="1" data-np-watching="1">
+                    <form method="POST" action="{{ route('filter-lessons', ['lessontype' => $lessontype]) }}" data-np-autofill-type="other" data-np-checked="1" data-np-watching="1">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-3 col-md-3">
-                                From : <input name="s_month" type="month" class="form-control" id="s_month" value="2023-05">
+                                From : <input name="s_month" type="date" class="form-control" id="s_month">
                             </div>
                             <div class="col-lg-3 col-md-3">
-                                To : <input name="e_month" type="month" class="form-control" id="e_month" value="2023-05">
+                                To : <input name="e_month" type="date" class="form-control" id="e_month">
                             </div>
-                            <div class="col-lg-3 col-md-3">
-                                Class : <select name="fsubject" required="" class="form-control" style="border: 2px solid #ccc;">
-                                    <option hidden="yes">Select Class</option>
 
-                                    <option value="387">Science (සිංහල මාධ්‍ය) , අභිමන් සර් [Grade 11]</option>
-
-                                    <option value="386">Science (English Medium) by Abhiman Sir [Grade 11]</option>
-
-                                    <option value="667">Science Paper Revision (EM) by Abhiman Sir [Grade 11]</option>
-
-                                    <option value="669">Science Paper Revision (SM) by අභිමන් සර් [Grade 11]</option>
-                                </select>
-                            </div>
                             <div class="col-lg-3 col-md-3">
                                 <br><button name="fil_bt" type="submit" class="btn btn-dark">Filter</button>
                             </div>
@@ -45,6 +34,7 @@
             <div class="col-md-12">
                 <div class="_14d25">
                     <div class="row">
+                        
                         @foreach ( $lessons as $lesson)
                         <div class="col-lg-3 col-md-4">
                             <div class="fcrse_1 mt-30">

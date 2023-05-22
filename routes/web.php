@@ -82,4 +82,5 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
 Route::middleware(['auth.check','auth:teacher,admin,student'])->group(function () {
 
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
+    Route::post('/lesson/{lessontype}', [LessonController::class, 'filter'])->name('filter-lessons');
 });
