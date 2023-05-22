@@ -27,7 +27,7 @@
         <th>Batch</th>
         <th>Teacher</th>
         <th>Payment Type</th>
-        <td>Amount</td>
+        <th>Amount</th>
         @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-online-payments')
 
         @else
@@ -147,3 +147,5 @@
     </div>
   </div>
 </div>
+
+@endsection

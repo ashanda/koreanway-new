@@ -2245,7 +2245,7 @@ i.icon1 {
     width: 260px !important;
     height: 145px !important;
     animation: fade-in-up 0.25s ease forwards;
-    z-index: 999;
+    /* z-index: 999; */
 }
 
 /*Floating CSS End*/
@@ -2759,7 +2759,7 @@ i.icon2 {
     min-width: 200px;
     box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
     border: 1px solid rgba(34, 36, 38, 0.15);
-    z-index: 1;
+    /* z-index: 1; */
     right: 0;
     border-radius: 5px;
 }
@@ -3690,7 +3690,7 @@ i.icon2 {
     top: 8px;
     color: #fff;
     margin-left: auto;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .vd_mdl .close:hover {
@@ -5454,7 +5454,7 @@ a.rmv-btn i {
     display: flex;
     align-items: center;
     -ms-flex-align: center;
-    z-index: 1;
+    /* z-index: 1; */
     font-family: "Roboto", sans-serif;
 }
 
@@ -5470,7 +5470,7 @@ a.rmv-btn i {
     display: flex;
     align-items: center;
     -ms-flex-align: center;
-    z-index: 1;
+    /* z-index: 1; */
     font-family: "Roboto", sans-serif;
 }
 
@@ -5980,9 +5980,9 @@ a.rmv-btn i {
     width: 100%;
 }
 
-.sign_in_up_bg:before {
+/* .sign_in_up_bg:before {
     content: "";
-    /* background: url(../images/sign.jpg) no-repeat center; */
+    background: url(../images/sign.jpg) no-repeat center;
     left: 0;
     right: 0;
     top: 0;
@@ -5990,7 +5990,7 @@ a.rmv-btn i {
     position: absolute;
     background-size: cover;
     opacity: 0.04;
-}
+} */
 
 .sign_form {
     background: #fff;
@@ -7866,7 +7866,7 @@ a.rmv-btn i {
 
 .invoice_header {
     position: relative !important;
-    z-index: 1 !important;
+    /* z-index: 1 !important; */
     width: 100% !important;
     height: 60px !important;
     background: transparent !important;
@@ -8213,7 +8213,7 @@ a.rmv-btn i {
     top: 0;
     position: fixed;
     width: 100%;
-    z-index: 99;
+    /* z-index: 99; */
 }
 
 .lecture-header-right {
@@ -8326,7 +8326,7 @@ a.nav-icon-list:hover {
     height: 100% !important;
     overflow: scroll !important;
     padding-bottom: 120px;
-    z-index: 9;
+    /* z-index: 9; */
 }
 
 .lecture-sidebar-course-title {
