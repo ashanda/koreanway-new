@@ -2008,6 +2008,7 @@ i.icon1 {
     width: 100%;
     padding: 0;
     float: left;
+    border-top: 1px solid #454545;
 }
 
 .item_f1 {
@@ -2084,8 +2085,7 @@ i.icon1 {
 
 .footer_bottm {
     margin-top: 50px;
-    padding: 20px 0;
-    border-top: 1px solid #454545;
+    padding: 10px 0;
 }
 
 .fotb_left li {
@@ -8673,4 +8673,15 @@ a.nav-icon-list:hover {
 .header_right .nav-item a{
 text-decoration: none;
 color: #000;
+}
+.nav-link:focus, .nav-link:hover{
+    color: #fff;
+}
+.bg-primary{
+    background-color: #2e9d8a !important;
+}
+
+.thead-dark{
+    background-color: #212529;
+    color: #fff;
 }
