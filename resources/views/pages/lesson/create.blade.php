@@ -39,10 +39,10 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="classtype" class="form-label">Class Type:</label>
+                    <label for="classtype" class="form-label">Lesson Type:</label>
                     <select class="form-control" name="classtype" id="classtype" onchange="changeInputs()">
-                        <option value="Schedule">Class Schedule</option>
-                        <option value="Tute">Class Tute</option>
+                        <option value="Live">Live Lesson</option>
+                        <option value="Paper">Paper Lesson</option>
                         <option value="Video">Video Lesson</option>
                     </select>
                 </div>

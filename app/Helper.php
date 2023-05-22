@@ -5,6 +5,7 @@ use App\Models\Teacher;
 use App\Models\UserPayment;
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\UserCourse;
 use Illuminate\Support\Facades\Auth;
 
 function sendSMS($phone,$message)
@@ -67,6 +68,15 @@ function  getUserData($userID) {
     $teacherdata = Student::findorfail($userID)->first();
     return $teacherdata;
 }
+
+// function getUserCourseData($courseID,$batchID) {
+// 	$UserCourseDatas = UserCourse::where('user_id',Auth::user()->id)->get();
+// 	foreach($UserCourseDatas as $UserCourseData){
+// 		if($UserCourseData->course_id == $courseID && $UserCourseData->batch_id == $batchID){
+			
+// 		}
+// 	}
+// }
 
 function StudentPaymentCheck(){
    $StudentPaymentCheck = UserPayment::where('student_id',Auth::user()->id)->where('course_id',Auth::user()->course_id)->where('batch_id',Auth::user()->batch_id)->latest()->first();
