@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="pt-2">
-    <a href="{{ route('admin_dashboard') }}">Dashboard</a>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
@@ -58,8 +56,6 @@
         @endphp
         @endforeach
     </table>
-
-</div>
 
 
 @endsection
