@@ -1,34 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper">
-    <div class="sa4d25">
 
-        <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="float-start">
-                <h3>Add New Class</h3>
+            <div class="row">
+                <div class="col-lg-12 margin-tb">
+                    <div class="float-start">
+                        <h3>Add New Class</h3>
+                    </div>
+                    <div class="float-end">
+                        <a class="btn btn-sm btn-primary" href="{{ url()->previous() }}">Classes</a>
+                    </div>
+                </div>
             </div>
-            <div class="float-end">
-                <a class="btn btn-sm btn-primary" href="{{ url()->previous() }}">Classes</a>
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <label>Error!</label> <br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
-    </div>
+            @endif
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <label>Error!</label> <br>
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-    <form action="{{ route('lesson.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
+            <form action="{{ route('lesson.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -124,11 +121,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label>Select Level</label>
-                    <select class="form-control" name="level" id="level">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
+                    <label>Pubished date</label>
+                    <input type="date" name="published_date" class="form-control" placeholder="published date">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -160,10 +154,10 @@
             </div>
         </div>
 
-    </form>
-</div>
+            </form>
+    
 
 
 
 
-@endsection
+        @endsection

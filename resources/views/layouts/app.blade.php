@@ -22,12 +22,14 @@
 		<div class="container-fluid">
 			<div class="row flex-nowrap">
 				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
-					
+
 					@include('globle.sidebar')
 				</div>
 				<div class="col">
-					@include('sweetalert::alert')
-					@yield('content')
+					<div class="py-3">
+						@include('sweetalert::alert')
+						@yield('content')
+					</div>
 				</div>
 			</div>
 		</div>

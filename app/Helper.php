@@ -69,14 +69,36 @@ function  getUserData($userID) {
     return $teacherdata;
 }
 
-// function getUserCourseData($courseID,$batchID) {
-// 	$UserCourseDatas = UserCourse::where('user_id',Auth::user()->id)->get();
-// 	foreach($UserCourseDatas as $UserCourseData){
-// 		if($UserCourseData->course_id == $courseID && $UserCourseData->batch_id == $batchID){
-			
-// 		}
-// 	}
-// }
+function getUserCourseData($lessons) {
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+        
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+        
+        $currentPage = request()->get('page', 1);
+        $perPage = 5;
+        $total = $filteredLessons->count();
+        $lessons = $filteredLessons->forPage($currentPage, $perPage);
+        
+        $lessonsPaginated = new \Illuminate\Pagination\LengthAwarePaginator(
+            $lessons,
+            $total,
+            $perPage,
+            $currentPage,
+            ['path' => request()->url()]
+        );
+
+		return $lessonsPaginated ;
+}
 
 function StudentPaymentCheck(){
    $StudentPaymentCheck = UserPayment::where('student_id',Auth::user()->id)->where('course_id',Auth::user()->course_id)->where('batch_id',Auth::user()->batch_id)->latest()->first();

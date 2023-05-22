@@ -8663,3 +8663,14 @@ a.nav-icon-list:hover {
 }
 
 /* 2023.5.18 kasun */
+.header_right .user_icon{
+    max-width: 35px;
+    border-radius: 50%;
+}
+.body_content{
+    margin-top: 54.5px;
+}
+.header_right .nav-item a{
+text-decoration: none;
+color: #000;
+}
