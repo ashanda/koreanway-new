@@ -21,13 +21,13 @@
         </div>
     </div>
 
-    
+
 <!-- jquery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 
-<!-- Data table CDN -->
+<!-- Data table JS -->
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 <script src="https://cdn.datatables.net/autofill/2.5.3/js/dataTables.autoFill.min.js"></script>
