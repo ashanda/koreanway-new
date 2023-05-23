@@ -1,25 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="float-start">
-                <h3>Batches</h3>
-            </div>
-            <div class="float-end">
-                <a class="btn btn-success btn-sm" href="{{ route('batch.create') }}"> Create New Batch</a>
-            </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="float-start">
+            <h3>Batches</h3>
+        </div>
+        <div class="float-end">
+            <a class="btn btn-success btn-sm" href="{{ route('batch.create') }}"> Create New Batch</a>
         </div>
     </div>
+</div>
 
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success">
-        <p>{{ $message }}</p>
-    </div>
-    @endif
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 
-    <div class="table-responsive">
-        <table class="table table-bordered">
+<div class="table-responsive mt-2">
+    <table id="dataTable" class="table table-bordered">
+        <thead class="thead-dark">
+
             <tr>
                 <th>No</th>
                 <th>Batch Name</th>
@@ -27,10 +29,13 @@
                 <th>Form Visibility</th>
                 <th>Action</th>
             </tr>
-            @foreach ($batches as $batch)
-            @php
-            $i=1;
-            @endphp
+        </thead>
+        <tbody>
+        @foreach ($batches as $batch)
+        @php
+        $i=1;
+        @endphp
+        
             <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $batch->name }}</td>
@@ -59,12 +64,14 @@
                     </form>
                 </td>
             </tr>
-            @php
-            $i ++;
-            @endphp
-            @endforeach
-        </table>
-    </div>
+        
+        @php
+        $i ++;
+        @endphp
+        @endforeach
+        </tbody>
+    </table>
+</div>
 
 
 @endsection

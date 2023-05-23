@@ -21,7 +21,7 @@
 	<div class="body_content">
 		<div class="container-fluid">
 			<div class="row flex-nowrap">
-				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
 
 					@include('globle.sidebar')
 				</div>
