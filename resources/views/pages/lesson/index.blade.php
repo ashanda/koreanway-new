@@ -154,7 +154,7 @@
             <h3>Classes</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-sm btn-success" href="{{ route('lesson.create') }}"> Create New Class</a>
+            <a class="btn  btn-success" href="{{ route('lesson.create') }}"> Create New Class</a>
         </div>
     </div>
 </div>
@@ -189,8 +189,8 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($lessons as $lesson)
-        
+            @foreach ($lessons as $lesson)
+
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $lesson->title }}</td>
@@ -210,20 +210,20 @@
                 <td>
                     <form action="{{ route('lesson.destroy',$lesson->id) }}" method="POST">
 
-                        <a class="btn btn-sm btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
+                        <a class="btn  btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
 
-                        <a class="btn btn-sm btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
+                        <a class="btn  btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        <button type="submit" class="btn  btn-danger">Delete</button>
                     </form>
                 </td>
 
             </tr>
-        
-        @endforeach
+
+            @endforeach
         </tbody>
     </table>
 </div>
