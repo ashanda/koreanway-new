@@ -277,7 +277,7 @@
             </ul>
         </li>
         <li>
-            <a href="{{ route('lmsclass.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Class</span> </a>
+            <a href="{{ route('lesson.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Class</span> </a>
         </li>
 
         @endif

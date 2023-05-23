@@ -27,7 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::redirect('/admin', '/admin/login');
+Route::redirect('/teacher', '/teacher/login');
 Route::get('/login', [AuthController::class, 'StudentshowLoginForm'])->name('student_login');
 Route::post('/login', [AuthController::class, 'StudentLogin']);
 Route::get('/register', [AuthController::class, 'StudentshowRegisterForm'])->name('student_register');
