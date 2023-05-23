@@ -4,7 +4,7 @@
                 <h3>Edit Class</h3>
             </div>
             <div class="float-end">
-                <a class="btn btn-sm btn-primary" href="{{ route('lesson.index') }}"> Back</a>
+                <a class="btn  btn-primary" href="{{ route('lesson.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                <button type="submit" class="btn  btn-primary">Submit</button>
             </div>
         </div>
 
@@ -158,4 +158,4 @@
 
 
 
-@endsection
+    @endsection

@@ -11,14 +11,9 @@
     </div>
     <div class="header_right">
         <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <img class="img-fluid user_icon" src="{{ asset('images/hd_dp.jpg') }}">
-                </a>
-            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Account
+                <a class="nav-link" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="img-fluid user_icon" src="{{ asset('images/hd_dp.jpg') }}">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                     <li class="nav-item dropdown-item">
@@ -39,6 +34,7 @@
                     @endif
                 </ul>
             </li>
+           
         </ul>
     </div>
 </header>

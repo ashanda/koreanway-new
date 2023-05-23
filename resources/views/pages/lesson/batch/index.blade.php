@@ -7,7 +7,7 @@
             <h3>Batches</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-success btn-sm" href="{{ route('batch.create') }}"> Create New Batch</a>
+            <a class="btn btn-success " href="{{ route('batch.create') }}"> Create New Batch</a>
         </div>
     </div>
 </div>
@@ -31,11 +31,11 @@
             </tr>
         </thead>
         <tbody>
-        @foreach ($batches as $batch)
-        @php
-        $i=1;
-        @endphp
-        
+            @foreach ($batches as $batch)
+            @php
+            $i=1;
+            @endphp
+
             <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $batch->name }}</td>
@@ -53,22 +53,22 @@
                 <td>
                     <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
 
-                        <a class="btn btn-info btn-sm" href="{{ route('batch.show',$batch->id) }}">View</a>
+                        <a class="btn btn-info " href="{{ route('batch.show',$batch->id) }}">View</a>
 
-                        <a class="btn btn-primary btn-sm" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
+                        <a class="btn btn-primary " href="{{ route('batch.edit',$batch->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        <button type="submit" class="btn btn-danger ">Delete</button>
                     </form>
                 </td>
             </tr>
-        
-        @php
-        $i ++;
-        @endphp
-        @endforeach
+
+            @php
+            $i ++;
+            @endphp
+            @endforeach
         </tbody>
     </table>
 </div>

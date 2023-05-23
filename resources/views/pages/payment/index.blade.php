@@ -68,14 +68,14 @@
         <td>
           <form action="{{ route('lesson.destroy',$payment->id) }}" method="POST">
 
-            <a class="btn btn-sm btn-info" href="{{ route('lesson.show',$payment->id) }}">View</a>
+            <a class="btn  btn-info" href="{{ route('lesson.show',$payment->id) }}">View</a>
 
-            <a class="btn btn-sm btn-primary edit-btn" @if($paytype !='paid-manual-payments' || $paytype !='paid-online-payments' ) data-image="{{ asset('/payments/slips/' . $payment->file_name) }}" @endif data-id="{{ $payment->id }}" data-amount="{{ $payment->amount }}">Edit</a>
+            <a class="btn  btn-primary edit-btn" @if($paytype !='paid-manual-payments' || $paytype !='paid-online-payments' ) data-image="{{ asset('/payments/slips/' . $payment->file_name) }}" @endif data-id="{{ $payment->id }}" data-amount="{{ $payment->amount }}">Edit</a>
 
             @csrf
             @method('DELETE')
 
-            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            <button type="submit" class="btn  btn-danger">Delete</button>
           </form>
         </td>
 
