@@ -421,6 +421,7 @@ function openModel(course_id, batch_id, teacher_id) {
 	});
   });
 
+  
 
 
 

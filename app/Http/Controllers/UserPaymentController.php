@@ -170,4 +170,23 @@ class UserPaymentController extends Controller
         return view('pages.payment.index', compact('payments','paytype','title'))->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
+
+
+    public function manualPay(Request $request){
+        $payment = new UserPayment;
+        $payment->student_id = $request->student_name;
+        $payment->amount = $request->amount;
+        $payment->course_id = $request->course_id;
+        $payment->batch_id = $request->batch_id;
+        $payment->teacher_id = $request->teacher_id;
+        $payment->payment_type = 'Manual Payment';
+        $payment->start_date = $request->start_date;
+        $payment->end_date = $request->end_date;
+        $payment->status = 1;
+        $payment->save();
+
+        Alert::success('Success', 'Manual Payment Added.');  
+        return redirect()->back();
+
+    }
 }

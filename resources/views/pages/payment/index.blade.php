@@ -16,7 +16,45 @@
   <p>{{ $message }}</p>
 </div>
 @endif
+@if ($paytype == 'paid-manual-payments')
+<form action="{{ route('manual-pay') }}" method="POST">
+  @csrf
+  <label for="student-name">Student Name:</label>
+    <select id="student-name" name="student_name" required>
 
+      <option value="">Select a student</option>
+      @foreach (getAllUsers() as $getAllUser)
+       <option value="{{ $getAllUser->id }}">{{  $getAllUser->fullname .'-'. $getAllUser->contactnumber}}</option>
+      @endforeach
+      
+      
+      <!-- Add more options as needed -->
+    </select><br><br>
+  
+ 
+  
+  <label for="course-id">Course:</label>
+  <select id="course-id" name="course_id" required>
+    <option value="">Select a course</option>
+  </select><br><br>
+  <input type="hidden" id="teacher-id" name="teacher_id" value="" required>
+  <label for="batch-id">Batch:</label>
+<select id="batch-id" name="batch_id" required>
+  <option value="">Select a Batch</option>
+</select><br><br>
+  
+  <label for="amount">Amount:</label>
+  <input type="text" id="amount" name="amount" required><br><br>
+  
+  <label for="start-date">Start Date:</label>
+  <input type="date" id="start-date" name="start_date" required><br><br>
+  
+  <label for="end-date">End Date:</label>
+  <input type="date" id="end-date" name="end_date" required><br><br>
+  
+  <input type="submit" value="Submit">
+</form>
+@endif
 <div class="table-responsive mt-2">
   <table id="dataTable" class="table table-bordered">
     <thead class="thead-dark">
@@ -26,6 +64,7 @@
         <th>Course</th>
         <th>Batch</th>
         <th>Teacher</th>
+        <th>Amount</th>
         <th>Payment Type</th>
         <th>Amount</th>
         @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-online-payments')
@@ -47,6 +86,7 @@
         <td>{{ getUserData($payment->student_id)->fullname }}</td>
         <td>{{ getCourseData($payment->course_id)->name }}</td>
         <td>{{ getBatchData($payment->batch_id)->name }}</td>
+        <td>{{ getTeacherData($payment->teacher_id)->name }}</td>
         <td>{{ $payment->amount }}</td>
         <td>{{ $payment->payment_type }}</td>
         <td>{{ $payment->payment_type }}</td>
