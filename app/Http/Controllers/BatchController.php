@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Batch;
 use App\Models\Course;
+use App\Models\UserCourse;
 use Illuminate\Http\Request;
 
 class BatchController extends Controller
@@ -93,4 +94,27 @@ class BatchController extends Controller
 
         return response()->json($batches);
     }
+
+
+    public function fetchBatches(Request $request)
+{
+    $courseId = $request->input('course_id');
+    $userid = $request->input('user_id');
+    // Fetch the related batches based on the course ID
+    $batches = UserCourse::where('user_id',$userid)->where('course_id', $courseId)->get();
+    // Generate the HTML for the batch options
+
+        $options = '';
+
+        foreach ($batches as $batch) {
+   
+                $options .= '<option value="' . $batch->batch_id . '">' . getBatchData($batch->batch_id)->name . '</option>';
+               
+            
+        }
+  
+        $options = '<option value="">Select a batch</option>' . $options;
+    // Return the generated HTML as the response
+    return $options;
+}
 }

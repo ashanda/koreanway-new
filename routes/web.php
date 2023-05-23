@@ -27,7 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::redirect('/admin', '/admin/login');
+Route::redirect('/teacher', '/teacher/login');
 Route::get('/login', [AuthController::class, 'StudentshowLoginForm'])->name('student_login');
 Route::post('/login', [AuthController::class, 'StudentLogin']);
 Route::get('/register', [AuthController::class, 'StudentshowRegisterForm'])->name('student_register');
@@ -74,6 +75,9 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
 
        Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');
        Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
+       Route::get('/fetch-courses', [CourseController::class, 'fetchCourses']);
+       Route::get('/fetch-batches', [BatchController::class, 'fetchBatches']);
+       Route::post('/manual-paymant', [UserPaymentController::class, 'manualPay'])->name('manual-pay');
     
 });
 
@@ -82,4 +86,6 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
 Route::middleware(['auth.check','auth:teacher,admin,student'])->group(function () {
 
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
+    Route::post('/lesson/{lessontype}', [LessonController::class, 'filter'])->name('filter-lessons');
+    
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\Batch;
+use App\Models\UserCourse;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -71,4 +72,28 @@ class CourseController extends Controller
 
         return redirect()->route('course.index')->with('success', 'Course deleted successfully');
     }
+
+
+    public function fetchCourses(Request $request)
+{
+    $studentId = $request->input('student_id');
+
+    // Fetch the related courses based on the student ID
+    $courses = UserCourse::where('user_id', $studentId)->get();
+
+    // Generate the HTML for the course options
+    $uniqueCourseIds = [];
+    $options = '';
+
+    foreach ($courses as $course) {
+        if (!isset($uniqueCourseIds[$course->course_id])) {
+            $options .= '<option value="' . $course->course_id . '" data-user-id="' . $course->user_id . '" data-teacher-id="' . getCourseData($course->course_id)->teacher_id .'">' . getCourseData($course->course_id)->name . '</option>';
+            $uniqueCourseIds[$course->course_id] = true;
+        }
+    }
+    $options = '<option value="">Select a course</option>' . $options;
+    // Return the generated HTML as the response
+    return $options;
+}
+
 }

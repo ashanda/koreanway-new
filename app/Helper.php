@@ -50,17 +50,17 @@ function sendSMS($phone,$message)
 }
 
 function  getBatchData($batchID) {
-    $batchdata = Batch::findorfail($batchID)->first();
+    $batchdata = Batch::where('id',$batchID)->first();
     return $batchdata;
 }
 
 function  getTeacherData($teacherID) {
-    $teacherdata = Teacher::findorfail($teacherID)->first();
+    $teacherdata = Teacher::where('id',$teacherID)->first();
     return $teacherdata;
 }
 
 function  getCourseData($courseID) {
-    $teacherdata = Course::findorfail($courseID)->first();
+    $teacherdata = Course::where('id',$courseID)->first();
     return $teacherdata;
 }
 
@@ -71,7 +71,7 @@ function  getUserData($userID) {
 
 function getUserCourseData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
-        
+	
         $filteredLessons = collect();
         
         foreach ($UserCourseDatas as $UserCourseData) {
@@ -83,7 +83,7 @@ function getUserCourseData($lessons) {
                 $filteredLessons->push($matchingLesson);
             }
         }
-        
+		
         $currentPage = request()->get('page', 1);
         $perPage = 5;
         $total = $filteredLessons->count();
@@ -103,4 +103,9 @@ function getUserCourseData($lessons) {
 function StudentPaymentCheck(){
    $StudentPaymentCheck = UserPayment::where('student_id',Auth::user()->id)->where('course_id',Auth::user()->course_id)->where('batch_id',Auth::user()->batch_id)->latest()->first();
    return $StudentPaymentCheck;
+}
+
+function  getAllUsers() {
+    $getAllUsers = Student::all();
+    return $getAllUsers;
 }
