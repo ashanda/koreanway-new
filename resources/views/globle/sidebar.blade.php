@@ -74,7 +74,27 @@
         <li>
             <a href="../logout.php" class="nav-link px-0 align-middle"> <i class='uil uil-wallet menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Logout</span> </a>
         </li>
-
+        <li>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+            </a>
+            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                <li class="w-100">
+                    <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="nav-link px-0">Pending Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-bank-tranfer']) }}" class="nav-link px-0">Paid Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-manual-payments']) }}" class="nav-link px-0">Paid Manaul<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-online-payments']) }}" class="nav-link px-0">Paid Online<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="nav-link px-0">Reject Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+            </ul>
+        </li>
 
         @elseif(Auth::guard('admin')->check())
 
@@ -259,25 +279,75 @@
         @elseif(Auth::guard('teacher')->check())
 
         <li>
-            <a href="/" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            <a href="{{ route('teacher_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
         </li>
+       
         <li>
-            <a href="{{ route('teacher.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Teachers</span> </a>
-        </li>
-        <li>
-            <a href="javascript:void()" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Filters</span>
+            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Lesson</span>
             </a>
-            <ul>
-                <li>
-                    <a href="{{ route('batch.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Batches</span> </a>
+            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                <li class="w-100">
+                    <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0">Today Free Live<span class="d-none d-sm-inline"> Classes</span> </a>
                 </li>
                 <li>
-                    <a href="{{ route('course.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Courses</span> </a>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="nav-link px-0">Next Month's Free Live<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="nav-link px-0">Next Month's Free <span class="d-none d-sm-inline"> Class
+                            Paper</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="nav-link px-0">All Previous Free<span class="d-none d-sm-inline"> Class
+                            Paper</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="nav-link px-0">This Month's Free Recorded<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="nav-link px-0">All Previous Free Recorded<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="nav-link px-0">Today Paid Live<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="nav-link px-0">Next Month's Paid Live<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="nav-link px-0">This Month's Paid Paper<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="nav-link px-0">All Previous Paid Paper<span class="d-none d-sm-inline"> Classes</span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="nav-link px-0">This Month's Recordings<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0">All Previous Recordings<span class="d-none d-sm-inline"></span> </a>
                 </li>
             </ul>
-        </li>
-        <li>
-            <a href="{{ route('lesson.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Class</span> </a>
+            <li>
+                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+                </a>
+                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="nav-link px-0">Pending Bank<span class="d-none d-sm-inline"></span> </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('payment', ['paytype' => 'paid-bank-tranfer']) }}" class="nav-link px-0">Paid Bank<span class="d-none d-sm-inline"></span> </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('payment', ['paytype' => 'paid-manual-payments']) }}" class="nav-link px-0">Paid Manaul<span class="d-none d-sm-inline"></span> </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('payment', ['paytype' => 'paid-online-payments']) }}" class="nav-link px-0">Paid Online<span class="d-none d-sm-inline"></span> </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="nav-link px-0">Reject Bank<span class="d-none d-sm-inline"></span> </a>
+                    </li>
+                </ul>
+            </li>
+
         </li>
 
         @endif

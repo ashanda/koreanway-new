@@ -29,6 +29,8 @@ Route::get('/', function () {
 
 Route::redirect('/admin', '/admin/login');
 Route::redirect('/teacher', '/teacher/login');
+
+
 Route::get('/login', [AuthController::class, 'StudentshowLoginForm'])->name('student_login');
 Route::post('/login', [AuthController::class, 'StudentLogin']);
 Route::get('/register', [AuthController::class, 'StudentshowRegisterForm'])->name('student_register');
@@ -68,13 +70,12 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
        Route::resource('/admin/course', CourseController::class);
    
        // Classes routs
-       Route::resource('/admin/lesson', LessonController::class);
+      
    
        // Classes routs
        Route::resource('/admin/teacher', TeachersController::class);
 
-       Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');
-       Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
+       
        Route::get('/fetch-courses', [CourseController::class, 'fetchCourses']);
        Route::get('/fetch-batches', [BatchController::class, 'fetchBatches']);
        Route::post('/manual-paymant', [UserPaymentController::class, 'manualPay'])->name('manual-pay');
@@ -82,10 +83,19 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
 });
 
 
+
+//Admin & Teacher routes
+Route::middleware(['auth.check','auth:teacher,admin'])->group(function () {    
+    
+    Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
+    Route::resource('/admin/lesson', LessonController::class);
+    Route::resource('/teacher/lesson', LessonController::class);
+});
 //All Acessroutes
 Route::middleware(['auth.check','auth:teacher,admin,student'])->group(function () {
 
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
     Route::post('/lesson/{lessontype}', [LessonController::class, 'filter'])->name('filter-lessons');
+    Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');
     
 });
