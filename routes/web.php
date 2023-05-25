@@ -96,6 +96,9 @@ Route::middleware(['auth.check','auth:teacher,admin'])->group(function () {
     Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
     Route::resource('/admin/lesson', LessonController::class);
     Route::resource('/teacher/lesson', LessonController::class);
+    Route::post('/admin/lesson-live', [LessonController::class,'live'])->name('lesson.live');
+    Route::post('/admin/lesson-paper', [LessonController::class,'paper'])->name('lesson.paper');
+    Route::post('/admin/lesson-video', [LessonController::class,'video'])->name('lesson.video');
 });
 //All Acessroutes
 Route::middleware(['auth.check','auth:teacher,admin,student'])->group(function () {
