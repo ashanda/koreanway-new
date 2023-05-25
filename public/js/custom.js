@@ -182,7 +182,7 @@ function openModel(course_id, batch_id, teacher_id) {
 						  var batchCell = $('<td>').text(batchData.name);
 						  var teacherCell = $('<td>').text(teacherData.name);
 						  var planCell = $('<td>').text(payment.plan);
-						  var paymentTypeCell = $('<td>').text(payment.amount);
+						  var paymentTypeCell = $('<td>').text(payment.payment_type);
 						  var amountCell = $('<td>').text(payment.amount);
 						  
 						  tableRow.append(courseCell, batchCell, teacherCell, planCell, paymentTypeCell, amountCell);
@@ -218,6 +218,13 @@ function openModel(course_id, batch_id, teacher_id) {
 	  });
 	});
   });
+
+  function submit(){
+	let forms = document.getElementsByClassName("form");
+	for(var i =0; i < forms.length; i++){
+	  forms[i].submit();
+	}
+}
   
   
   

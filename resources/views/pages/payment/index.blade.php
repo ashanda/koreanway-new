@@ -80,7 +80,7 @@
         @else
         <th>Slip</th>
         @endif
-        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments')
+        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments' || $paytype == 'reject-bank-tranfer')
         <th>Checked Admin</th>
         @else
         
@@ -108,7 +108,7 @@
         @else
         <td><a target="_blank" href="{{ asset('/payments/slips/' . $payment->file_name) }}">View</a></td>
         @endif
-        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments')
+        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments' || $paytype == 'reject-bank-tranfer')
         <th>{{ $payment->admin_name }}</th>
         @else
         @endif

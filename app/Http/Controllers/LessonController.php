@@ -6,6 +6,7 @@ use App\Models\Lesson;
 use App\Models\Batch;
 use App\Models\Teacher;
 use App\Models\Course;
+use App\Models\LessonDetail;
 use App\Models\UserCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -76,17 +77,15 @@ class LessonController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'classtype' => 'required',
-            'paytype' => 'required',
-            'teacher_id' => 'required',
-            'batch_id' => 'required',
-            'published_date'=> 'required',
-            'course_id' => 'required',
-            'image' => 'image|max:2048',
-            'doc' => 'file|mimes:doc,pdf,docx'
-        ]);
+        if ($request->live_switch === true) {
+
+        }
+        if ($request->paper_switch === true) {
+
+        }
+        if ($request->video_switch === true) {
+
+        }
 
         $lesson = Lesson::create($request->all());
 
@@ -105,6 +104,13 @@ class LessonController extends Controller
             $lesson->doc = $filename;
             $lesson->save();
         }
+
+        $lessonDetails = new LessonDetail([
+            'lesson_id' => $request->input('lesson_id'),
+            'title' => $request->input('lesson_title'),
+        ]);
+
+        $lessonDetails->save();
 
         return redirect()->route('lesson.index')->with('success', 'Class created successfully.');
     }
@@ -276,7 +282,7 @@ class LessonController extends Controller
         $lessontype = Crypt::decrypt($lessontype);
         $id = Crypt::decrypt($id);
         
-        dd($lessontype);
+        
         // Rest of your code...
     }
 
@@ -334,5 +340,7 @@ public function filter(Request $request,$lessontype)
     }
     return view('pages.lesson.index', compact('lessons','lessontype'))->with('i', (request()->input('page', 1) - 1) * 5);
 }
+
+
 
 }
