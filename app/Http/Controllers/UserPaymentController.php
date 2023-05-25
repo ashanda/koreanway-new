@@ -59,9 +59,11 @@ class UserPaymentController extends Controller
         $payment = UserPayment::findOrFail($id);
     
         // Update the payment record with the submitted data
+        $payment->admin_name = Auth::user()->name;
         $payment->amount = $request->input('paymentAmount');
         $payment->start_date = $request->input('paymentStart');
         $payment->end_date = $request->input('paymentEnd');
+        $payment->plan = $request->input('plan');
         $payment->status = $request->input('paymentStatus');
         // Update other fields as needed
     
@@ -175,12 +177,14 @@ class UserPaymentController extends Controller
     public function manualPay(Request $request){
         $payment = new UserPayment;
         $payment->student_id = $request->student_name;
+        $payment->admin_name = Auth::user()->name;
         $payment->amount = $request->amount;
         $payment->course_id = $request->course_id;
         $payment->batch_id = $request->batch_id;
         $payment->teacher_id = $request->teacher_id;
         $payment->payment_type = 'Manual Payment';
         $payment->start_date = $request->start_date;
+        $payment->plan = $request->plan;
         $payment->end_date = $request->end_date;
         $payment->status = 1;
         $payment->save();

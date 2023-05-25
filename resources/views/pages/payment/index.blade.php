@@ -45,7 +45,15 @@
   
   <label for="amount">Amount:</label>
   <input type="text" id="amount" name="amount" required><br><br>
-  
+
+  <label for="plan">Plan:</label>
+  <select id="plan" name="plan" required>
+    <option value="">Select a plan</option>
+    <option value="A">Plan A</option>
+    <option value="B">Plan B</option>
+    <option value="C">Plan C</option>
+  </select><br><br>
+
   <label for="start-date">Start Date:</label>
   <input type="date" id="start-date" name="start_date" required><br><br>
   
@@ -165,7 +173,15 @@
             <label for="paymentAmount">End Date:</label>
             <input type="date" class="form-control" name="paymentend">
           </div>
-
+          <div class="form-group">
+          <label for="plan">Plan:</label>
+          <select class="form-control" name="plan" required>
+            <option value="">Select a plan</option>
+            <option value="A">Plan A</option>
+            <option value="B">Plan B</option>
+            <option value="C">Plan C</option>
+          </select>
+        </div>
           <div class="form-group">
             <label for="paymentType">Payment Status:</label>
             <select class="form-control" id="paymentType" name="paymentstatus">

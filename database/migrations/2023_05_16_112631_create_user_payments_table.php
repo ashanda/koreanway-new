@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('user_payments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('student_id');
+            $table->string('admin_name')->nullable();
             $table->bigInteger('course_id');
             $table->bigInteger('batch_id');
             $table->bigInteger('teacher_id');
             $table->string('payment_type');
             $table->integer('amount');
             $table->string('file_name')->nullable();
+            $table->string('plan')->comment('A, B, C')->nullable();
             $table->integer('status')->comment('1=active, 2=pending, 3=rejected');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

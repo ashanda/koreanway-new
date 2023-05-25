@@ -5,7 +5,10 @@ use App\Models\Teacher;
 use App\Models\UserPayment;
 use App\Models\Course;
 use App\Models\Student;
+use App\Models\Admin;
+use App\Models\Lesson;
 use App\Models\UserCourse;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 function sendSMS($phone,$message)
@@ -108,4 +111,63 @@ function StudentPaymentCheck(){
 function  getAllUsers() {
     $getAllUsers = Student::all();
     return $getAllUsers;
+}
+
+function getStudentcount(){
+    $totalUsers = Student::count();
+    return $totalUsers;
+}
+
+function getTeachercount(){
+    $totalTeachers = teacher::count();
+    return $totalTeachers;
+}
+
+function getAdmincount(){
+    $totalAdmin = Admin::count();
+    return $totalAdmin;
+}
+
+function getCoursecount(){
+    $totalCourses = Course::count();
+    return $totalCourses;
+}
+
+function getBatchcount(){
+    $totalBatches = Course::count();
+    return $totalBatches;
+}
+
+function getVideoLessoncount(){
+    $totalvideolesson = Lesson::where('classtype','video')->count();
+    return $totalvideolesson;
+}
+
+function getLiveLessoncount(){
+    $totalvideolesson = Lesson::where('classtype','Live')->count();
+    return $totalvideolesson;
+}
+
+function getTotalpayment(){
+    $totalpayments = UserPayment::where('status', 1)->count();
+    return $totalpayments;
+}
+
+function thisMonthEarn(){
+    $lastDayOfMonth = Carbon::now()->endOfMonth();
+    $formattedLastDay = $lastDayOfMonth->format('Y-m-d');
+    $paidAmount = UserPayment::where('status', 1)->where('updated_at','<=', $formattedLastDay)->sum('amount');
+    // Format the paid amount with commas
+    $formattedAmount = number_format($paidAmount, 0, '.', ',');
+
+    return $formattedAmount;
+}
+
+function getCourseBatchBaseCount(){
+    $coursebatches = Course::where('status', 'Publish')->get();
+    
+    foreach($coursebatches as $coursebatche){
+        $CouseBath = UserCourse::where('course_id',$coursebatche->id)->where('batch_id',$coursebatche->batch_id)->get();
+    } 
+    return $CouseBath;
 }
