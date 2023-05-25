@@ -35,13 +35,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Title</label>
-                    <input type="text" name="title" value="{{ $lesson->title }}" class="form-control" placeholder="Class Title">
+                    <input type="text" name="title" value="{{ $lesson->title }}" class="form-control form-control-lg" placeholder="Class Title">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="classtype" class="form-label">Class Type:</label>
-                    <select class="form-control" name="classtype" id="classtype">
+                    <select class="form-select" name="classtype" id="classtype">
                         <option value="Schedule" {{ $lesson->classtype == 'Schedule' ? 'selected' : '' }}>Class Schedule</option>
                         <option value="Tute" {{ $lesson->classtype == 'Tute' ? 'selected' : '' }}>Class Tute</option>
                         <option value="Video" {{ $lesson->classtype == 'Video' ? 'selected' : '' }}>Video Lesson</option>
@@ -51,7 +51,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="paytype" class="form-label">Payment Type:</label>
-                    <select class="form-control" name="paytype" id="paytype">
+                    <select class="form-select" name="paytype" id="paytype">
                         <option value="Paid" {{ $lesson->paytype == 'Paid' ? 'selected' : '' }}>Paid</option>
                         <option value="Free" {{ $lesson->paytype == 'Free' ? 'selected' : '' }}>Free</option>
                     </select>
@@ -60,7 +60,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="teacher_id" class="form-label">Teacher ID:</label>
-                    <select class="form-control" name="teacher_id" id="teacher_id">
+                    <select class="form-select" name="teacher_id" id="teacher_id">
                         @foreach($teacher_data as $data)
                         <option value="{{$data->id}}" {{ $data->id == $lesson->teacher_id ? 'selected' : '' }}>{{$data->name}}</option>
                         @endforeach
@@ -70,7 +70,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="batch_id" class="form-label">Batch Id:</label>
-                    <select class="form-control" name="batch_id" id="batch_id">
+                    <select class="form-select" name="batch_id" id="batch_id">
                         @foreach($batch_data as $data)
                         <option value="{{$data->id}}" {{ $data->id == $lesson->batch_id ? 'selected' : '' }}>{{$data->name}}</option>
                         @endforeach
@@ -80,7 +80,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="course_id" class="form-label">Course Id:</label>
-                    <select class="form-control" name="course_id" id="course_id">
+                    <select class="form-select" name="course_id" id="course_id">
                         @foreach($course_data as $data)
                         <option value="{{$data->id}}" {{ $data->id == $lesson->course_id ? 'selected' : '' }}>{{$data->name}}</option>
                         @endforeach
@@ -90,45 +90,45 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Lesson</label>
-                    <input type="text" name="lesson" value="{{ $lesson->lesson }}" class="form-control" placeholder="Class Lesson">
+                    <input type="text" name="lesson" value="{{ $lesson->lesson }}" class="form-control form-control-lg" placeholder="Class Lesson">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Image</label>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" class="form-control form-control-lg">
                     <img width="100" src="{{ asset('/kycs/img/' . $lesson->image) }}" alt="Class Image">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Document</label>
-                    <input type="file" name="doc" class="form-control">
+                    <input type="file" name="doc" class="form-control form-control-lg">
                     <a target="_blank" href="{{ asset('/kycs/doc/' . $lesson->doc) }}">View</a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Link</label>
-                    <input type="text" name="link" value="{{ $lesson->link }}" class="form-control" placeholder="Class Link">
+                    <input type="text" name="link" value="{{ $lesson->link }}" class="form-control form-control-lg" placeholder="Class Link">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Available Days</label>
-                    <input type="text" name="available_days" value="{{ $lesson->available_days }}" class="form-control" placeholder="Available Days">
+                    <input type="text" name="available_days" value="{{ $lesson->available_days }}" class="form-control form-control-lg" placeholder="Available Days">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Number of Views</label>
-                    <input type="text" name="no_of_views" value="{{ $lesson->no_of_views }}" class="form-control" placeholder="Number of Views">
+                    <input type="text" name="no_of_views" value="{{ $lesson->no_of_views }}" class="form-control form-control-lg" placeholder="Number of Views">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Select Level</label>
-                    <select class="form-control" name="level" id="level">
+                    <select class="form-select" name="level" id="level">
                         <option value="1" {{ $lesson->level == '1' ? 'selected' : '' }}>1</option>
                         <option value="2" {{ $lesson->level == '2' ? 'selected' : '' }}>2</option>
                     </select>
@@ -137,13 +137,13 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="text" name="no_of_views" value="{{ $lesson->password }}" class="form-control" placeholder="Password">
+                    <input type="text" name="no_of_views" value="{{ $lesson->password }}" class="form-control form-control-lg" placeholder="Password">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="status" class="form-label">Status:</label>
-                    <select class="form-control" name="status" id="status">
+                    <select class="form-select" name="status" id="status">
                         <option value="1" {{ $lesson->status == '1' ? 'selected' : '' }}>Publish</option>
                         <option value="0" {{ $lesson->status == '0' ? 'selected' : '' }}>Unpublish</option>
                     </select>

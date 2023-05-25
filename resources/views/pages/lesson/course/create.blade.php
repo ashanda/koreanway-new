@@ -27,36 +27,36 @@
     @csrf
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
                 <label for="batch_id" class="form-label">Batch Id:</label>
-                <select class="form-control" name="batch_id" id="batch_id">
+                <select class="form-select" name="batch_id" id="batch_id">
                     @foreach($batch_data as $data )
                     <option value="{{$data->id}}">{{$data->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
                 <label for="teacher_id" class="form-label">Teacher ID:</label>
-                <select class="form-control" name="teacher_id" id="teacher_id">
+                <select class="form-select" name="teacher_id" id="teacher_id">
                     @foreach($teacher_data as $data )
                     <option value="{{$data->id}}">{{$data->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Course Name:</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
+                <label class="form-label">Course Name:</label>
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
                 <label for="status" class="form-label">Status:</label>
-                <select class="form-control" name="status" id="status">
+                <select class="form-select" name="status" id="status">
                     <option>Publish</option>
                     <option>Unpublish</option>
                 </select>

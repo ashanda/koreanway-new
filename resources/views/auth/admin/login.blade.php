@@ -18,29 +18,29 @@
                     <p>Log In to {{ 'Admin'}} Account!</p>
                     <form method="POST" action="{{ route('admin_login') }}">
                         @csrf
-                       
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-form">
-                                    <label style="font-weight:bold;float:left;">Email</label>
-                                    <input type="email" placeholder="Email" id="email" class="form-control phone_val" required placeholder="Admin Email"  style="border: 2px solid #ccc;" name="email" required autofocus>
-                                  
-                                @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                                @endif
-                                    
+                                    <label class="col-form-label-lg " style="font-weight:bold;float:left;">Email</label>
+                                    <input type="email" placeholder="Email" id="email" class="form-control form-control-lg phone_val" required placeholder="Admin Email" style="border: 2px solid #ccc;" name="email" required autofocus>
+
+                                    @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-form">
-                                    <label style="font-weight:bold;float:left;">PASSWORD </label>
-                                    <input type="password" placeholder="Your Password" style="border: 2px solid #ccc;" id="password" class="form-control" name="password" required>
+                                    <label class="col-form-label-lg " style="font-weight:bold;float:left;">Password </label>
+                                    <input type="password" placeholder="Your Password" style="border: 2px solid #ccc;" id="password" class="form-control form-control-lg" name="password" required>
                                     @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                     </form>
                     <p class="sgntrm145">Or <a href="forgot_password.php">Forgot My Password</a>.</p>
 
-                    
+
 
                 </div>
                 <!-- <div class="sign_footer">

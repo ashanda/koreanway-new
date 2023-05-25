@@ -27,23 +27,23 @@
     @csrf
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Batch Name:</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
+                <label class="form-label">Batch Name:</label>
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-2">
                 <label for="status" class="form-label">Status:</label>
-                <select class="form-control" name="status" id="status">
+                <select class="form-select" name="status" id="status">
                     <option>Publish</option>
                     <option>Unpublish</option>
                 </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-            <button type="submit" class="btn  btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
 
