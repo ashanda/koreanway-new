@@ -193,4 +193,13 @@ class UserPaymentController extends Controller
         return redirect()->back();
 
     }
+
+
+    public function getPaymentHistory($id)
+    {
+        // Retrieve the payment history data based on the provided ID
+        $paymentHistory = UserPayment::where('student_id',$id)->where('status',1)->get();// Retrieve the payment history data using $id
+        // Return the data as a JSON response
+        return response()->json($paymentHistory);
+    }
 }

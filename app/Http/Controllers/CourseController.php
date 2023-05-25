@@ -96,4 +96,22 @@ class CourseController extends Controller
     return $options;
 }
 
+
+
+
+    public function getCourseData($course_id)
+    {
+        try {
+            $course = Course::where('id',$course_id)->first();
+
+            if ($course) {
+                $courseName = $course->name;
+                return response()->json(['name' => $courseName]);
+            } else {
+                return response()->json(['error' => 'Course not found'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to retrieve course data'], 500);
+        }
+    }
 }

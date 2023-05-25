@@ -79,6 +79,12 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
        Route::get('/fetch-courses', [CourseController::class, 'fetchCourses']);
        Route::get('/fetch-batches', [BatchController::class, 'fetchBatches']);
        Route::post('/manual-paymant', [UserPaymentController::class, 'manualPay'])->name('manual-pay');
+       Route::get('/payment-history/{id}', [UserPaymentController::class, 'getPaymentHistory'])->name('payment.history');
+       Route::get('/get-course-data/{course_id}', [CourseController::class, 'getCourseData']);
+       Route::get('/get-batch-data/{batch_id}', [BatchController::class, 'getBatchData']);
+       Route::get('/get-teacher-data/{teacher_id}', [TeachersController::class, 'getTeacherData']);
+       
+
     
 });
 

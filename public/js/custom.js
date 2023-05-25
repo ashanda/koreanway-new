@@ -131,8 +131,95 @@ function openModel(course_id, batch_id, teacher_id) {
 	});
   });
 
+  $(document).ready(function() {
+	// Include the CSRF token in AJAX request headers
+	$.ajaxSetup({
+	  headers: {
+		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	  }
+	});
   
-
-
-
- 
+	// Click event handler for the "Payment History" button
+	$('#payment-history-btn').click(function() {
+	  var id = $(this).data('id'); // Retrieve the ID value from the data-id attribute
+  
+	  // Make an AJAX call to retrieve payment history
+	  $.ajax({
+		url: '/payment-history/' + id,
+		type: 'GET',
+		dataType: 'json',
+		success: function(data) {
+		  var paymentHistoryModel = data; // Assuming your model is the data object itself
+		  var paymentTable = $('#payment-history-table');
+  
+		  // Clear any existing content in the payment table body
+		  paymentTable.find('tbody').empty();
+  
+		  // Loop through the data and generate table rows
+		  for (var i = 0; i < paymentHistoryModel.length; i++) {
+			// Create a closure or a separate function to encapsulate the iteration scope
+			(function(payment) {
+			  // Make AJAX calls to retrieve course, batch, and teacher data using their respective IDs
+			  $.ajax({
+				url: '/get-course-data/' + payment.course_id,
+				type: 'GET',
+				dataType: 'json',
+				success: function(courseData) {
+				  // Make another AJAX call to retrieve batch data using batch ID
+				  $.ajax({
+					url: '/get-batch-data/' + payment.batch_id,
+					type: 'GET',
+					dataType: 'json',
+					success: function(batchData) {
+					  // Make another AJAX call to retrieve teacher data using teacher ID
+					  $.ajax({
+						url: '/get-teacher-data/' + payment.teacher_id,
+						type: 'GET',
+						dataType: 'json',
+						success: function(teacherData) {
+						  var tableRow = $('<tr>');
+						  var courseCell = $('<td>').text(courseData.name);
+						  var batchCell = $('<td>').text(batchData.name);
+						  var teacherCell = $('<td>').text(teacherData.name);
+						  var planCell = $('<td>').text(payment.plan);
+						  var paymentTypeCell = $('<td>').text(payment.amount);
+						  var amountCell = $('<td>').text(payment.amount);
+						  
+						  tableRow.append(courseCell, batchCell, teacherCell, planCell, paymentTypeCell, amountCell);
+						  paymentTable.append(tableRow);
+						},
+						error: function(xhr, status, error) {
+						  // Handle any errors that occur during the AJAX call
+						  console.error('AJAX Error:', error);
+						}
+					  });
+					},
+					error: function(xhr, status, error) {
+					  // Handle any errors that occur during the AJAX call
+					  console.error('AJAX Error:', error);
+					}
+				  });
+				},
+				error: function(xhr, status, error) {
+				  // Handle any errors that occur during the AJAX call
+				  console.error('AJAX Error:', error);
+				}
+			  });
+			})(paymentHistoryModel[i]);
+		  }
+  
+		  // Show the modal
+		  $('#payment-history-modal').modal('show');
+		},
+		error: function(xhr, status, error) {
+		  // Handle any errors that occur during the AJAX call
+		  console.error('AJAX Error:', error);
+		}
+	  });
+	});
+  });
+  
+  
+  
+  
+  

@@ -80,6 +80,11 @@
         @else
         <th>Slip</th>
         @endif
+        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments')
+        <th>Checked Admin</th>
+        @else
+        
+        @endif
 
         <th>Status</th>
         <th>Start Date</th>
@@ -91,7 +96,7 @@
       @foreach ($payments as $payment)
       <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ getUserData($payment->student_id)->fullname }}</td>
+        <td>{{ getUserData($payment->student_id)->fullname }} <br> {{ getUserData($payment->student_id)->address }} <br> {{ getUserData($payment->student_id)->contactnumber }}<br> {{ getUserData($payment->student_id)->email }} </td>
         <td>{{ getCourseData($payment->course_id)->name }}</td>
         <td>{{ getBatchData($payment->batch_id)->name }}</td>
         <td>{{ getTeacherData($payment->teacher_id)->name }}</td>
@@ -103,7 +108,10 @@
         @else
         <td><a target="_blank" href="{{ asset('/payments/slips/' . $payment->file_name) }}">View</a></td>
         @endif
-
+        @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments')
+        <th>{{ $payment->admin_name }}</th>
+        @else
+        @endif
         @if ($payment->status == 1)
         <td>{{ 'Paid' }}</td>
         @elseif ($payment->status == 2)
@@ -116,7 +124,8 @@
         <td>
           <form action="{{ route('lesson.destroy',$payment->id) }}" method="POST">
 
-            <a class="btn  btn-info" href="{{ route('lesson.show',$payment->id) }}">View</a>
+            <a id="payment-history-btn" data-id="{{ $payment->student_id }}" class="btn payment-history-btn btn-info">Payment History</a>
+
 
             <a class="btn  btn-primary edit-btn" @if($paytype !='paid-manual-payments' || $paytype !='paid-online-payments' ) data-image="{{ asset('/payments/slips/' . $payment->file_name) }}" @endif data-id="{{ $payment->id }}" data-amount="{{ $payment->amount }}">Edit</a>
 
@@ -203,5 +212,38 @@
     </div>
   </div>
 </div>
+<!-- Payment History Modal -->
 
+<div class="modal fade" id="payment-history-modal" tabindex="-1" role="dialog" aria-labelledby="payment-history-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="payment-history-modal-label">Payment History</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="payment-history-table" class="table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Batch</th>
+              <th>Teacher</th>
+              <th>Plan</th>
+              <th>Payment Type</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Payment history rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

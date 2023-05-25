@@ -117,4 +117,20 @@ class BatchController extends Controller
     // Return the generated HTML as the response
     return $options;
 }
+
+public function getBatchData($batch_id)
+    {
+        try {
+            $batch = Batch::find($batch_id);
+
+            if ($batch) {
+                $batchName = $batch->name;
+                return response()->json(['name' => $batchName]);
+            } else {
+                return response()->json(['error' => 'Batch not found'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to retrieve batch data'], 500);
+        }
+    }
 }

@@ -76,4 +76,21 @@ class TeachersController extends Controller
 
         return redirect()->route('teacher.index')->with('success', 'Teacher deleted successfully');
     }
+
+
+    public function getTeacherData($teacher_id)
+    {
+        try {
+            $teacher = Teacher::find($teacher_id);
+
+            if ($teacher) {
+                $teacherName = $teacher->name;
+                return response()->json(['name' => $teacherName]);
+            } else {
+                return response()->json(['error' => 'Teacher not found'], 404);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to retrieve teacher data'], 500);
+        }
+    }
 }
