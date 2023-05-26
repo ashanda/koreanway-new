@@ -22,6 +22,11 @@ class LessonDetail extends Model
 
     public function lessonDetails()
     {
-        return $this->hasMany(LessonDetail::class);
+        return $this->hasMany(LessonDetail::class, 'lesson_id');
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
     }
 }

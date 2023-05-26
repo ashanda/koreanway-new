@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\Lesson;
+use App\Models\LessonDetail;
+use App\Models\Student;
+use App\Models\UserCourse;
 
 class StudentsController extends Controller
 {
@@ -34,6 +38,34 @@ class StudentsController extends Controller
 
     public function smartClass(){
         if(Auth::guard('student')->check()){
+            $StudentCourses = UserCourse::where('user_id',Auth::user()->id)->get();
+            $StudentLessonDetails = LessonDetail::all();
+            
+            $filteredLessons = collect();
+            foreach($StudentCourses as $StudetCourse){
+                $matchingLesson = $StudentLessonDetails->where('course_id', $StudetCourse->course_id)
+                ->where('batch_id', $StudetCourse->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+
+            }
+            $currentPage = request()->get('page', 1);
+            $perPage = 5;
+            $total = $filteredLessons->count();
+            $lessons = $filteredLessons->forPage($currentPage, $perPage);
+            
+            $lessonsPaginated = new \Illuminate\Pagination\LengthAwarePaginator(
+                $lessons,
+                $total,
+                $perPage,
+                $currentPage,
+                ['path' => request()->url()]
+            );
+            
+            return view('pages.student.smart-class', compact('lessonsPaginated'));
             
         }
     }
@@ -45,4 +77,14 @@ class StudentsController extends Controller
     public function investment(){
         
     }
+
+
+   public function smartClassData(Request $request,$id ){
+     $LessonDetail = LessonDetail::where('id', $id)->first();
+     $background = $LessonDetail->background_image;
+     $smartClassDatas = Lesson::where('lesson_id', $LessonDetail->lesson_id)->get();
+
+     return view('pages.student.smart-class-view', compact('smartClassDatas','background'));
+
+   }
 }

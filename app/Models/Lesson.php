@@ -17,7 +17,6 @@ class Lesson extends Model
         'teacher_id',
         'batch_id',
         'course_id',
-        'lesson',
         'published_date',
         'status',
     ];

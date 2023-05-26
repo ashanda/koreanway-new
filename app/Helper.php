@@ -8,6 +8,7 @@ use App\Models\Student;
 use App\Models\Admin;
 use App\Models\Lesson;
 use App\Models\UserCourse;
+use App\Models\LessonDetail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -72,6 +73,38 @@ function  getUserData($userID) {
     return $teacherdata;
 }
 
+function getUserLesseonData($lessons) {
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+	
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+		
+        $currentPage = request()->get('page', 1);
+        $perPage = 5;
+        $total = $filteredLessons->count();
+        $lessons = $filteredLessons->forPage($currentPage, $perPage);
+        
+        $lessonsPaginated = new \Illuminate\Pagination\LengthAwarePaginator(
+            $lessons,
+            $total,
+            $perPage,
+            $currentPage,
+            ['path' => request()->url()]
+        );
+
+		return $lessonsPaginated ;
+}
+
+
 function getUserCourseData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
 	
@@ -103,9 +136,11 @@ function getUserCourseData($lessons) {
 		return $lessonsPaginated ;
 }
 
-function StudentPaymentCheck(){
-   $StudentPaymentCheck = UserPayment::where('student_id',Auth::user()->id)->where('course_id',Auth::user()->course_id)->where('batch_id',Auth::user()->batch_id)->latest()->first();
+function StudentPaymentCheck($course_id,$batch_id){
+
+   $StudentPaymentCheck = UserPayment::where('student_id',Auth::user()->id)->where('course_id',$course_id)->where('batch_id',$batch_id)->latest()->first();
    return $StudentPaymentCheck;
+   
 }
 
 function  getAllUsers() {

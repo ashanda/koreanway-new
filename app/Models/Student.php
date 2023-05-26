@@ -30,4 +30,10 @@ class Student extends Model implements Authenticatable
             'batch_id',
             'password',
         ];
+
+
+        public function lessonDetails()
+        {
+            return $this->hasMany(LessonDetail::class);
+        }
 }

@@ -147,40 +147,7 @@
 </div>
 
 
-<div class="modal" id="paymentModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Payment Here</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Modal content goes here -->
-                <form id="paymentForm" action="{{ route('process.payment') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <label for="name">Amount:</label>
-                        <input type="text" class="form-control form-control-lg" id="amount" name="amount">
-                        <input type="hidden" id="course_id" name="course_id" class="course_id">
-                        <input type="hidden" id="batch_id" name="batch_id" class="batch_id">
-                        <input type="hidden" id="teacher_id" name="teacher_id" class="teacher_id">
 
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="file">Upload File:</label>
-                        <input type="file" name="image" class="form-control form-control-lg">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 @else
 <div class="row">
