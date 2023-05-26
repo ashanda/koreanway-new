@@ -10,8 +10,13 @@ class LessonDetail extends Model
     use HasFactory;
     protected $primaryKey = 'id';
     protected $fillable = [
-        'lesson_id',
         'title',
+        'lesson_id',
+        'teacher_id',
+        'batch_id',
+        'course_id',
+        'published_date',
+        'status'
 
     ];
 }

@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('lesson_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('lesson_id');
+            $table->string('lesson_id');
             $table->string('title');
+            $table->string('image')->nullable();
+            $table->string('background_image')->nullable();
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('batch_id');
+            $table->unsignedBigInteger('course_id');
+            $table->date('published_date'); 
+            $table->string('status');
             $table->timestamps();
         });
     }

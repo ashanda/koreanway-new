@@ -26,24 +26,62 @@
                         <br><button name="fil_bt" type="submit" class="btn btn-dark">Filter</button>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="col-md-12">
+                <div class="_14d25">
+                    <div class="row">
+                        
+                        @foreach ( $lessons as $lesson)
+                        <div class="col-lg-3 col-md-4">
+                            <div class="fcrse_1 mt-30">
+                                <a href="#" class="fcrse_img">
+                                    <img src="{{ asset('/lesson/img/' . $lesson->image) }}" class="pro_pick2">
+                                    <div class="course-overlay">
+                                        <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
+                                        <div class="crse_reviews">
+                                            <i class="fa fa-check-circle"></i> May
+                                        </div>
 
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="_14d25">
-            <div class="row">
+                                        <div class="crse_timer">
+                                            Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                                    </div>
+                                </a>
+                                <div class="fcrse_content">
+                                    <a href="#" class="crse14s">{{ $lesson->title }}</a>
+                                    <div class="vdtodt">
+                                        <span class="vdt14 badge badge-primary" style="font-size:14px;">Start : 08:00:00 PM</span>
+                                        <span class="vdt14 badge badge-primary" style="font-size:14px;">End : 10:00:00 PM</span>
+                                    </div>
+                                    <div class="auth1lnkprce">
+                                        <p class="cr1fot">
+                                        </p>
+                                        <div class="user-status">
+                                            <div class="user-avatar">
+                                                <img src="../dashboard/images/teacher/1672646199Abhiman_Sir.jpg" class="pro_pick">
+                                            </div>
+                                            <p class="user-status-title"><span class="bold">{{ getTeacherData($lesson->teacher_id)->name }}</span></p>
+                                            <p class="user-status-tag online">Teacher</p>
+                                            <br>
+                                            @if (StudentPaymentCheck() == null)
+                                            <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
+                                            @else
+                                            @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
+                                            @php
+                                            $encryptedLessontype = encrypt(['lessontype' => $lessontype]);
+                                            $encryptedLessonid = encrypt(['id' => $lesson->id]);
+                                            @endphp
+                                            <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a>
+                                            @elseif (StudentPaymentCheck()->status == 2)
+                                            <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
+                                            @else
+                                            <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
+                                            @endif
+                                            @endif
 
-                @foreach ( $lessons as $lesson)
-                <div class="col-lg-3 col-md-4">
-                    <div class="fcrse_1 mt-30">
-                        <a href="#" class="fcrse_img">
-                            <img src="{{ asset('/kycs/img/' . $lesson->image) }}" class="pro_pick2">
-                            <div class="course-overlay">
-                                <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
-                                <div class="crse_reviews">
-                                    <i class="fa fa-check-circle"></i> May
-                                </div>
+
+
+
+                                        </div>
 
                                 <div class="crse_timer">
                                     Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
@@ -151,7 +189,7 @@
             <h3>Classes</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-success" href="{{ route('lesson.create') }}"> Create New Class</a>
+            <a class="btn  btn-success" href="{{ route('lessons.create') }}"> Create New Class</a>
         </div>
     </div>
 </div>
@@ -167,20 +205,12 @@
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
-                <th>Class Title</th>
-                <th>Class Type</th>
-                <th>Payement Type</th>
-                <th>Teacher ID</th>
-                <th>Batch Id</th>
-                <th>Course Id</th>
-                <th>Lesson</th>
-                <th>CLass Image</th>
-                <th>Class Doc</th>
-                <th>Link</th>
-                <th>Available Days</th>
-                <th>Number of Views</th>
-                <th>Level</th>
-                <th>Password</th>
+                <th>lesson Title</th>
+                <th>Teacher</th>
+                <th>Batch</th>
+                <th>Course</th>
+                <th>Lesson Image</th>
+                <th>Publishing Date</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -191,25 +221,18 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $lesson->title }}</td>
-                <td>{{ $lesson->classtype }}</td>
-                <td>{{ $lesson->paytype }}</td>
                 <td>{{ getTeacherData($lesson->teacher_id)->name }}</td>
                 <td>{{ getBatchData($lesson->batch_id)->name }}</td>
-                <td>{{ $lesson->course_id }}</td>
-                <td>{{ $lesson->lesson }}</td>
-                <td><img width="50" src="{{ asset('/kycs/img/' . $lesson->image) }}" alt="Class Image"></td>
-                <td><a target="_blank" href="{{ asset('/kycs/doc/' . $lesson->doc) }}">View</a></td>
-                <td>{{ $lesson->link }}</td>
-                <td>{{ $lesson->available_days }}</td>
-                <td>{{ $lesson->no_of_views }}</td>
-                <td>{{ $lesson->password }}</td>
+                <td>{{ getCourseData($lesson->course_id)->name }}</td>
+                <td>{{ $lesson->published_date }}</td>
+                <td><img width="50" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Class Image"></td>
                 <td>{{ $lesson->status }}</td>
                 <td>
-                    <form action="{{ route('lesson.destroy',$lesson->id) }}" method="POST">
+                    <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">
 
-                        <a class="btn  btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
+                        <a class="btn  btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
 
-                        <a class="btn  btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
+                        <a class="btn  btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')

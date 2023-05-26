@@ -7,6 +7,7 @@ use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\LessonDetailController;
 use App\Http\Controllers\UserPaymentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -94,8 +95,7 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
 Route::middleware(['auth.check','auth:teacher,admin'])->group(function () {    
     
     Route::post('/payment/{id}', [UserPaymentController::class, 'update'])->name('payments.update');
-    Route::resource('/admin/lesson', LessonController::class);
-    Route::resource('/teacher/lesson', LessonController::class);
+    Route::resource('/lessons', LessonController::class);
     Route::post('/admin/lesson-live', [LessonController::class,'live'])->name('lesson.live');
     Route::post('/admin/lesson-paper', [LessonController::class,'paper'])->name('lesson.paper');
     Route::post('/admin/lesson-video', [LessonController::class,'video'])->name('lesson.video');
