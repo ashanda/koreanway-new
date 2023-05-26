@@ -189,7 +189,7 @@
             <h3>Classes</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-success" href="{{ url('lessons.create') }}"> Create New Class</a>
+            <a class="btn  btn-success" href="{{ route('lessons.create') }}"> Create New Class</a>
         </div>
     </div>
 </div>

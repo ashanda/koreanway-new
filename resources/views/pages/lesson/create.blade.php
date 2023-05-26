@@ -30,7 +30,7 @@
     @endphp
     <div class="row">
        
-            <form id="form1" action="{{ route('lesson.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="form1" action="{{ route('lessons.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -282,16 +282,7 @@
 
 
 
-    function checkVideo() {
-        var checkBox = document.getElementById("lessonCheck3");
-        var formSec = document.getElementById("video");
-        if (checkBox.checked == true) {
-            formSec.style.display = "block";
-        } else {
-            formSec.style.display = "none";
-        }
-    }
-</script>
+
 
 
 
