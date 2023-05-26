@@ -19,48 +19,76 @@
 @if ($paytype == 'paid-manual-payments')
 <form action="{{ route('manual-pay') }}" method="POST">
   @csrf
-  <label for="student-name">Student Name:</label>
-    <select id="student-name" name="student_name" required>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="student-name">Student Name:</label>
+        <select class="form-select" id="student-name" name="student_name" required>
 
-      <option value="">Select a student</option>
-      @foreach (getAllUsers() as $getAllUser)
-       <option value="{{ $getAllUser->id }}">{{  $getAllUser->fullname .'-'. $getAllUser->contactnumber}}</option>
-      @endforeach
-      
-      
-      <!-- Add more options as needed -->
-    </select><br><br>
-  
- 
-  
-  <label for="course-id">Course:</label>
-  <select id="course-id" name="course_id" required>
-    <option value="">Select a course</option>
-  </select><br><br>
-  <input type="hidden" id="teacher-id" name="teacher_id" value="" required>
-  <label for="batch-id">Batch:</label>
-<select id="batch-id" name="batch_id" required>
-  <option value="">Select a Batch</option>
-</select><br><br>
-  
-  <label for="amount">Amount:</label>
-  <input type="text" id="amount" name="amount" required><br><br>
+          <option value="">Select a student</option>
+          @foreach (getAllUsers() as $getAllUser)
+          <option value="{{ $getAllUser->id }}">{{ $getAllUser->fullname .'-'. $getAllUser->contactnumber}}</option>
+          @endforeach
 
-  <label for="plan">Plan:</label>
-  <select id="plan" name="plan" required>
-    <option value="">Select a plan</option>
-    <option value="A">Plan A</option>
-    <option value="B">Plan B</option>
-    <option value="C">Plan C</option>
-  </select><br><br>
 
-  <label for="start-date">Start Date:</label>
-  <input type="date" id="start-date" name="start_date" required><br><br>
-  
-  <label for="end-date">End Date:</label>
-  <input type="date" id="end-date" name="end_date" required><br><br>
-  
-  <input type="submit" value="Submit">
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="course-id">Course:</label>
+        <select class="form-select" id="course-id" name="course_id" required>
+          <option value="">Select a course</option>
+        </select>
+      </div>
+    </div>
+
+    <input type="hidden" id="teacher-id" name="teacher_id" value="" required>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="batch-id">Batch:</label>
+        <select class="form-select" id="batch-id" name="batch_id" required>
+          <option value="">Select a Batch</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="amount">Amount:</label>
+        <input class="form-control form-control-lg" type="text" id="amount" name="amount" required>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="plan">Plan:</label>
+        <select class="form-select" id="plan" name="plan" required>
+          <option value="">Select a plan</option>
+          <option value="A">Plan A</option>
+          <option value="B">Plan B</option>
+          <option value="C">Plan C</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="start-date">Start Date:</label>
+        <input class="form-control form-control-lg" type="date" id="start-date" name="start_date" required>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="form-group mb-2">
+        <label class="form-label" for="end-date">End Date:</label>
+        <input class="form-control form-control-lg" type="date" id="end-date" name="end_date" required>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-end">
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </div>
+  </div>
 </form>
 @endif
 <div class="table-responsive mt-2">
@@ -83,7 +111,7 @@
         @if ($paytype == 'paid-manual-payments' || $paytype == 'paid-bank-payments' || $paytype == 'reject-bank-tranfer')
         <th>Checked Admin</th>
         @else
-        
+
         @endif
 
         <th>Status</th>
@@ -161,7 +189,7 @@
           @csrf
           @method('PUT')
           <div class="form-group">
-            <label for="paymentImage">Payment Image:</label>
+            <label class="form-label" for="paymentImage">Payment Image:</label>
             <br>
             <img src="" class="paymentImage" alt="Preview Image" style="max-width: 400px;">
           </div>
@@ -171,29 +199,29 @@
 
 
           <div class="form-group">
-            <label for="paymentAmount">Payment Amount:</label>
-            <input type="text" class="form-control paymentAmount" name="paymentAmount">
+            <label class="form-label" for="paymentAmount">Payment Amount:</label>
+            <input type="text" class="form-control form-control-lg paymentAmount" name="paymentAmount">
           </div>
           <div class="form-group">
-            <label for="paymentAmount">Start Date:</label>
-            <input type="date" class="form-control " name="paymentstart">
+            <label class="form-label" for="paymentAmount">Start Date:</label>
+            <input type="date" class="form-control form-control-lg " name="paymentstart">
           </div>
           <div class="form-group">
-            <label for="paymentAmount">End Date:</label>
-            <input type="date" class="form-control" name="paymentend">
+            <label class="form-label" for="paymentAmount">End Date:</label>
+            <input type="date" class="form-control form-control-lg" name="paymentend">
           </div>
           <div class="form-group">
-          <label for="plan">Plan:</label>
-          <select class="form-control" name="plan" required>
-            <option value="">Select a plan</option>
-            <option value="A">Plan A</option>
-            <option value="B">Plan B</option>
-            <option value="C">Plan C</option>
-          </select>
-        </div>
+            <label class="form-label" for="plan">Plan:</label>
+            <select class="form-select" name="plan" required>
+              <option value="">Select a plan</option>
+              <option value="A">Plan A</option>
+              <option value="B">Plan B</option>
+              <option value="C">Plan C</option>
+            </select>
+          </div>
           <div class="form-group">
-            <label for="paymentType">Payment Status:</label>
-            <select class="form-control" id="paymentType" name="paymentstatus">
+            <label class="form-label" for="paymentType">Payment Status:</label>
+            <select class="form-select" id="paymentType" name="paymentstatus">
               <option value="1">Approve</option>
               <option value="2">Pending</option>
               <option value="3">Reject</option>

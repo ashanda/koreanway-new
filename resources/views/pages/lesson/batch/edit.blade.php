@@ -31,13 +31,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Batch Name:</label>
-                <input type="text" name="name" value="{{ $batch->name }}" class="form-control" placeholder="Name">
+                <input type="text" name="name" value="{{ $batch->name }}" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Status:</label>
-                <select class="form-control" name="status" id="status">
+                <select class="form-select" name="status" id="status">
                     <option value="1" {{ $batch->status == '1' ? 'selected' : '' }}>Publish</option>
                     <option value="0" {{ $batch->status == '0' ? 'selected' : '' }}>Unpublish</option>
                 </select>
@@ -46,7 +46,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Register Form visibility:</label>
-                <select class="form-control" name="visible" id="visible">
+                <select class="form-select" name="visible" id="visible">
                     <option value="1" {{ $batch->visible == '1' ? 'selected' : '' }}>Visible</option>
                     <option value="0" {{ $batch->visible == '0' ? 'selected' : '' }}>Unvisible</option>
                 </select>

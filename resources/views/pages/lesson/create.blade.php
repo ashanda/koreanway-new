@@ -282,6 +282,16 @@
 
 
 
+    function checkVideo() {
+        var checkBox = document.getElementById("lessonCheck3");
+        var formSec = document.getElementById("video");
+        if (checkBox.checked == true) {
+            formSec.style.display = "block";
+        } else {
+            formSec.style.display = "none";
+        }
+    }
+</script>
 
 
 

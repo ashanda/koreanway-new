@@ -31,19 +31,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Teacher Name:</label>
-                <input type="text" name="name" value="{{ $teacher->name }}" class="form-control">
+                <input type="text" name="name" value="{{ $teacher->name }}" class="form-control form-control-lg">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Teacher Email:</label>
-                <input type="text" name="email" value="{{ $teacher->email }}" class="form-control">
+                <input type="text" name="email" value="{{ $teacher->email }}" class="form-control form-control-lg">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label>Teacher Password:</label>
-                <input type="text" name="password" value="{{ $teacher->password }}" class="form-control">
+                <input type="text" name="password" value="{{ $teacher->password }}" class="form-control form-control-lg">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -16,31 +16,31 @@
                     </div>
                     <h2>Welcome to {{ config('app.name', 'Laravel') }}</h2>
                     <p>Log In to {{ 'Student'}} Account!</p>
-                    
+
                     <form method="POST" action="{{ route('student_login') }}">
                         @csrf
-                       
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-form">
-                                    <label style="font-weight:bold;float:left;">PHONE NUMBER</label>
-                                    <input type="text"  id="contactnumber"  class="form-control phone_val" required placeholder="Your Phone Number" maxlength="10" minlength="10" style="border: 2px solid #ccc;" name="contactnumber" required autofocus>
-                                @if ($errors->has('contactnumber'))
-                                <span class="text-danger">{{ $errors->first('contactnumber') }}</span>
-                                @endif
-                                    
+                                    <label class="col-form-label-lg " style="font-weight:bold;float:left;">PHONE NUMBER</label>
+                                    <input type="text" id="contactnumber" class="form-control form-control-lg phone_val" required placeholder="Your Phone Number" maxlength="10" minlength="10" style="border: 2px solid #ccc;" name="contactnumber" required autofocus>
+                                    @if ($errors->has('contactnumber'))
+                                    <span class="text-danger">{{ $errors->first('contactnumber') }}</span>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-form">
-                                    <label style="font-weight:bold;float:left;">PASSWORD </label>
-                                    <input type="password" placeholder="Your Password" style="border: 2px solid #ccc;" id="password" class="form-control" name="password" required>
+                                    <label class="col-form-label-lg " style="font-weight:bold;float:left;">Password </label>
+                                    <input type="password" placeholder="Your Password" style="border: 2px solid #ccc;" id="password" class="form-control form-control-lg" name="password" required>
                                     @if ($errors->has('password'))
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                         </div>
