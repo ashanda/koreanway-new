@@ -30,4 +30,19 @@ class StudentsController extends Controller
     public function dashboard (){
         return view('student.pages.dashboard');
     }
+
+
+    public function smartClass(){
+        if(Auth::guard('student')->check()){
+            
+        }
+    }
+
+    public function profile(){
+        
+    }
+
+    public function investment(){
+        
+    }
 }

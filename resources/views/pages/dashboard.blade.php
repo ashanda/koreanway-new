@@ -241,8 +241,9 @@ Teacher Dashboard
 
 @elseif (Auth::guard('student')->check())
 
-Student Dashboard
-
+<a href="{{ route('smart-class-room') }}" class="">Smart Class Room</a><br />
+<a href="{{ route('profile') }}" class="">Profile</a><br />
+<a href="{{ route('investment') }}" class="">Investment</a><br />
 @endif
 
 

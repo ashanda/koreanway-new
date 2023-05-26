@@ -19,4 +19,9 @@ class LessonDetail extends Model
         'status'
 
     ];
+
+    public function lessonDetails()
+    {
+        return $this->hasMany(LessonDetail::class);
+    }
 }
