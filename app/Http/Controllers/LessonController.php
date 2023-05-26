@@ -18,49 +18,50 @@ class LessonController extends Controller
      */
     public function index(Request $request)
     {
-        $lessons = Lesson::latest()->paginate(5);
+        $lessons = LessonDetail::latest()->paginate(5);
+        
+        // $type = $request->query('lessontype');
 
-        $type = $request->query('lessontype');
+        // if ($type == 'free-live-today') {
+        //     $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Free')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
 
-        if ($type == 'free-live-today') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Free')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
+        // }elseif ($type == 'free-live-next-day') {
+        //     $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
-        }elseif ($type == 'free-live-next-day') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
+        // } elseif ($type == 'free-paper-this-month') {
+        //     $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        } elseif ($type == 'free-paper-this-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // } elseif ($type == 'free-paper-previous-month') {
+        //     $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        } elseif ($type == 'free-paper-previous-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }elseif ($type == 'free-video-this-month') {
+        //     $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        }elseif ($type == 'free-video-this-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }elseif ($type == 'free-video-previous-month') {
+        //     $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        }elseif ($type == 'free-video-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Free')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // } elseif ($type == 'paid-live-today') {
+        //     $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
 
-        } elseif ($type == 'paid-live-today') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '<=', now()->toDateString())->latest()->paginate(5);
+        // }elseif ($type == 'paid-live-next-day') {
+        //     $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
 
-        }elseif ($type == 'paid-live-next-day') {
-            $lessons = Lesson::where('classtype', 'live')->where('paytype', 'Paid')->where('published_date', '>', now()->toDateString())->latest()->paginate(5);
+        // } elseif ($type == 'paid-paper-this-month') {
+        //     $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        } elseif ($type == 'paid-paper-this-month') {
-            $lessons = Lesson::where('classtype', 'paper')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }elseif ($type == 'paid-paper-previous-month') {
+        //     $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        }elseif ($type == 'paid-paper-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }elseif ($type == 'paid-video-this-month') {
+        //     $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        }elseif ($type == 'paid-video-this-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") = ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }elseif ($type == 'paid-video-previous-month') {
+        //     $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
 
-        }elseif ($type == 'paid-video-previous-month') {
-            $lessons = Lesson::where('classtype', 'video')->where('paytype', 'Paid')->whereRaw('DATE_FORMAT(published_date, "%Y-%m") < ?', [now()->format('Y-m')])->latest()->paginate(5);
+        // }
 
-        }
-
-        return view('pages.lesson.index', compact('lessons', 'type'))->with('i', (request()->input('page', 1) - 1) * 5);
+        // return view('pages.lesson.index', compact('lessons', 'type'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('pages.lesson.index', compact('lessons'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -77,41 +78,70 @@ class LessonController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->live_switch === true) {
+           
+        
+        // if ($request->input('is_live_lesson') === '1') {
+        //     $lesson = new Lesson();
+        //     $lesson->lesson_id = $request->input('lesson_id');
+        //     $lesson->title = $request->input('live_title');
+        //     $lesson->classtype = $request->input('live');
+        //     $lesson->paytype = $request->input('paytype-live');
+        //     $lesson->link = $request->input('link-live');
+        //     $lesson->password = $request->input('password-live');
+        //     $lesson->save();
+            
+        // }
+        // if ($request->input('is_video_lesson') === '1'){
+        //     $lesson = new Lesson();
+        //     $lesson->lesson_id = $request->input('lesson_id');
+        //     $lesson->title = $request->input('title-video');
+        //     $lesson->classtype = $request->input('video');
+        //     $lesson->paytype = $request->input('paytype-video');
+        //     $lesson->available_days = $request->input('available_days-video');
+        //     $lesson->no_of_views = $request->input('no_of_views-video');
+        //     $lesson->save(); 
 
-        }
-        if ($request->paper_switch === true) {
+        // }
+        // if ($request->input('is_paper_lesson') === '1') {
+        //     $lesson = new Lesson();
+        //     $lesson->lesson_id = $request->input('lesson_id');
+        //     $lesson->title = $request->input('title-paper');
+        //     $lesson->classtype = $request->input('lesson-type-paper');
+        //     $lesson->paytype = $request->input('paytype-paper');
 
-        }
-        if ($request->video_switch === true) {
+        //     $lesson->teacher_id = $request->input('lesson-live');
+        //     $lesson->batch_id = $request->input('link-live');
+        //     $lesson->course_id = $request->input('password-live');
 
-        }
+        //     if ($request->file('doc')) {
+        //         $file = $request->file('doc');
+        //         $filename = date('YmdHi') . $file->getClientOriginalName();
+        //         $file->move(public_path('/lesson/doc'), $filename);
+        //         $lesson->doc = $filename;
+        //         $lesson->save();
+        //     }
 
-        $lesson = Lesson::create($request->all());
 
+        // }
+
+        $lessonDetails = new LessonDetail();
+        $lessonDetails->lesson_id = $request->input('lesson_id');
+        $lessonDetails->title = $request->input('lesson_title');
+        $lessonDetails->published_date = $request->input('published_date-live');
+        $lessonDetails->teacher_id = $request->input('teacher_id-live');
+        $lessonDetails->batch_id = $request->input('batch_id-live');
+        $lessonDetails->course_id = $request->input('course_id-live');    
+        $lessonDetails->status = $request->input('status-live');
+        
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('/kycs/img'), $filename);
-            $lesson->image = $filename;
-            $lesson->save();
+            $file->move(public_path('/lesson/img'), $filename);
+            $lessonDetails->image = $filename;
+            $lessonDetails->save();
         }
 
-        if ($request->file('doc')) {
-            $file = $request->file('doc');
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('/kycs/doc'), $filename);
-            $lesson->doc = $filename;
-            $lesson->save();
-        }
-
-        $lessonDetails = new LessonDetail([
-            'lesson_id' => $request->input('lesson_id'),
-            'title' => $request->input('lesson_title'),
-        ]);
-
-        $lessonDetails->save();
-
+        
         return redirect()->route('lesson.index')->with('success', 'Class created successfully.');
     }
 

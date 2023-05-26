@@ -39,15 +39,7 @@
                     <input type="hidden" name="lesson_id" value=" {{ $uniqueRandomNumber }}" readonly>
                 </div>
               </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label for="paytype" class="form-label">Payement Type:</label>
-                        <select class="form-control" name="paytype-live" id="paytype">
-                            <option value="Paid">Paid</option>
-                            <option value="Free">Free</option>
-                        </select>
-                    </div>
-                </div>
+               
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <label for="teacher_id" class="form-label">Teacher ID:</label>
@@ -78,7 +70,45 @@
                         </select>
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label>Class Image</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label>Pubished date</label>
+                        <input type="date" name="published_date-live" class="form-control" placeholder="published date">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <label for="status" class="form-label">Status:</label>
+                        <select class="form-control" name="status-live" id="status">
+                            <option value="1">Publish</option>
+                            <option value="0">Unpublish</option>
+                        </select>
+                    </div>
+                </div>
             <!---------------------Live Lessons------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="is_live_lesson" class="form-label">Is Live Lesson:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_live_lesson" id="live_lesson_true" value="1" checked>
+                        <label class="form-check-label" for="live_lesson_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_live_lesson" id="live_lesson_false" value="0">
+                        <label class="form-check-label" for="live_lesson_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12"> 
                 <div class="form-group">
                     <label>Class Title</label>
@@ -93,19 +123,22 @@
                    
                 </div>
             </div>
-            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="paytype" class="form-label">Payement Type:</label>
+                    <select class="form-control" name="paytype-live" id="paytype">
+                        <option value="Paid">Paid</option>
+                        <option value="Free">Free</option>
+                    </select>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Lesson</label>
                     <input type="text" name="lesson-live" class="form-control" placeholder="Class Lesson">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Image</label>
-                    <input type="file" name="image-live" class="form-control">
-                </div>
-            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Link</label>
@@ -118,51 +151,58 @@
                     <input type="text" name="password-live" class="form-control" placeholder="Password">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Pubished date</label>
-                    <input type="date" name="published_date-live" class="form-control" placeholder="published date">
-                </div>
-            </div>
             
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label for="status" class="form-label">Status:</label>
-                    <select class="form-control" name="status-live" id="status">
-                        <option value="1">Publish</option>
-                        <option value="0">Unpublish</option>
-                    </select>
-                </div>
-            </div>
+            
+            
             
             
             <!---------------------Video Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <label for="is_video_lesson" class="form-label">Is Video Lesson:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_video_lesson" id="video_lesson_true" value="1" checked>
+                        <label class="form-check-label" for="video_lesson_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_video_lesson" id="video_lesson_false" value="0">
+                        <label class="form-check-label" for="video_lesson_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <label>Class Title</label>
                     <input type="text" name="title-video" class="form-control" placeholder="Class Title">
-                    <input type="hidden" name="lesson_id-video" value=" {{ $uniqueRandomNumber }}" readonly>
+                    
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label for="classtype" class="form-label">Lesson Type:</label>
-                    <input type="text" class="form-control" name="lesson_type-video" value="Video" readonly>
+                    <input type="text" class="form-control" name="video" value="Video" readonly>
                 </div>
             </div>
-            
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="paytype" class="form-label">Payement Type:</label>
+                    <select class="form-control" name="paytype-video" id="paytype">
+                        <option value="Paid">Paid</option>
+                        <option value="Free">Free</option>
+                    </select>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Lesson</label>
                     <input type="text" name="lesson-video" class="form-control" placeholder="Class Lesson">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Image</label>
-                    <input type="file" name="image-video" class="form-control">
-                </div>
-            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Available Days</label>
@@ -175,22 +215,33 @@
                     <input type="text" name="no_of_views-video" class="form-control" placeholder="Number of Views">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Pubished date</label>
-                    <input type="date" name="published_date-video" class="form-control" placeholder="published date">
-                </div>
-            </div>
             
            
          
             
         <!---------------------Paper Lessons------------------------>
+         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="is_paper_lesson" class="form-label">Is Paper Lesson:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_true" value="1" checked>
+                    <label class="form-check-label" for="paper_lesson_true">
+                        True
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_false" value="0">
+                    <label class="form-check-label" for="paper_lesson_false">
+                        False
+                    </label>
+                </div>
+            </div>
+          </div> 
             <div class="col-xs-12 col-sm-12 col-md-12">
                  <div class="form-group">
                     <label>Class Title</label>
                     <input type="text" name="title-paper" class="form-control" placeholder="Class Title">
-                    <input type="hidden" name="lesson_id-paper" value=" {{ $uniqueRandomNumber }}" readonly>
+                    
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -199,31 +250,23 @@
                     <input type="text" class="form-control" name="lesson-type-paper" value="Paper" readonly>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="paytype" class="form-label">Payement Type:</label>
+                    <select class="form-control" name="paytype-paper" id="paytype">
+                        <option value="Paid">Paid</option>
+                        <option value="Free">Free</option>
+                    </select>
+                </div>
+            </div>
             
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Lesson</label>
-                    <input type="text" name="lesson-paper" class="form-control" placeholder="Class Lesson">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Image</label>
-                    <input type="file" name="image-paper" class="form-control">
-                </div>
-            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <label>Class Document</label>
                     <input type="file" name="doc-paper" class="form-control">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Pubished date</label>
-                    <input type="date" name="published_date-paper" class="form-control" placeholder="published date">
-                </div>
-            </div>
+
 
             <button type="submit" id="submit" >Save Lesson</button>
 

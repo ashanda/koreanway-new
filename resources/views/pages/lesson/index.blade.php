@@ -38,7 +38,7 @@
                         <div class="col-lg-3 col-md-4">
                             <div class="fcrse_1 mt-30">
                                 <a href="#" class="fcrse_img">
-                                    <img src="{{ asset('/kycs/img/' . $lesson->image) }}" class="pro_pick2">
+                                    <img src="{{ asset('/lesson/img/' . $lesson->image) }}" class="pro_pick2">
                                     <div class="course-overlay">
                                         <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
                                         <div class="crse_reviews">
@@ -151,7 +151,7 @@
             <h3>Classes</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-success" href="{{ route('lesson.create') }}"> Create New Class</a>
+            <a class="btn  btn-success" href="{{ url('lessons.create') }}"> Create New Class</a>
         </div>
     </div>
 </div>
@@ -167,20 +167,12 @@
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
-                <th>Class Title</th>
-                <th>Class Type</th>
-                <th>Payement Type</th>
-                <th>Teacher ID</th>
-                <th>Batch Id</th>
-                <th>Course Id</th>
-                <th>Lesson</th>
-                <th>CLass Image</th>
-                <th>Class Doc</th>
-                <th>Link</th>
-                <th>Available Days</th>
-                <th>Number of Views</th>
-                <th>Level</th>
-                <th>Password</th>
+                <th>lesson Title</th>
+                <th>Teacher</th>
+                <th>Batch</th>
+                <th>Course</th>
+                <th>Lesson Image</th>
+                <th>Publishing Date</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -191,25 +183,18 @@
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $lesson->title }}</td>
-                <td>{{ $lesson->classtype }}</td>
-                <td>{{ $lesson->paytype }}</td>
                 <td>{{ getTeacherData($lesson->teacher_id)->name }}</td>
                 <td>{{ getBatchData($lesson->batch_id)->name }}</td>
-                <td>{{ $lesson->course_id }}</td>
-                <td>{{ $lesson->lesson }}</td>
-                <td><img width="50" src="{{ asset('/kycs/img/' . $lesson->image) }}" alt="Class Image"></td>
-                <td><a target="_blank" href="{{ asset('/kycs/doc/' . $lesson->doc) }}">View</a></td>
-                <td>{{ $lesson->link }}</td>
-                <td>{{ $lesson->available_days }}</td>
-                <td>{{ $lesson->no_of_views }}</td>
-                <td>{{ $lesson->password }}</td>
+                <td>{{ getCourseData($lesson->course_id)->name }}</td>
+                <td>{{ $lesson->published_date }}</td>
+                <td><img width="50" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Class Image"></td>
                 <td>{{ $lesson->status }}</td>
                 <td>
-                    <form action="{{ route('lesson.destroy',$lesson->id) }}" method="POST">
+                    <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">
 
-                        <a class="btn  btn-info" href="{{ route('lesson.show',$lesson->id) }}">View</a>
+                        <a class="btn  btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
 
-                        <a class="btn  btn-primary" href="{{ route('lesson.edit',$lesson->id) }}">Edit</a>
+                        <a class="btn  btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
