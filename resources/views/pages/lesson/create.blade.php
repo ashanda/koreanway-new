@@ -14,8 +14,8 @@
 </div>
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <label>Error!</label> <br>
+<div class="alert alert-danger mt-2">
+    <label class="form-label">Error!</label> <br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -25,106 +25,107 @@
 @endif
 
 
-    @php
-    $uniqueRandomNumber = uniqid();
-    @endphp
-    <div class="row">
-       
-            <form id="form1" action="{{ route('lessons.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Lesson Title</label>
+@php
+$uniqueRandomNumber = uniqid();
+@endphp
+<div class="row">
+
+    <form id="form1" action="{{ route('lessons.store') }}" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            @csrf
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Lesson Title</label>
                     <input type="text" name="lesson_title" class="form-control" placeholder="Class Title">
                     <input type="hidden" name="lesson_id" value=" {{ $uniqueRandomNumber }}" readonly>
                 </div>
-              </div>
-               
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label for="teacher_id" class="form-label">Teacher ID:</label>
-                        <select class="form-control" name="teacher_id-live" id="teacher_id">
-                            @foreach($teacher_data as $data )
-                            <option value="{{$data->id}}">{{$data->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="teacher_id" class="form-label">Teacher ID:</label>
+                    <select class="form-control" name="teacher_id-live" id="teacher_id">
+                        @foreach($teacher_data as $data )
+                        <option value="{{$data->id}}">{{$data->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label for="batch_id" class="form-label">Batch Id:</label>
-                        <select class="form-control" name="batch_id-live" id="batch_id">
-                            @foreach($batch_data as $data )
-                            <option value="{{$data->id}}">{{$data->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="batch_id" class="form-label">Batch Id:</label>
+                    <select class="form-control" name="batch_id-live" id="batch_id">
+                        @foreach($batch_data as $data )
+                        <option value="{{$data->id}}">{{$data->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label for="course_id" class="form-label">Course Id:</label>
-                        <select class="form-control" name="course_id-live" id="course_id">
-                            @foreach($course_data as $data )
-                            <option value="{{$data->id}}">{{$data->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="course_id" class="form-label">Course Id:</label>
+                    <select class="form-control" name="course_id-live" id="course_id">
+                        @foreach($course_data as $data )
+                        <option value="{{$data->id}}">{{$data->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label>Class Image</label>
-                        <input type="file" name="image" class="form-control">
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Image</label>
+                    <input type="file" name="image" class="form-control">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label>Pubished date</label>
-                        <input type="date" name="published_date-live" class="form-control" placeholder="published date">
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Pubished date</label>
+                    <input type="date" name="published_date-live" class="form-control" placeholder="published date">
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <label for="status" class="form-label">Status:</label>
-                        <select class="form-control" name="status-live" id="status">
-                            <option value="1">Publish</option>
-                            <option value="0">Unpublish</option>
-                        </select>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="status" class="form-label">Status:</label>
+                    <select class="form-control" name="status-live" id="status">
+                        <option value="1">Publish</option>
+                        <option value="0">Unpublish</option>
+                    </select>
                 </div>
+            </div>
             <!---------------------Live Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="is_live_lesson" class="form-label">Is Live Lesson:</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="is_live_lesson" id="live_lesson_true" value="1" checked>
-                        <label class="form-check-label" for="live_lesson_true">
+                        <label class="form-label ms-2" for="live_lesson_true">
                             True
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="is_live_lesson" id="live_lesson_false" value="0">
-                        <label class="form-check-label" for="live_lesson_false">
+                        <label class="form-label ms-2" for="live_lesson_false">
                             False
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12"> 
-                <div class="form-group">
-                    <label>Class Title</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Title</label>
                     <input type="text" name="live_title" class="form-control" placeholder="Class Title">
-                    
+
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="classtype" class="form-label">Lesson Type:</label>
                     <input type="text" name="live" class="form-control" value="Live" readonly>
-                   
+
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="paytype" class="form-label">Payement Type:</label>
                     <select class="form-control" name="paytype-live" id="paytype">
                         <option value="Paid">Paid</option>
@@ -132,63 +133,63 @@
                     </select>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Lesson</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Lesson</label>
                     <input type="text" name="lesson-live" class="form-control" placeholder="Class Lesson">
                 </div>
             </div>
-            
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Link</label>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Link</label>
                     <input type="text" name="link-live" class="form-control" placeholder="Class Link">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Password</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Password</label>
                     <input type="text" name="password-live" class="form-control" placeholder="Password">
                 </div>
             </div>
-            
-            
-            
-            
-            
+
+
+
+
+
             <!---------------------Video Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="is_video_lesson" class="form-label">Is Video Lesson:</label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="is_video_lesson" id="video_lesson_true" value="1" checked>
-                        <label class="form-check-label" for="video_lesson_true">
+                        <label class="ms-2 form-label" for="video_lesson_true">
                             True
                         </label>
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="is_video_lesson" id="video_lesson_false" value="0">
-                        <label class="form-check-label" for="video_lesson_false">
+                        <label class="ms-2 form-label" for="video_lesson_false">
                             False
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Title</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Title</label>
                     <input type="text" name="title-video" class="form-control" placeholder="Class Title">
-                    
+
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="classtype" class="form-label">Lesson Type:</label>
                     <input type="text" class="form-control" name="video" value="Video" readonly>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="paytype" class="form-label">Payement Type:</label>
                     <select class="form-control" name="paytype-video" id="paytype">
                         <option value="Paid">Paid</option>
@@ -196,62 +197,62 @@
                     </select>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Lesson</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Lesson</label>
                     <input type="text" name="lesson-video" class="form-control" placeholder="Class Lesson">
                 </div>
             </div>
-            
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Available Days</label>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Available Days</label>
                     <input type="text" name="available_days-video" class="form-control" placeholder="Available Days">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Number of Views</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Number of Views</label>
                     <input type="text" name="no_of_views-video" class="form-control" placeholder="Number of Views">
                 </div>
             </div>
-            
-           
-         
-            
-        <!---------------------Paper Lessons------------------------>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label for="is_paper_lesson" class="form-label">Is Paper Lesson:</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_true" value="1" checked>
-                    <label class="form-check-label" for="paper_lesson_true">
-                        True
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_false" value="0">
-                    <label class="form-check-label" for="paper_lesson_false">
-                        False
-                    </label>
+
+
+
+
+            <!---------------------Paper Lessons------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_paper_lesson" class="form-label">Is Paper Lesson:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_true" value="1" checked>
+                        <label class="form-label ms-2" for="paper_lesson_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_false" value="0">
+                        <label class="form-label ms-2" for="paper_lesson_false">
+                            False
+                        </label>
+                    </div>
                 </div>
             </div>
-          </div> 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                 <div class="form-group">
-                    <label>Class Title</label>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Title</label>
                     <input type="text" name="title-paper" class="form-control" placeholder="Class Title">
-                    
+
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="classtype" class="form-label">Lesson Type:</label>
                     <input type="text" class="form-control" name="lesson-type-paper" value="Paper" readonly>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
                     <label for="paytype" class="form-label">Payement Type:</label>
                     <select class="form-control" name="paytype-paper" id="paytype">
                         <option value="Paid">Paid</option>
@@ -259,31 +260,42 @@
                     </select>
                 </div>
             </div>
-            
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <label>Class Document</label>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Class Document</label>
                     <input type="file" name="doc-paper" class="form-control">
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12 text-end">
+                <button class="btn btn-success" type="submit" id="submit">Save Lesson</button>
+            </div>
+        </div>
+    </form>
+</div>
 
-            <button type="submit" id="submit" >Save Lesson</button>
+<script>
+    function checkSchedule() {
+        var checkBox = document.getElementById("lessonCheck1");
+        var formSec = document.getElementById("schedule");
+        if (checkBox.checked == true) {
+            formSec.style.display = "block";
+        } else {
+            formSec.style.display = "none";
+        }
+    }
 
-        </form>
- 
-       
-        
-        
-        
-        
-        
-        
-
-
-
-
-
+    function checkTute() {
+        var checkBox = document.getElementById("lessonCheck2");
+        var formSec = document.getElementById("tute");
+        if (checkBox.checked == true) {
+            formSec.style.display = "block";
+        } else {
+            formSec.style.display = "none";
+        }
+    }
+</script>
 
 
 @endsection

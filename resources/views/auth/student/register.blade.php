@@ -63,7 +63,7 @@
                         <div class="mb-3 row">
                             <label for="gender" class="col-md-4 col-form-label-lg text-md-end text-start">Gender</label>
                             <div class="col-md-6">
-                                <select class="form-select @error('gender') is-invalid @enderror" name="gender" id="gender">
+                                <select class="form-select form-select-lg @error('gender') is-invalid @enderror" name="gender" id="gender">
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Other</option>
@@ -77,7 +77,7 @@
                         <div class="mb-3 row">
                             <label for="district" class="col-md-4 col-form-label-lg text-md-end text-start">District</label>
                             <div class="col-md-6">
-                                <select class="form-select @error('district') is-invalid @enderror" name="district" id="district">
+                                <select class="form-select form-select-lg @error('district') is-invalid @enderror" name="district" id="district">
                                     <option>Colombo</option>
                                     <option>Gampaha</option>
                                     <option>Kalutara</option>
@@ -140,7 +140,7 @@
                         <div class="mb-3 row">
                             <label for="course" class="col-md-4 col-form-label-lg text-md-end text-start">Course</label>
                             <div class="col-md-6">
-                                <select class="form-select @error('course') is-invalid @enderror" name="course" id="course">
+                                <select class="form-select form-select-lg @error('course') is-invalid @enderror" name="course" id="course">
                                     @foreach ( $courses as $course)
                                     <option value="{{ $course->id }}">{{ $course->name }}</option>
                                     @endforeach
@@ -155,7 +155,7 @@
                         <div class="mb-3 row">
                             <label for="batch" class="col-md-4 col-form-label-lg text-md-end text-start">Batch</label>
                             <div class="col-md-6">
-                                <select class="form-select @error('batch') is-invalid @enderror" name="batch" id="batch">
+                                <select class="form-select form-select-lg @error('batch') is-invalid @enderror" name="batch" id="batch">
                                 </select>
                                 @if ($errors->has('batch'))
                                 <span class="text-danger">{{ $errors->first('batch') }}</span>
@@ -186,7 +186,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-
-        @endsection
+@endsection
