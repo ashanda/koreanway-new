@@ -8,7 +8,7 @@
             <h4>Teachers</h4>
         </div>
         <div class="float-end">
-            <a class="btn btn-sm btn-success" href="{{ route('teacher.create') }}"> Create New Teacher</a>
+            <a class="btn btn-success" href="{{ route('teacher.create') }}"> Create New Teacher</a>
         </div>
     </div>
 </div>
@@ -37,14 +37,14 @@
             <td>
                 <form action="{{ route('teacher.destroy',$teacher->id) }}" method="POST">
 
-                    <a class="btn btn-sm btn-info mb-1" href="{{ route('teacher.show',$teacher->id) }}">View</a>
+                    <a class="btn btn-info mb-1" href="{{ route('teacher.show',$teacher->id) }}">View</a>
 
-                    <a class="btn btn-sm btn-primary mb-1" href="{{ route('teacher.edit',$teacher->id) }}">Edit</a>
+                    <a class="btn btn-primary mb-1" href="{{ route('teacher.edit',$teacher->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
         </tr>

@@ -122,7 +122,7 @@
                 <!-- Modal content goes here -->
                 <form id="paymentForm" action="{{ route('process.payment') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="name">Amount:</label>
                         <input type="text" class="form-control form-control-lg" id="amount" name="amount">
                         <input type="hidden" id="course_id" name="course_id" class="course_id">
@@ -130,7 +130,7 @@
                         <input type="hidden" id="teacher_id" name="teacher_id" class="teacher_id">
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="file">Upload File:</label>
                         <input type="file" name="image" class="form-control form-control-lg">
                     </div>

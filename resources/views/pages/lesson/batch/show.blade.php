@@ -15,14 +15,14 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Batch Name:</label>
+            <div class="form-group mb-3">
+                <label class="form-label">Batch Name:</label>
                 {{ $batch->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Details:</label>
+            <div class="form-group mb-3">
+                <label class="form-label">Details:</label>
                 {{ $batch->status }}
                 {{ $batch->visible }}
             </div>

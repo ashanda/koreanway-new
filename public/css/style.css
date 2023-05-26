@@ -501,6 +501,7 @@ header {
     display: flex !important;
     align-items: center;
     box-shadow: 0px 0.052083333in 11.25pt -9px rgba(0, 0, 0, 0.1);
+    min-height: 70px;
 }
 
 .main_logo {
@@ -4184,7 +4185,7 @@ a.rmv-btn i {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 0;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
@@ -8452,7 +8453,7 @@ a.nav-icon-list:hover {
     text-align: center;
 }
 
-.z-bigger [type="checkbox"]:checked,
+/* .z-bigger [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked),
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -8460,7 +8461,7 @@ a.nav-icon-list:hover {
     position: unset;
     height: auto;
     width: auto;
-}
+} */
 
 .paymet-det ul li {
     display: inline-block;
@@ -8645,7 +8646,7 @@ a.nav-icon-list:hover {
 }
 
 .body_content {
-    margin-top: 54.5px;
+    margin-top: 70px;
 }
 
 .header_right .nav-item a {
@@ -8693,4 +8694,27 @@ a.nav-icon-list:hover {
     font-size: 50px;
     border-radius: 50%;
     padding: 10px;
+}
+
+.btn {
+    vertical-align: inherit;
+    color: #fff;
+}
+
+.btn:hover {
+    color: #000;
+}
+
+input.form-check-input {
+    width: 18px;
+    height: 18px;
+}
+.form-label{
+    font-size: 18px;
+}
+/* Mobile responsive */
+@media screen and (max-width: 576px) {
+    .nav-link {
+        font-size: 14px;
+    }
 }

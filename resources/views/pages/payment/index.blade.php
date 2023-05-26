@@ -21,9 +21,9 @@
   @csrf
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="student-name">Student Name:</label>
-        <select class="form-select" id="student-name" name="student_name" required>
+        <select class="form-select form-select-lg" id="student-name" name="student_name" required>
 
           <option value="">Select a student</option>
           @foreach (getAllUsers() as $getAllUser)
@@ -37,9 +37,9 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="course-id">Course:</label>
-        <select class="form-select" id="course-id" name="course_id" required>
+        <select class="form-select form-select-lg" id="course-id" name="course_id" required>
           <option value="">Select a course</option>
         </select>
       </div>
@@ -48,24 +48,24 @@
     <input type="hidden" id="teacher-id" name="teacher_id" value="" required>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="batch-id">Batch:</label>
-        <select class="form-select" id="batch-id" name="batch_id" required>
+        <select class="form-select form-select-lg" id="batch-id" name="batch_id" required>
           <option value="">Select a Batch</option>
         </select>
       </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="amount">Amount:</label>
         <input class="form-control form-control-lg" type="text" id="amount" name="amount" required>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="plan">Plan:</label>
-        <select class="form-select" id="plan" name="plan" required>
+        <select class="form-select form-select-lg" id="plan" name="plan" required>
           <option value="">Select a plan</option>
           <option value="A">Plan A</option>
           <option value="B">Plan B</option>
@@ -74,13 +74,13 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="start-date">Start Date:</label>
         <input class="form-control form-control-lg" type="date" id="start-date" name="start_date" required>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-      <div class="form-group mb-2">
+      <div class="form-group mb-3">
         <label class="form-label" for="end-date">End Date:</label>
         <input class="form-control form-control-lg" type="date" id="end-date" name="end_date" required>
       </div>
@@ -188,7 +188,7 @@
         <form id="editForm" method="POST">
           @csrf
           @method('PUT')
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="paymentImage">Payment Image:</label>
             <br>
             <img src="" class="paymentImage" alt="Preview Image" style="max-width: 400px;">
@@ -198,30 +198,30 @@
           <input type="hidden" class="paymentId" name="paymentId" readonly>
 
 
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="paymentAmount">Payment Amount:</label>
             <input type="text" class="form-control form-control-lg paymentAmount" name="paymentAmount">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="paymentAmount">Start Date:</label>
             <input type="date" class="form-control form-control-lg " name="paymentstart">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="paymentAmount">End Date:</label>
             <input type="date" class="form-control form-control-lg" name="paymentend">
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="plan">Plan:</label>
-            <select class="form-select" name="plan" required>
+            <select class="form-select form-select-lg" name="plan" required>
               <option value="">Select a plan</option>
               <option value="A">Plan A</option>
               <option value="B">Plan B</option>
               <option value="C">Plan C</option>
             </select>
           </div>
-          <div class="form-group">
+          <div class="form-group mb-3">
             <label class="form-label" for="paymentType">Payment Status:</label>
-            <select class="form-select" id="paymentType" name="paymentstatus">
+            <select class="form-select form-select-lg" id="paymentType" name="paymentstatus">
               <option value="1">Approve</option>
               <option value="2">Pending</option>
               <option value="3">Reject</option>

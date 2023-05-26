@@ -22,92 +22,92 @@
     <p>This is Video fields</p>
     @endif
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Title:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Class Title:</label>
             {{ $lesson->title }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>CLass Type:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">CLass Type:</label>
             {{ $lesson->classtype }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Payement Type:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Payement Type:</label>
             {{ $lesson->paytype }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Teacher ID:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Teacher ID:</label>
             {{ $lesson->teacher_id }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Batch Id:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Batch Id:</label>
             {{ $lesson->batch_id }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Course Id:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Course Id:</label>
             {{ $lesson->course_id }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Lesson:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Lesson:</label>
             {{ $lesson->lesson }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Image:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Class Image:</label>
             <img width="100" src="{{ asset('/kycs/img/' . $lesson->image) }}" alt="Class Image">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Document:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Class Document:</label>
             <a target="_blank" href="{{ asset('/kycs/doc/' . $lesson->doc) }}">View</a>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Link:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Link:</label>
             {{ $lesson->link }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Available Days:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Available Days:</label>
             {{ $lesson->available_days }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Number of Views:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Number of Views:</label>
             {{ $lesson->no_of_views }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Level:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Level:</label>
             {{ $lesson->level }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Password:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Password:</label>
             {{ $lesson->password }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Status:</label>
+        <div class="form-group mb-3">
+            <label class="form-label">Status:</label>
             {{ $lesson->status }}
         </div>
     </div>

@@ -13,8 +13,8 @@
 </div>
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <label>Error!</label> <br>
+<div class="alert alert-danger mt-2">
+    <label class="form-label">Error!</label> <br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -28,17 +28,32 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-            <div class="form-group mb-2">
+            <div class="form-group mb-3">
                 <label class="form-label">Batch Name:</label>
                 <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-            <div class="form-group mb-2">
+            <div class="form-group mb-3">
+                <label class="form-label">Batch Fee:</label>
+                <input type="text" name="fee" class="form-control form-control-lg" placeholder="Name">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-3">
                 <label for="status" class="form-label">Status:</label>
-                <select class="form-select" name="status" id="status">
+                <select class="form-select form-select-lg" name="status" id="status">
                     <option>Publish</option>
                     <option>Unpublish</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="form-group mb-3">
+                <label for="status" class="form-label">visible:</label>
+                <select class="form-select form-select-lg" name="status" id="status">
+                    <option value="1">Visible</option>
+                    <option value="0">Unvisible</option>
                 </select>
             </div>
         </div>

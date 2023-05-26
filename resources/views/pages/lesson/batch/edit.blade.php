@@ -13,8 +13,8 @@
 </div>
 
 @if ($errors->any())
-<div class="alert alert-danger">
-    <label>Error!</label> <br>
+<div class="alert alert-danger mt-2">
+    <label class="form-label">Error!</label> <br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -29,24 +29,30 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Batch Name:</label>
+            <div class="form-group mb-3">
+                <label class="form-label">Batch Name:</label>
                 <input type="text" name="name" value="{{ $batch->name }}" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Status:</label>
-                <select class="form-select" name="status" id="status">
+            <div class="form-group mb-3">
+                <label class="form-label">Batch Fee:</label>
+                <input type="text" name="name" value="{{ $batch->fee }}" class="form-control form-control-lg" placeholder="Fee">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group mb-3">
+                <label class="form-label">Status:</label>
+                <select class="form-select form-select-lg" name="status" id="status">
                     <option value="1" {{ $batch->status == '1' ? 'selected' : '' }}>Publish</option>
                     <option value="0" {{ $batch->status == '0' ? 'selected' : '' }}>Unpublish</option>
                 </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Register Form visibility:</label>
-                <select class="form-select" name="visible" id="visible">
+            <div class="form-group mb-3">
+                <label class="form-label">Register Form visibility:</label>
+                <select class="form-select form-select-lg" name="visible" id="visible">
                     <option value="1" {{ $batch->visible == '1' ? 'selected' : '' }}>Visible</option>
                     <option value="0" {{ $batch->visible == '0' ? 'selected' : '' }}>Unvisible</option>
                 </select>

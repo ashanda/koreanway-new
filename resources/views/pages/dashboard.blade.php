@@ -200,7 +200,6 @@
                                                         </div>
                                                 </div>
                                                 <div class="col-sm-8 col-md-9 col-lg-8 col-xl-9">
-                                                        <p class="mb-0 text-white">{{ getCourseBatchBaseCount() }}</p>
                                                         <h3 class="text-white">Total Students - [123]</h3>
                                                         <div class="progress">
                                                                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
