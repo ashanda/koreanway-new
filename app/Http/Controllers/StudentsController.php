@@ -71,11 +71,12 @@ class StudentsController extends Controller
     }
 
     public function profile(){
+        return view('pages.student.profile');
         
     }
 
     public function investment(){
-        
+        return view('pages.student.investment');
     }
 
 

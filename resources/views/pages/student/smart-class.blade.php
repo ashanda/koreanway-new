@@ -3,9 +3,9 @@
 @section('content')
 
 @foreach ($lessonsPaginated as $lesson)
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Card image cap">
-        <div class="card-body">
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Card image cap">
+    <div class="card-body">
         <h5 class="card-title">{{ $lesson->title }}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         @if (StudentPaymentCheck($lesson->course_id,$lesson->batch_id ) == null)
@@ -13,7 +13,7 @@
         @else
         @if (StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->status == 1 && StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->end_date >= now()->toDateString() && StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->end_date >= $lesson->published_date)
         @php
-        
+
         $encryptedLessonid = encrypt(['id' => $lesson->id]);
         @endphp
         <a href="{{ route('smartClassData',$lesson->id ) }}" class="btn btn-primary">GET LESSEONS CLICK HERE</a>
@@ -25,13 +25,15 @@
         <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
         @endif
         @endif
-        
-        </div>
+
     </div>
-    <!-- Display lesson information -->
-    
-    <!-- Add more fields as needed -->
+</div>
+<!-- Display lesson information -->
+
+
+<!-- Add more fields as needed -->
 @endforeach
+
 
 <div class="modal" id="paymentModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

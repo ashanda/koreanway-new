@@ -19,7 +19,7 @@
 	.btn-primary,
 	.btn-primary:hover {
 		background-color: #2E9D8A;
-		border-color: #2E9D8A;
+		border-color: #2E9D8A;	
 		color: #ffffff;
 	}
 </style>

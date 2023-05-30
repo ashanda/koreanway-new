@@ -8709,12 +8709,98 @@ input.form-check-input {
     width: 18px;
     height: 18px;
 }
-.form-label{
+
+.form-label {
     font-size: 18px;
 }
+
+/* Student section styles */
+.sm_cl {
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.ban_cap {
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+    padding: 10px;
+    background-color: #0000008f;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.carousel-item {
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.id_card {
+    border: red 2px solid;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user_img {
+    max-width: 100px;
+    margin: auto
+}
+
+.id_title {
+    color: #2e9d8a;
+}
+
+.id_date,
+.id_crtext {
+    text-transform: capitalize;
+}
+
+.per_data {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.ver_text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-top: 50px;
+}
+
+.table_sec table,
+tr,
+th,
+td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+/* Tab responsive */
+@media screen and (max-width: 768px) {
+    .sm_cl {
+        height: 150px;
+    }
+
+    .ban_cap {
+        width: 100%;
+    }
+
+    .carousel-item {
+        height: 200px;
+    }
+}
+
 /* Mobile responsive */
 @media screen and (max-width: 576px) {
     .nav-link {
         font-size: 14px;
+    }
+
+    .ban_cap .h1 {
+        font-size: 20px;
     }
 }

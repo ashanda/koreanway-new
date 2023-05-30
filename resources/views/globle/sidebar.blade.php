@@ -7,6 +7,20 @@
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
         @if (Auth::guard('student')->check())
         <li>
+            <a href="{{ route('dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+        </li>
+        <li>
+            <a href="{{ route('smart-class-room') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Smart Class Room</span> </a>
+        </li>
+        <li>
+            <a href="{{ route('profile') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-person"></i> <span class="ms-1 d-none d-sm-inline">Profile</span> </a>
+        </li>
+        <li>
+            <a href="{{ route('investment') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-cash-coin"></i> <span class="ms-1 d-none d-sm-inline">Investment</span> </a>
+        </li>
+
+
+        <!-- <li>
             <a href="student_profile.php" class="nav-link px-0 align-middle"> <i class='uil uil-book-alt menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Main Menu</span> </a>
         </li>
         <li>
@@ -94,7 +108,7 @@
                     <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="nav-link px-0">Reject Bank<span class="d-none d-sm-inline"></span> </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
         @elseif(Auth::guard('admin')->check())
 
@@ -123,6 +137,9 @@
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                 <li class="w-100">
+                    <a href="" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
+                </li>
+                <!-- <li class="w-100">
                     <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0">Today Free Live<span class="d-none d-sm-inline"> Classes</span> </a>
                 </li>
                 <li>
@@ -159,7 +176,7 @@
                 </li>
                 <li>
                     <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0">All Previous Recordings<span class="d-none d-sm-inline"></span> </a>
-                </li>
+                </li> -->
             </ul>
         </li>
         <li>
@@ -281,7 +298,7 @@
         <li>
             <a href="{{ route('teacher_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
         </li>
-       
+
         <li>
             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Lesson</span>
@@ -326,27 +343,27 @@
                     <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0">All Previous Recordings<span class="d-none d-sm-inline"></span> </a>
                 </li>
             </ul>
-            <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
-                </a>
-                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                    <li class="w-100">
-                        <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="nav-link px-0">Pending Bank<span class="d-none d-sm-inline"></span> </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('payment', ['paytype' => 'paid-bank-tranfer']) }}" class="nav-link px-0">Paid Bank<span class="d-none d-sm-inline"></span> </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('payment', ['paytype' => 'paid-manual-payments']) }}" class="nav-link px-0">Paid Manaul<span class="d-none d-sm-inline"></span> </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('payment', ['paytype' => 'paid-online-payments']) }}" class="nav-link px-0">Paid Online<span class="d-none d-sm-inline"></span> </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="nav-link px-0">Reject Bank<span class="d-none d-sm-inline"></span> </a>
-                    </li>
-                </ul>
-            </li>
+        <li>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+            </a>
+            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                <li class="w-100">
+                    <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="nav-link px-0">Pending Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-bank-tranfer']) }}" class="nav-link px-0">Paid Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-manual-payments']) }}" class="nav-link px-0">Paid Manaul<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'paid-online-payments']) }}" class="nav-link px-0">Paid Online<span class="d-none d-sm-inline"></span> </a>
+                </li>
+                <li>
+                    <a href="{{ route('payment', ['paytype' => 'reject-bank-tranfer']) }}" class="nav-link px-0">Reject Bank<span class="d-none d-sm-inline"></span> </a>
+                </li>
+            </ul>
+        </li>
 
         </li>
 
