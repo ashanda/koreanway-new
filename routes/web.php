@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\LessonDetailController;
 use App\Http\Controllers\UserPaymentController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,7 +47,8 @@ Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::post('/process-payment', [UserPaymentController::class, 'saveData'])->name('process.payment');
     Route::get('/smart-class-room', [StudentsController::class, 'smartClass'])->name('smart-class-room');
     Route::get('/smart-class-room/{id}', [StudentsController::class, 'smartClassData'])->name('smartClassData');
-    Route::get('/profile', [StudentsController::class, 'profile'])->name('profile');
+    Route::get('/user-profile', [StudentsController::class, 'profile'])->name('profile');
+    Route::post('/user-profile-update', [StudentsController::class, 'profile'])->name('update-profile');
     Route::get('/investment', [StudentsController::class, 'investment'])->name('investment');
 });
 
@@ -101,7 +103,7 @@ Route::middleware(['auth.check', 'auth:teacher,admin'])->group(function () {
 });
 //All Acessroutes
 Route::middleware(['auth.check', 'auth:teacher,admin,student'])->group(function () {
-
+    Route::resource('messages', NotificationController::class);
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
     Route::post('/lesson/{lessontype}', [LessonController::class, 'filter'])->name('filter-lessons');
     Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');

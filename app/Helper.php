@@ -9,6 +9,7 @@ use App\Models\Admin;
 use App\Models\Lesson;
 use App\Models\UserCourse;
 use App\Models\LessonDetail;
+use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -104,6 +105,47 @@ function getUserLesseonData($lessons) {
 		return $lessonsPaginated ;
 }
 
+function getUserNoticeData() {
+    $lessons = Notification::all();
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+	
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+		
+        
+
+		return $filteredLessons ;
+}
+
+function getUserPaymentData() {
+    $lessons = UserPayment::all();
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+	
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+		
+        
+
+		return $filteredLessons ;
+}
 
 function getUserCourseData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();

@@ -119,6 +119,10 @@
         <li>
             <a href="{{ route('teacher.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-microsoft-teams"></i> <span class="ms-1 d-none d-sm-inline">Teachers</span> </a>
         </li>
+
+        <li>
+            <a href="{{ route('messages.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Notice</span> </a>
+        </li>
         <li>
             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                 <i class="fs-4 bi bi-filter"></i> <span class="ms-1 d-none d-sm-inline">Filters</span> </a>

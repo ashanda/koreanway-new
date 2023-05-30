@@ -9,6 +9,8 @@ use App\Models\Admin;
 use App\Models\Lesson;
 use App\Models\LessonDetail;
 use App\Models\Student;
+use App\Models\Course;
+use App\Models\Batch;
 use App\Models\UserCourse;
 
 class StudentsController extends Controller
@@ -71,7 +73,10 @@ class StudentsController extends Controller
     }
 
     public function profile(){
-        return view('pages.student.profile');
+        $student = Student::where('id', '=', Auth::user()->id)->first();
+        $courses = Course::all();
+        $batches = Batch::all();
+        return view('pages.student.profile',compact('student','courses','batches'));
         
     }
 

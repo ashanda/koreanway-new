@@ -250,24 +250,29 @@ Teacher Dashboard
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('{{ asset('images/student/slide1.jpg')}}');">
+                @php
+                  $i=0;      
+                @endphp
+                @foreach ( getUserNoticeData() as $notice)
+                @php
+                if ($i == 0 ) {
+                        $active = 'active' ;   
+                }    
+                @endphp  
+                     
+               
+                <div class="carousel-item {{ $active }}" style="background-image: url('{{ asset('/notice/img/' . $notice->image) }}');">
+                        <!-- <img src="{{ asset('images/student/slide1.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p class="h2 text-white">{{ $notice->title}}</p>
+                                <p class="h4 text-white">{{ $notice->message}}</p>
                         </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide2.jpg')}}');">
-                        <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide3.jpg')}}');">
-                        <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                </div>
+                @php
+                    $i++;    
+                @endphp
+                @endforeach
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -297,7 +302,12 @@ Teacher Dashboard
                                                 <a class="text-decoration-none" href="{{ route('profile') }}">
                                                         <p class="h2 id_title">ID REPORT</p>
                                                 </a>
-                                                <img class="w-100 user_img" src="{{ asset('images/student/user.png')}}" alt="">
+                                                @if (Auth::user()->profile_pic == 'null' || Auth::user()->profile_pic == null)
+                                                <img class="w-100 user_img circular-image" src="{{ asset('images/student/user.png')}}" alt="">   
+                                                @else
+                                                <img class="w-100 user_img circular-image" src="{{ asset('profile/' . Auth::user()->profile_pic) }}" alt="">  
+                                                @endif
+                                                
                                                 <p class="h5 id_date text-dark mb-0">registered user</p>
                                                 <p class="h4 id_crtext">korean course</p>
                                         </div>
@@ -305,15 +315,14 @@ Teacher Dashboard
                                 <div class="col-8">
                                         <div class="text-end">
                                                 <p class="h4 text-dark text-uppercase">class team 10</p>
-                                                <p class="h5 fw-bold text-dark text-uppercase">reg | kw.65789</p>
+                                                <p class="h5 fw-bold text-dark text-uppercase">reg | {{ Auth::user()->stnumber}}</p>
                                         </div>
                                         <div class="per_data px-2">
-                                                <p>Name: Madush Jayasekara</p>
-                                                <p>Contact: 0776000878 (User Name)</p>
-                                                <p>Address: 27/Gampaha</p>
-                                                <p>Gmail: dilshan@gmail.com</p>
-                                                <p>Watsapp: </p>
-                                                <p>2 nd Mobile:</p>
+                                                <p>Name: {{ Auth::user()->fullname }}</p>
+                                                <p>Contact: {{ Auth::user()->contactnumber .'(Whatsapp)' }} </p>
+                                                <p>Address: {{ Auth::user()->address }}</p>
+                                                <p>Gmail: {{ Auth::user()->email }}</p>
+                                                <p>2 nd Mobile:{{ Auth::user()->option_contactnumber }}</p>
                                         </div>
                                 </div>
                         </div>
@@ -329,6 +338,7 @@ Teacher Dashboard
                                                 <table class="table table-bordered">
                                                         <thead>
                                                                 <tr>
+                                                                        <th rowspan="2"></th>
                                                                         <th rowspan="2">AMOUNT</th>
                                                                         <th rowspan="2">STATUS</th>
                                                                         <th colspan="2">Valid Period</th>
@@ -339,23 +349,29 @@ Teacher Dashboard
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
+                                                                @php
+                                                                   $i=1;     
+                                                                @endphp
+                                                                @foreach (getUserPaymentData() as $PaymentData)
                                                                 <tr>
-                                                                        <th>1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th>2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th>3</th>
-                                                                        <td>Larry the Bird</td>
-                                                                        <td>@twitter</td>
-                                                                </tr>
+                                                                        <th>{{ $i }}</th>
+                                                                        <td>{{ $PaymentData->amount  }}</td>
+                                                                        @if ($PaymentData->status == 1)
+                                                                        <td>{{  'PAID' }}</td>
+                                                                        @elseif($PaymentData->status == 2)
+                                                                        <td>{{  'PENDING' }}</td>
+                                                                        @else
+                                                                        <td>{{ 'REJECT' }}</td>
+                                                                        @endif
+                                                                        <td>{{ $PaymentData->start_date}}</td>
+                                                                        <td>{{ $PaymentData->end_date }}</td>
+                                                                </tr> 
+                                                                @php
+                                                                   $i++;     
+                                                                @endphp
+                                                                @endforeach
+                                                               
+                                                                
                                                         </tbody>
                                                 </table>
                                         </div>
@@ -364,7 +380,7 @@ Teacher Dashboard
                         <div class="row">
                                 <div class="col-5">
                                         <div class="text-center">
-                                                <a href="" class="btn btn-danger">Edit Profile</a>
+                                                <a href="{{ route('profile') }}" class="btn btn-danger">Edit Profile</a>
                                         </div>
                                 </div>
                                 <div class="col-7">
