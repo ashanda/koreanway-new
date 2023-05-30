@@ -251,21 +251,18 @@ Teacher Dashboard
         </div>
         <div class="carousel-inner">
                 <div class="carousel-item active" style="background-image: url('{{ asset('images/student/slide1.jpg')}}');">
-                        <!-- <img src="{{ asset('images/student/slide1.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
                                 <p class="h2 text-white">Special Notice</p>
                                 <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                 </div>
                 <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide2.jpg')}}');">
-                        <!-- <img src="{{ asset('images/student/slide2.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
                                 <p class="h2 text-white">Special Notice</p>
                                 <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                 </div>
                 <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide3.jpg')}}');">
-                        <!-- <img src="{{ asset('images/student/slide3.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
                                 <p class="h2 text-white">Special Notice</p>
                                 <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -372,7 +369,7 @@ Teacher Dashboard
                                 </div>
                                 <div class="col-7">
                                         <div class="text-center">
-<a href="" class="btn btn-secondry"></a>
+                                                <a href="" class="btn btn-secondry"></a>
                                         </div>
                                 </div>
                         </div>

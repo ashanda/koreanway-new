@@ -137,7 +137,7 @@
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                 <li class="w-100">
-                    <a href="" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
+                    <a href="{{ route('lessons.index') }}" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
                 </li>
                 <!-- <li class="w-100">
                     <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0">Today Free Live<span class="d-none d-sm-inline"> Classes</span> </a>

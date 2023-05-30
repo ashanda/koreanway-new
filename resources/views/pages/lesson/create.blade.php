@@ -154,9 +154,6 @@ $uniqueRandomNumber = uniqid();
             </div>
 
 
-
-
-
             <!---------------------Video Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
@@ -216,9 +213,6 @@ $uniqueRandomNumber = uniqid();
                     <input type="text" name="no_of_views-video" class="form-control" placeholder="Number of Views">
                 </div>
             </div>
-
-
-
 
             <!---------------------Paper Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">

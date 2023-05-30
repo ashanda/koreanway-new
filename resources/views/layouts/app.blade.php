@@ -20,6 +20,8 @@
 	@include('globle.navigation')
 	<div class="body_content">
 		<div class="container-fluid">
+
+			@if (Auth::guard('admin')->check())
 			<div class="row flex-nowrap">
 				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-main-col">
 
@@ -32,6 +34,32 @@
 					</div>
 				</div>
 			</div>
+			@elseif(Auth::guard('teacher')->check())
+			<div class="row flex-nowrap">
+				<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-main-col">
+
+					@include('globle.sidebar')
+				</div>
+				<div class="col">
+					<div class="py-3">
+						@include('sweetalert::alert')
+						@yield('content')
+					</div>
+				</div>
+			</div>
+
+			@elseif (Auth::guard('student')->check())
+
+			<div class="row flex-nowrap">
+				<div class="col">
+					<div class="py-3">
+						@include('sweetalert::alert')
+						@yield('content')
+					</div>
+				</div>
+			</div>
+			@endif
+
 		</div>
 	</div>
 
