@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\LessonDetailController;
 use App\Http\Controllers\UserPaymentController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,7 +102,7 @@ Route::middleware(['auth.check', 'auth:teacher,admin'])->group(function () {
 });
 //All Acessroutes
 Route::middleware(['auth.check', 'auth:teacher,admin,student'])->group(function () {
-
+    Route::resource('messages', NotificationController::class);
     Route::get('/lesson/{lessontype}', [LessonController::class, 'lesson'])->name('lesson');
     Route::post('/lesson/{lessontype}', [LessonController::class, 'filter'])->name('filter-lessons');
     Route::get('/payment/{paytype}', [UserPaymentController::class, 'paytype'])->name('payment');

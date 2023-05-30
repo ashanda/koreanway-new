@@ -250,27 +250,29 @@ Teacher Dashboard
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('{{ asset('images/student/slide1.jpg')}}');">
+                @php
+                  $i=0;      
+                @endphp
+                @foreach ( getUserNoticeData() as $notice)
+                @php
+                if ($i == 0 ) {
+                        $active = 'active' ;   
+                }    
+                @endphp  
+                     
+               
+                <div class="carousel-item {{ $active }}" style="background-image: url('{{ asset('/notice/img/' . $notice->image) }}');">
                         <!-- <img src="{{ asset('images/student/slide1.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <p class="h2 text-white">{{ $notice->title}}</p>
+                                <p class="h4 text-white">{{ $notice->message}}</p>
                         </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide2.jpg')}}');">
-                        <!-- <img src="{{ asset('images/student/slide2.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
-                        <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('{{ asset('images/student/slide3.jpg')}}');">
-                        <!-- <img src="{{ asset('images/student/slide3.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
-                        <div class="carousel-caption">
-                                <p class="h2 text-white">Special Notice</p>
-                                <p class="h4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        </div>
-                </div>
+                @php
+                    $i++;    
+                @endphp
+                @endforeach
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
