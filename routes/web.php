@@ -47,7 +47,8 @@ Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::post('/process-payment', [UserPaymentController::class, 'saveData'])->name('process.payment');
     Route::get('/smart-class-room', [StudentsController::class, 'smartClass'])->name('smart-class-room');
     Route::get('/smart-class-room/{id}', [StudentsController::class, 'smartClassData'])->name('smartClassData');
-    Route::get('/profile', [StudentsController::class, 'profile'])->name('profile');
+    Route::get('/user-profile', [StudentsController::class, 'profile'])->name('profile');
+    Route::post('/user-profile-update', [StudentsController::class, 'profile'])->name('update-profile');
     Route::get('/investment', [StudentsController::class, 'investment'])->name('investment');
 });
 

@@ -126,6 +126,27 @@ function getUserNoticeData() {
 		return $filteredLessons ;
 }
 
+function getUserPaymentData() {
+    $lessons = UserPayment::all();
+	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
+	
+        $filteredLessons = collect();
+        
+        foreach ($UserCourseDatas as $UserCourseData) {
+            $matchingLesson = $lessons->where('course_id', $UserCourseData->course_id)
+                ->where('batch_id', $UserCourseData->batch_id)
+                ->first();
+        
+            if ($matchingLesson) {
+                $filteredLessons->push($matchingLesson);
+            }
+        }
+		
+        
+
+		return $filteredLessons ;
+}
+
 function getUserCourseData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
 	

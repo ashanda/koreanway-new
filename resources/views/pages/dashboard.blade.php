@@ -302,7 +302,12 @@ Teacher Dashboard
                                                 <a class="text-decoration-none" href="{{ route('profile') }}">
                                                         <p class="h2 id_title">ID REPORT</p>
                                                 </a>
-                                                <img class="w-100 user_img" src="{{ asset('images/student/user.png')}}" alt="">
+                                                @if (Auth::user()->profile_pic == 'null' || Auth::user()->profile_pic == null)
+                                                <img class="w-100 user_img circular-image" src="{{ asset('images/student/user.png')}}" alt="">   
+                                                @else
+                                                <img class="w-100 user_img circular-image" src="{{ asset('profile/' . Auth::user()->profile_pic) }}" alt="">  
+                                                @endif
+                                                
                                                 <p class="h5 id_date text-dark mb-0">registered user</p>
                                                 <p class="h4 id_crtext">korean course</p>
                                         </div>
@@ -310,15 +315,14 @@ Teacher Dashboard
                                 <div class="col-8">
                                         <div class="text-end">
                                                 <p class="h4 text-dark text-uppercase">class team 10</p>
-                                                <p class="h5 fw-bold text-dark text-uppercase">reg | kw.65789</p>
+                                                <p class="h5 fw-bold text-dark text-uppercase">reg | {{ Auth::user()->stnumber}}</p>
                                         </div>
                                         <div class="per_data px-2">
-                                                <p>Name: Madush Jayasekara</p>
-                                                <p>Contact: 0776000878 (User Name)</p>
-                                                <p>Address: 27/Gampaha</p>
-                                                <p>Gmail: dilshan@gmail.com</p>
-                                                <p>Watsapp: </p>
-                                                <p>2 nd Mobile:</p>
+                                                <p>Name: {{ Auth::user()->fullname }}</p>
+                                                <p>Contact: {{ Auth::user()->contactnumber .'(Whatsapp)' }} </p>
+                                                <p>Address: {{ Auth::user()->address }}</p>
+                                                <p>Gmail: {{ Auth::user()->email }}</p>
+                                                <p>2 nd Mobile:{{ Auth::user()->option_contactnumber }}</p>
                                         </div>
                                 </div>
                         </div>
@@ -334,6 +338,7 @@ Teacher Dashboard
                                                 <table class="table table-bordered">
                                                         <thead>
                                                                 <tr>
+                                                                        <th rowspan="2"></th>
                                                                         <th rowspan="2">AMOUNT</th>
                                                                         <th rowspan="2">STATUS</th>
                                                                         <th colspan="2">Valid Period</th>
@@ -344,23 +349,29 @@ Teacher Dashboard
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
+                                                                @php
+                                                                   $i=1;     
+                                                                @endphp
+                                                                @foreach (getUserPaymentData() as $PaymentData)
                                                                 <tr>
-                                                                        <th>1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th>2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <th>3</th>
-                                                                        <td>Larry the Bird</td>
-                                                                        <td>@twitter</td>
-                                                                </tr>
+                                                                        <th>{{ $i }}</th>
+                                                                        <td>{{ $PaymentData->amount  }}</td>
+                                                                        @if ($PaymentData->status == 1)
+                                                                        <td>{{  'PAID' }}</td>
+                                                                        @elseif($PaymentData->status == 2)
+                                                                        <td>{{  'PENDING' }}</td>
+                                                                        @else
+                                                                        <td>{{ 'REJECT' }}</td>
+                                                                        @endif
+                                                                        <td>{{ $PaymentData->start_date}}</td>
+                                                                        <td>{{ $PaymentData->end_date }}</td>
+                                                                </tr> 
+                                                                @php
+                                                                   $i++;     
+                                                                @endphp
+                                                                @endforeach
+                                                               
+                                                                
                                                         </tbody>
                                                 </table>
                                         </div>
@@ -369,7 +380,7 @@ Teacher Dashboard
                         <div class="row">
                                 <div class="col-5">
                                         <div class="text-center">
-                                                <a href="" class="btn btn-danger">Edit Profile</a>
+                                                <a href="{{ route('profile') }}" class="btn btn-danger">Edit Profile</a>
                                         </div>
                                 </div>
                                 <div class="col-7">

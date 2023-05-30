@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('district');
             $table->string('town');
             $table->string('contactnumber');
+            $table->string('option_contactnumber');
+            $table->string('profile_pic');
             $table->string('address');
             $table->string('password');
             $table->timestamps();

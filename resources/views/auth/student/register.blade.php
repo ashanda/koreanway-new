@@ -27,7 +27,7 @@
 
                             for ($i = 0; $i < $code_length; $i++) { $feed_selector=rand(0, $feed_length - 1); $final_code .=substr($code_feed, $feed_selector, 1); } @endphp <label for="stnumber" class="col-md-4 col-form-label-lg text-md-end text-start">Student Number</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control form-control-lg @error('stnumber') is-invalid @enderror" id="stnumber" name="stnumber" value="{{ $final_code }}" readonly>
+                                    <input type="text" class="form-control form-control-lg @error('stnumber') is-invalid @enderror" id="stnumber" name="stnumber" value="{{ 'KW-'.$final_code }}" readonly>
                                     @if ($errors->has('stnumber'))
                                     <span class="text-danger">{{ $errors->first('stnumber') }}</span>
                                     @endif
