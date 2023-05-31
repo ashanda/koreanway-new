@@ -2,10 +2,10 @@
 
 @section('content')
 
-@foreach ($smartClassDatas as $smartClassData)
-    <div class="card" style="width: 18rem;">
+@foreach ($LessonDetails as $LessonDetail)
+    <div class="card" style="width: 88rem;">
         
-        <h5 class="card-title">{{ $smartClassData->title }}</h5>
+       {{ $LessonDetail}}
         
        
         </div>

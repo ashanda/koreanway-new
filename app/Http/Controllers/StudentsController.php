@@ -12,7 +12,7 @@ use App\Models\Student;
 use App\Models\Course;
 use App\Models\Batch;
 use App\Models\UserCourse;
-
+use Illuminate\Support\Facades\Crypt;
 class StudentsController extends Controller
 {
     public function showLoginForm()
@@ -85,12 +85,13 @@ class StudentsController extends Controller
     }
 
 
-   public function smartClassData(Request $request,$id ){
-     $LessonDetail = LessonDetail::where('id', $id)->first();
-     $background = $LessonDetail->background_image;
-     $smartClassDatas = Lesson::where('lesson_id', $LessonDetail->lesson_id)->get();
+   public function smartClassData(Request $request, $encryptedLessonid ){
+    $decryptedData = decrypt($encryptedLessonid);
+    $id = $decryptedData['id'];
+    $LessonDetails = LessonDetail::where('id', $id)->get();
 
-     return view('pages.student.smart-class-view', compact('smartClassDatas','background'));
+   
+     return view('pages.student.smart-class-view', compact('LessonDetails'));
 
    }
 }

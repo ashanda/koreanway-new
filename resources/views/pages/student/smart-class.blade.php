@@ -4,7 +4,7 @@
 
 @foreach ($lessonsPaginated as $lesson)
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->thumbnail) }}" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ $lesson->title }}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -16,7 +16,7 @@
 
         $encryptedLessonid = encrypt(['id' => $lesson->id]);
         @endphp
-        <a href="{{ route('smartClassData',$lesson->id ) }}" class="btn btn-primary">GET LESSEONS CLICK HERE</a>
+        <a href="{{ route('smartClassData',$encryptedLessonid ) }}" class="btn btn-primary">GET LESSEONS CLICK HERE</a>
         <p> VALID PERIODE {{ StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->start_date .'-'. StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->end_date }}</p>
         {{-- <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a> --}}
         @elseif (StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->status == 2)

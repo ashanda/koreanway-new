@@ -10,15 +10,27 @@ class LessonDetail extends Model
     use HasFactory;
     protected $primaryKey = 'id';
     protected $fillable = [
-        'title',
         'lesson_id',
+        'lecture_title',
+        'thumbnail',
+        'background_image',
         'teacher_id',
         'batch_id',
         'course_id',
-        'published_date',
-        'status'
-
+        'video_link',
+        'video_title',
+        'video_description',
+        'live_link',
+        'live_title',
+        'live_description',
+        'mcq_id',
+        'paper_id',
+        'tute',
+        'audio',
+        'extra_video',
+        'extra_youtube',
     ];
+    
 
     public function lessonDetails()
     {

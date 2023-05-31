@@ -141,46 +141,12 @@
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                 <li class="w-100">
-                    <a href="" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
+                    <a href="{{ route('lessons.index') }}" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
                 </li>
-                <!-- <li class="w-100">
-                    <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0">Today Free Live<span class="d-none d-sm-inline"> Classes</span> </a>
+                <li class="w-100">
+                    <a href="{{ route('lessons.create') }}" class="nav-link px-0">Create<span class="d-none d-sm-inline"> Lesson</span> </a>
                 </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="nav-link px-0">Next Month's Free Live<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="nav-link px-0">Next Month's Free <span class="d-none d-sm-inline"> Class
-                            Paper</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="nav-link px-0">All Previous Free<span class="d-none d-sm-inline"> Class
-                            Paper</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="nav-link px-0">This Month's Free Recorded<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="nav-link px-0">All Previous Free Recorded<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="nav-link px-0">Today Paid Live<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="nav-link px-0">Next Month's Paid Live<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="nav-link px-0">This Month's Paid Paper<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="nav-link px-0">All Previous Paid Paper<span class="d-none d-sm-inline"> Classes</span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="nav-link px-0">This Month's Recordings<span class="d-none d-sm-inline"></span> </a>
-                </li>
-                <li>
-                    <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0">All Previous Recordings<span class="d-none d-sm-inline"></span> </a>
-                </li> -->
+                
             </ul>
         </li>
         <li>

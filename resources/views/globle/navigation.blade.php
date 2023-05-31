@@ -17,7 +17,13 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
                     <li class="nav-item dropdown-item">
-                        <a href="../index.php">Go Home Page</a>
+                        @if(Auth::guard('student')->check())
+                        <a href="{{ route('dashboard') }}">Go Home Page</a>
+                        @elseif(Auth::guard('teacher')->check())
+                        <a href="{{ route('teacher_dashboard') }}">Go Home Page</a>
+                        @elseif(Auth::guard('admin')->check())
+                        <a href="{{ route('admin_dashboard') }}">Go Home Page</a>
+                        @endif
                     </li>
                     @if(Auth::guard('student')->check())
                     <li class="nav-item dropdown-item">

@@ -187,12 +187,13 @@
 
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $lesson->title }}</td>
+                <td>{{ $lesson->lecture_title }}</td>
                 <td>{{ getTeacherData($lesson->teacher_id)->name }}</td>
                 <td>{{ getBatchData($lesson->batch_id)->name }}</td>
                 <td>{{ getCourseData($lesson->course_id)->name }}</td>
+                <td><img width="50" src="{{ asset('/lesson/img/' . $lesson->background_image) }}" alt="Class Image"></td>
                 <td>{{ $lesson->published_date }}</td>
-                <td><img width="50" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Class Image"></td>
+                
                 <td>{{ $lesson->status }}</td>
                 <td>
                     <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">

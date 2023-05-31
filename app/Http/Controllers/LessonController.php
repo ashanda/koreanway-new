@@ -78,72 +78,94 @@ class LessonController extends Controller
 
     public function store(Request $request)
     {
-           
-        
-        // if ($request->input('is_live_lesson') === '1') {
-        //     $lesson = new Lesson();
-        //     $lesson->lesson_id = $request->input('lesson_id');
-        //     $lesson->title = $request->input('live_title');
-        //     $lesson->classtype = $request->input('live');
-        //     $lesson->paytype = $request->input('paytype-live');
-        //     $lesson->link = $request->input('link-live');
-        //     $lesson->password = $request->input('password-live');
-        //     $lesson->save();
-            
-        // }
-        // if ($request->input('is_video_lesson') === '1'){
-        //     $lesson = new Lesson();
-        //     $lesson->lesson_id = $request->input('lesson_id');
-        //     $lesson->title = $request->input('title-video');
-        //     $lesson->classtype = $request->input('video');
-        //     $lesson->paytype = $request->input('paytype-video');
-        //     $lesson->available_days = $request->input('available_days-video');
-        //     $lesson->no_of_views = $request->input('no_of_views-video');
-        //     $lesson->save(); 
+         
+        // Store the lesson in the database
+        $lesson = new LessonDetail;
+        $lesson->lesson_id = $request->input('lesson_id');
+        $lesson->lecture_title = $request->input('lesson_title');
+        $lesson->teacher_id = $request->input('teacher_id-live');
+        $lesson->batch_id = $request->input('batch_id-live');
+        $lesson->course_id = $request->input('course_id-live');
+        $lesson->published_date = $request->input('published_date-live');
+        $lesson->status = $request->input('status-live');
 
-        // }
-        // if ($request->input('is_paper_lesson') === '1') {
-        //     $lesson = new Lesson();
-        //     $lesson->lesson_id = $request->input('lesson_id');
-        //     $lesson->title = $request->input('title-paper');
-        //     $lesson->classtype = $request->input('lesson-type-paper');
-        //     $lesson->paytype = $request->input('paytype-paper');
-
-        //     $lesson->teacher_id = $request->input('lesson-live');
-        //     $lesson->batch_id = $request->input('link-live');
-        //     $lesson->course_id = $request->input('password-live');
-
-        //     if ($request->file('doc')) {
-        //         $file = $request->file('doc');
-        //         $filename = date('YmdHi') . $file->getClientOriginalName();
-        //         $file->move(public_path('/lesson/doc'), $filename);
-        //         $lesson->doc = $filename;
-        //         $lesson->save();
-        //     }
-
-
-        // }
-
-        $lessonDetails = new LessonDetail();
-        $lessonDetails->lesson_id = $request->input('lesson_id');
-        $lessonDetails->title = $request->input('lesson_title');
-        $lessonDetails->published_date = $request->input('published_date-live');
-        $lessonDetails->teacher_id = $request->input('teacher_id-live');
-        $lessonDetails->batch_id = $request->input('batch_id-live');
-        $lessonDetails->course_id = $request->input('course_id-live');    
-        $lessonDetails->status = $request->input('status-live');
-        
+        // Handle image upload
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('/lesson/img'), $filename);
-            $lessonDetails->image = $filename;
-            $lessonDetails->save();
+            $lesson->background_image = $filename;
+
+        }
+        // Hndles thumbnail
+        if ($request->file('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('/lesson/thumbnail'), $filename);
+            $lesson->thumbnail = $filename;
+
         }
 
-        
-        return redirect()->route('lesson.index')->with('success', 'Class created successfully.');
+        // Handle live lesson
+        if ($request->input('is_live_lesson') == 1) {
+            $lesson->live_title = $request->input('live_title');
+            $lesson->live_description = $request->input('live_description');
+            $lesson->live_link = $request->input('link_live');
+          
+        }
+
+        // Handle video lesson
+        if ($request->input('is_video_lesson') == 1) {
+            $lesson->video_title = $request->input('title_video');
+            $lesson->video_description = $request->input('video_description');
+            $lesson->video_link = $request->input('link_video');
+        }
+
+        // Handle MCQ exam
+    if ($request->input('is_mcq_exam') == 1) {
+        $lesson->mcq_id = $request->input('mcq_id');
     }
+
+    // Handle paper exam
+    if ($request->input('is_paper_exam') == 1) {
+        $lesson->paper_id = $request->input('paper_id');
+    }
+
+    // Handle tute file upload
+    if ($request->file('tute')) {
+        $file = $request->file('tute');
+        $filename = date('YmdHi') . $file->getClientOriginalName();
+        $file->move(public_path('/lesson/tute'), $filename);
+        $lesson->tute = $filename;
+
+    }
+
+    // Handle audio file upload
+    if ($request->file('audio')) {
+        $file = $request->file('audio');
+        $filename = date('YmdHi') . $file->getClientOriginalName();
+        $file->move(public_path('/lesson/audio'), $filename);
+        $lesson->audio = $filename;
+
+    }
+   
+
+    // Handle extra video lesson
+    if ($request->input('is_extra_video_lesson') == 1) {
+        $lesson->extra_video = $request->input('link_extra_video');
+    }
+
+    // Handle extra Youtebe video lesson
+    if ($request->input('is_extra_youtube_video_lesson') == 1) {
+        $lesson->extra_youtube = $request->input('link_extra_youtube_video');
+    }
+    // Save the lesson in the database
+    $lesson->save();
+        
+        return redirect()->route('lessons.index')->with('success', 'Class created successfully.');
+    }
+
+
 
     public function show(Lesson $lesson)
     {

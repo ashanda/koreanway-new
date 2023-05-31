@@ -43,7 +43,7 @@ $uniqueRandomNumber = uniqid();
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="teacher_id" class="form-label">Teacher ID:</label>
+                    <label for="teacher_id" class="form-label">Teacher:</label>
                     <select class="form-control" name="teacher_id-live" id="teacher_id">
                         @foreach($teacher_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
@@ -53,7 +53,7 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="batch_id" class="form-label">Batch Id:</label>
+                    <label for="batch_id" class="form-label">Batch:</label>
                     <select class="form-control" name="batch_id-live" id="batch_id">
                         @foreach($batch_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
@@ -63,7 +63,7 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="course_id" class="form-label">Course Id:</label>
+                    <label for="course_id" class="form-label">Course:</label>
                     <select class="form-control" name="course_id-live" id="course_id">
                         @foreach($course_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
@@ -73,10 +73,17 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label class="form-label">Class Image</label>
+                    <label class="form-label">Background Image</label>
                     <input type="file" name="image" class="form-control">
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Thumbnail</label>
+                    <input type="file" name="thumbnail" class="form-control">
+                </div>
+            </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Pubished date</label>
@@ -112,51 +119,24 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label class="form-label">Class Title</label>
+                    <label class="form-label">Live Lesson Title</label>
                     <input type="text" name="live_title" class="form-control" placeholder="Class Title">
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="classtype" class="form-label">Lesson Type:</label>
-                    <input type="text" name="live" class="form-control" value="Live" readonly>
-
+                    <label for="classtype" class="form-label">Live Lesson Description</label>
+                    <textarea name="live_description" class="form-control" ></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="paytype" class="form-label">Payement Type:</label>
-                    <select class="form-control" name="paytype-live" id="paytype">
-                        <option value="Paid">Paid</option>
-                        <option value="Free">Free</option>
-                    </select>
+                    <label class="form-label">Live Lesson Link</label>
+                    <input type="text" name="link_live" class="form-control" placeholder="Class Link">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Class Lesson</label>
-                    <input type="text" name="lesson-live" class="form-control" placeholder="Class Lesson">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Class Link</label>
-                    <input type="text" name="link-live" class="form-control" placeholder="Class Link">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="text" name="password-live" class="form-control" placeholder="Password">
-                </div>
-            </div>
-
-
-
-
-
+            
             <!---------------------Video Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
@@ -177,62 +157,96 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label class="form-label">Class Title</label>
-                    <input type="text" name="title-video" class="form-control" placeholder="Class Title">
+                    <label class="form-label">Video Lesson Title</label>
+                    <input type="text" name="title_video" class="form-control" placeholder="Class Title">
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="classtype" class="form-label">Lesson Type:</label>
-                    <input type="text" class="form-control" name="video" value="Video" readonly>
+                    <label for="classtype" class="form-label">Video Lesson Description</label>
+                    <textarea class="form-control" name="video_description" ></textarea>
+
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="paytype" class="form-label">Payement Type:</label>
-                    <select class="form-control" name="paytype-video" id="paytype">
-                        <option value="Paid">Paid</option>
-                        <option value="Free">Free</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Class Lesson</label>
-                    <input type="text" name="lesson-video" class="form-control" placeholder="Class Lesson">
+                    <label class="form-label">Video Lesson Link</label>
+                    <input type="text" name="link_video" class="form-control" placeholder="Video Link">
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Available Days</label>
-                    <input type="text" name="available_days-video" class="form-control" placeholder="Available Days">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label class="form-label">Number of Views</label>
-                    <input type="text" name="no_of_views-video" class="form-control" placeholder="Number of Views">
-                </div>
-            </div>
-
-
-
-
-            <!---------------------Paper Lessons------------------------>
+            <!---------------------MCQ Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
-                    <label for="is_paper_lesson" class="form-label">Is Paper Lesson:</label>
+                    <label for="is_mcq_exam" class="form-label">Is MCQ Exam:</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_true" value="1" checked>
-                        <label class="form-label ms-2" for="paper_lesson_true">
+                        <input class="form-check-input" type="radio" name="is_mcq_exam" id="mcq_exam_true" value="1" checked>
+                        <label class="form-label ms-2" for="mcq_exam_true">
                             True
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="is_paper_lesson" id="paper_lesson_false" value="0">
-                        <label class="form-label ms-2" for="paper_lesson_false">
+                        <input class="form-check-input" type="radio" name="is_mcq_exam" id="mcq_exam_false" value="0">
+                        <label class="form-label ms-2" for="mcq_exam_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="mcq_id" class="form-label">Add MCQ:</label>
+                    <select class="form-control" name="mcq_id" id="mcq_id">
+                        <option value="123">MCQ1</option>
+                        <option value="124">MCQ2</option>
+                    </select>
+                </div>
+            </div>
+
+            <!---------------------Paper Exam------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_paper_exam" class="form-label">Is Paper Exam:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_paper_exam" id="paper_exam_true" value="1" checked>
+                        <label class="form-label ms-2" for="paper_exam_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_paper_exam" id="paper_exam_false" value="0">
+                        <label class="form-label ms-2" for="paper_exam_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label for="mcq_id" class="form-label">Add Paper:</label>
+                    <select class="form-control" name="mcq_id" id="mcq_id">
+                        <option value="123">Paper 1</option>
+                        <option value="124">Paper 2</option>
+                    </select>
+                </div>
+            </div>
+
+        <!---------------------tute------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_tute" class="form-label">Is Tute:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_tute" id="tute_true" value="1" checked>
+                        <label class="form-label ms-2" for="tute_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_tute" id="tute_false" value="0">
+                        <label class="form-label ms-2" for="tute_false">
                             False
                         </label>
                     </div>
@@ -240,34 +254,91 @@ $uniqueRandomNumber = uniqid();
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label class="form-label">Class Title</label>
-                    <input type="text" name="title-paper" class="form-control" placeholder="Class Title">
+                    <label class="form-label">Tute</label>
+                    <input type="file" name="tute" class="form-control">
+                </div>
+            </div>
 
+
+            <!---------------------audio------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_audio" class="form-label">Is Audio :</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_audio" id="audio_true" value="1" checked>
+                        <label class="form-label ms-2" for="audio_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_audio" id="audio_false" value="0">
+                        <label class="form-label ms-2" for="audio_false">
+                            False
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label for="classtype" class="form-label">Lesson Type:</label>
-                    <input type="text" class="form-control" name="lesson-type-paper" value="Paper" readonly>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="form-group mb-3">
-                    <label for="paytype" class="form-label">Payement Type:</label>
-                    <select class="form-control" name="paytype-paper" id="paytype">
-                        <option value="Paid">Paid</option>
-                        <option value="Free">Free</option>
-                    </select>
+                    <label class="form-label">Audio File</label>
+                    <input type="file" name="audio" class="form-control">
                 </div>
             </div>
 
+
+            <!---------------------Extra Video Lesson------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_extra_video_lesson" class="form-label">Is Extra Video Lesson:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_extra_video_lesson" id="extra_video_lesson_true" value="1" checked>
+                        <label class="ms-2 form-label" for="extra_video_lesson_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_extra_video_lesson" id="extra_video_lesson_false" value="0">
+                        <label class="ms-2 form-label" for="extra_video_lesson_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+           
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
-                    <label class="form-label">Class Document</label>
-                    <input type="file" name="doc-paper" class="form-control">
+                    <label class="form-label">Extra Video Lesson Link</label>
+                    <input type="text" name="link_extra_video" class="form-control" placeholder="Extra Video Link">
                 </div>
             </div>
 
+
+            <!---------------------Extra Youtube Video Lesson------------------------>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group mb-3">
+                    <label for="is_extra_youtube_video_lesson" class="form-label">Is Extra Youtube Video Lesson:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_extra_youtube_video_lesson" id="extra_youtube_video_lesson_true" value="1" checked>
+                        <label class="ms-2 form-label" for="extra_youtube_video_lesson_true">
+                            True
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is_extra_youtube_video_lesson" id="extra_youtube_video_lesson_false" value="0">
+                        <label class="ms-2 form-label" for="extra_youtube_video_lesson_false">
+                            False
+                        </label>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group mb-3">
+                    <label class="form-label">Extra Youtube Video Lesson Link</label>
+                    <input type="text" name="link_extra_youtube_video" class="form-control" placeholder="Extra Youtube Video Link">
+                </div>
+            </div>
+           
             <div class="col-xs-12 col-sm-12 col-md-12 text-end">
                 <button class="btn btn-success" type="submit" id="submit">Save Lesson</button>
             </div>
