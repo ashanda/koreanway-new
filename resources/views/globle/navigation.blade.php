@@ -2,12 +2,32 @@
 <header class="header clearfix">
 
     <div class="main_logo" id="logo">
-        <a href="/profile/student_profile.php">
+        @if(Auth::guard('student')->check())
+        <a href="{{ route('dashboard') }}">
             <img src="{{ asset('images/logo.png') }}" alt="">
         </a>
-        <a href="/profile/student_profile.php">
+        <a href="{{ route('dashboard') }}">
             <img class="logo-inverse" src="{{ asset('images/ct_logo.png') }}" alt="">
         </a>
+        
+        @elseif(Auth::guard('teacher')->check())
+        <a href="{{ route('teacher_dashboard') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="">
+        </a>
+        <a href="{{ route('teacher_dashboard') }}">
+            <img class="logo-inverse" src="{{ asset('images/ct_logo.png') }}" alt="">
+        </a>
+                
+        @elseif(Auth::guard('admin')->check())
+        <a href="{{ route('admin_dashboard') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="">
+        </a>
+        <a href="{{ route('admin_dashboard') }}">
+            <img class="logo-inverse" src="{{ asset('images/ct_logo.png') }}" alt="">
+        </a>
+                
+        @endif
+       
     </div>
     <div class="header_right">
         <ul class="nav">

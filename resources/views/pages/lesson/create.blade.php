@@ -136,7 +136,11 @@ $uniqueRandomNumber = uniqid();
                     <input type="text" name="link_live" class="form-control" placeholder="Class Link">
                 </div>
             </div>
-            
+
+
+
+
+
             <!---------------------Video Lessons------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
@@ -260,7 +264,9 @@ $uniqueRandomNumber = uniqid();
             </div>
 
 
-            <!---------------------audio------------------------>
+
+
+            <!---------------------Audio------------------------>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_audio" class="form-label">Is Audio :</label>

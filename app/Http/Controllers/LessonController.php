@@ -17,7 +17,7 @@ class LessonController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
+    {   
         $lessons = LessonDetail::latest()->paginate(5);
         
         // $type = $request->query('lessontype');
@@ -224,7 +224,7 @@ class LessonController extends Controller
     {
         $lesson->delete();
 
-        return redirect()->route('lesson.index')->with('success', 'Class deleted successfully');
+        return redirect()->route('lessons.index')->with('success', 'Class deleted successfully');
     }
 
 

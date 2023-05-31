@@ -385,7 +385,7 @@ Teacher Dashboard
                                 </div>
                                 <div class="col-7">
                                         <div class="text-center">
-<a href="" class="btn btn-secondry"></a>
+                                                <a href="" class="btn btn-secondry"></a>
                                         </div>
                                 </div>
                         </div>

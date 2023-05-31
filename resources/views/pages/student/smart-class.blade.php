@@ -4,7 +4,7 @@
 
 @foreach ($lessonsPaginated as $lesson)
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->thumbnail) }}" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->image) }}" alt="Card image cap">
     <div class="card-body">
         <h5 class="card-title">{{ $lesson->title }}</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -26,13 +26,21 @@
         @endif
         @endif
 
+                </div>
+            </div>
+        </div>
     </div>
+    @endforeach
+    
 </div>
+
+
+
 <!-- Display lesson information -->
 
 
 <!-- Add more fields as needed -->
-@endforeach
+
 
 
 <div class="modal" id="paymentModal" tabindex="-1" role="dialog">
