@@ -146,7 +146,7 @@
                 <li class="w-100">
                     <a href="{{ route('lessons.create') }}" class="nav-link px-0">Create<span class="d-none d-sm-inline"> Lesson</span> </a>
                 </li>
-                
+
             </ul>
         </li>
         <li>

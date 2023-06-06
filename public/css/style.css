@@ -8544,9 +8544,9 @@ a.nav-icon-list:hover {
     width: 100%;
 }
 
-.sign_form label {
+/* .sign_form label {
     margin-top: 15px;
-}
+} */
 
 .single-form label {
     float: left;
@@ -8646,7 +8646,9 @@ a.nav-icon-list:hover {
 
 .body_content {
     margin-top: 70px;
+    min-height: calc(100vh - 115px);
 }
+
 
 .header_right .nav-item a {
     text-decoration: none;
@@ -8793,6 +8795,7 @@ td {
 
 .vid_sec {
     position: relative;
+    margin-bottom: -3px;
 }
 
 .bg-lock {
@@ -8861,3 +8864,50 @@ td {
         font-size: 20px;
     }
 }
+
+/* Single lesson animation */
+.btn:hover {
+    color: #fff;
+}
+
+.btn:after {
+    color: #fff;
+}
+
+.bg-tpdark {
+    background-color: #000000a6;
+}
+
+.hover-3d {
+    transition: 0.5s;
+}
+
+.hover-3d:hover {
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.79);
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.79);
+}
+
+@keyframes infinite-zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.infinite-zoom {
+    animation: infinite-zoom 2s infinite;
+}
+
+.pl_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

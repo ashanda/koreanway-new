@@ -14,8 +14,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
         <div class="form-group mb-3">
             <label class="form-label">Title</label>
-            <input type="text" name="title" value="{{ $message->title }}" class="form-control" placeholder="Notice Title">
-            
+            <input type="text" name="title" value="{{ $message->title }}" class="form-control form-control-lg" placeholder="Notice Title">
+
         </div>
     </div>
     <div>
@@ -41,14 +41,14 @@
         <label for="message">Status:</label>
         <select name="status">
             @php
-               $status = $message->status;
+            $status = $message->status;
             @endphp
             @if ($status == 1)
-             
-             <option value="1">Publish</option>
-             <option value="2">Unpublish</option>
+
+            <option value="1">Publish</option>
+            <option value="2">Unpublish</option>
             @else
-            
+
             <option value="2">Unpublish</option>
             <option value="1">Publish</option>
             @endif

@@ -251,16 +251,16 @@ Teacher Dashboard
         </div>
         <div class="carousel-inner">
                 @php
-                  $i=0;      
+                $i=0;
                 @endphp
                 @foreach ( getUserNoticeData() as $notice)
                 @php
                 if ($i == 0 ) {
-                        $active = 'active' ;   
-                }    
-                @endphp  
-                     
-               
+                $active = 'active' ;
+                }
+                @endphp
+
+
                 <div class="carousel-item {{ $active }}" style="background-image: url('{{ asset('/notice/img/' . $notice->image) }}');">
                         <!-- <img src="{{ asset('images/student/slide1.jpg')}}" class="d-block w-100" alt="Koreanway"> -->
                         <div class="carousel-caption">
@@ -269,7 +269,7 @@ Teacher Dashboard
                         </div>
                 </div>
                 @php
-                    $i++;    
+                $i++;
                 @endphp
                 @endforeach
 
@@ -303,11 +303,11 @@ Teacher Dashboard
                                                         <p class="h2 id_title">ID REPORT</p>
                                                 </a>
                                                 @if (Auth::user()->profile_pic == 'null' || Auth::user()->profile_pic == null)
-                                                <img class="w-100 user_img circular-image" src="{{ asset('images/student/user.png')}}" alt="">   
+                                                <img class="w-100 user_img circular-image" src="{{ asset('images/student/user.png')}}" alt="">
                                                 @else
-                                                <img class="w-100 user_img circular-image" src="{{ asset('profile/' . Auth::user()->profile_pic) }}" alt="">  
+                                                <img class="w-100 user_img circular-image" src="{{ asset('profile/' . Auth::user()->profile_pic) }}" alt="">
                                                 @endif
-                                                
+
                                                 <p class="h5 id_date text-dark mb-0">registered user</p>
                                                 <p class="h4 id_crtext">korean course</p>
                                         </div>
@@ -350,36 +350,36 @@ Teacher Dashboard
                                                         </thead>
                                                         <tbody>
                                                                 @php
-                                                                   $i=1;     
+                                                                $i=1;
                                                                 @endphp
                                                                 @foreach (getUserPaymentData() as $PaymentData)
                                                                 <tr>
                                                                         <th>{{ $i }}</th>
                                                                         <td>{{ $PaymentData->amount  }}</td>
                                                                         @if ($PaymentData->status == 1)
-                                                                        <td>{{  'PAID' }}</td>
+                                                                        <td>{{ 'PAID' }}</td>
                                                                         @elseif($PaymentData->status == 2)
-                                                                        <td>{{  'PENDING' }}</td>
+                                                                        <td>{{ 'PENDING' }}</td>
                                                                         @else
                                                                         <td>{{ 'REJECT' }}</td>
                                                                         @endif
                                                                         <td>{{ $PaymentData->start_date}}</td>
                                                                         <td>{{ $PaymentData->end_date }}</td>
-                                                                </tr> 
+                                                                </tr>
                                                                 @php
-                                                                   $i++;     
+                                                                $i++;
                                                                 @endphp
                                                                 @endforeach
-                                                               
-                                                                
+
+
                                                         </tbody>
                                                 </table>
                                         </div>
                                 </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                                 <div class="col-5">
-                                        <div class="text-center">
+                                        <div class="text-left">
                                                 <a href="{{ route('profile') }}" class="btn btn-danger">Edit Profile</a>
                                         </div>
                                 </div>

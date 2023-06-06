@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
             <h3>Add New Class</h3>
         </div>
@@ -31,12 +31,12 @@ $uniqueRandomNumber = uniqid();
 <div class="row">
 
     <form id="form1" action="{{ route('lessons.store') }}" method="POST" enctype="multipart/form-data">
-        <div class="row">
+        <div class="row pb-2 border-bottom mb-4">
             @csrf
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Lesson Title</label>
-                    <input type="text" name="lesson_title" class="form-control" placeholder="Class Title">
+                    <input type="text" name="lesson_title" class="form-control form-control-lg" placeholder="Class Title">
                     <input type="hidden" name="lesson_id" value=" {{ $uniqueRandomNumber }}" readonly>
                 </div>
             </div>
@@ -44,7 +44,7 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="teacher_id" class="form-label">Teacher:</label>
-                    <select class="form-control" name="teacher_id-live" id="teacher_id">
+                    <select class="form-control form-control-lg" name="teacher_id-live" id="teacher_id">
                         @foreach($teacher_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
                         @endforeach
@@ -54,7 +54,7 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="batch_id" class="form-label">Batch:</label>
-                    <select class="form-control" name="batch_id-live" id="batch_id">
+                    <select class="form-control form-control-lg" name="batch_id-live" id="batch_id">
                         @foreach($batch_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
                         @endforeach
@@ -64,7 +64,7 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="course_id" class="form-label">Course:</label>
-                    <select class="form-control" name="course_id-live" id="course_id">
+                    <select class="form-control form-control-lg" name="course_id-live" id="course_id">
                         @foreach($course_data as $data )
                         <option value="{{$data->id}}">{{$data->name}}</option>
                         @endforeach
@@ -74,32 +74,34 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Background Image</label>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" class="form-control form-control-lg">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Thumbnail</label>
-                    <input type="file" name="thumbnail" class="form-control">
+                    <input type="file" name="thumbnail" class="form-control form-control-lg">
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Pubished date</label>
-                    <input type="date" name="published_date-live" class="form-control" placeholder="published date">
+                    <input type="date" name="published_date-live" class="form-control form-control-lg" placeholder="published date">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="status" class="form-label">Status:</label>
-                    <select class="form-control" name="status-live" id="status">
+                    <select class="form-control form-control-lg" name="status-live" id="status">
                         <option value="1">Publish</option>
                         <option value="0">Unpublish</option>
                     </select>
                 </div>
             </div>
-            <!---------------------Live Lessons------------------------>
+        </div>
+        <!---------------------Live Lessons------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_live_lesson" class="form-label">Is Live Lesson:</label>
@@ -120,28 +122,25 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Live Lesson Title</label>
-                    <input type="text" name="live_title" class="form-control" placeholder="Class Title">
+                    <input type="text" name="live_title" class="form-control form-control-lg" placeholder="Class Title">
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="classtype" class="form-label">Live Lesson Description</label>
-                    <textarea name="live_description" class="form-control" ></textarea>
+                    <textarea name="live_description" class="form-control form-control-lg"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Live Lesson Link</label>
-                    <input type="text" name="link_live" class="form-control" placeholder="Class Link">
+                    <input type="text" name="link_live" class="form-control form-control-lg" placeholder="Class Link">
                 </div>
             </div>
-
-
-
-
-
-            <!---------------------Video Lessons------------------------>
+        </div>
+        <!---------------------Video Lessons------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_video_lesson" class="form-label">Is Video Lesson:</label>
@@ -162,25 +161,26 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Video Lesson Title</label>
-                    <input type="text" name="title_video" class="form-control" placeholder="Class Title">
+                    <input type="text" name="title_video" class="form-control form-control-lg" placeholder="Class Title">
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="classtype" class="form-label">Video Lesson Description</label>
-                    <textarea class="form-control" name="video_description" ></textarea>
+                    <textarea class="form-control form-control-lg" name="video_description"></textarea>
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Video Lesson Link</label>
-                    <input type="text" name="link_video" class="form-control" placeholder="Video Link">
+                    <input type="text" name="link_video" class="form-control form-control-lg" placeholder="Video Link">
                 </div>
             </div>
-
-            <!---------------------MCQ Lessons------------------------>
+        </div>
+        <!---------------------MCQ Lessons------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_mcq_exam" class="form-label">Is MCQ Exam:</label>
@@ -198,18 +198,19 @@ $uniqueRandomNumber = uniqid();
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="mcq_id" class="form-label">Add MCQ:</label>
-                    <select class="form-control" name="mcq_id" id="mcq_id">
+                    <select class="form-control form-control-lg" name="mcq_id" id="mcq_id">
                         <option value="123">MCQ1</option>
                         <option value="124">MCQ2</option>
                     </select>
                 </div>
             </div>
-
-            <!---------------------Paper Exam------------------------>
+        </div>
+        <!---------------------Paper Exam------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_paper_exam" class="form-label">Is Paper Exam:</label>
@@ -227,18 +228,19 @@ $uniqueRandomNumber = uniqid();
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="mcq_id" class="form-label">Add Paper:</label>
-                    <select class="form-control" name="mcq_id" id="mcq_id">
+                    <select class="form-control form-control-lg" name="mcq_id" id="mcq_id">
                         <option value="123">Paper 1</option>
                         <option value="124">Paper 2</option>
                     </select>
                 </div>
             </div>
-
+        </div>
         <!---------------------tute------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_tute" class="form-label">Is Tute:</label>
@@ -259,14 +261,12 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Tute</label>
-                    <input type="file" name="tute" class="form-control">
+                    <input type="file" name="tute" class="form-control form-control-lg">
                 </div>
             </div>
-
-
-
-
-            <!---------------------Audio------------------------>
+        </div>
+        <!---------------------Audio------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_audio" class="form-label">Is Audio :</label>
@@ -287,12 +287,12 @@ $uniqueRandomNumber = uniqid();
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Audio File</label>
-                    <input type="file" name="audio" class="form-control">
+                    <input type="file" name="audio" class="form-control form-control-lg">
                 </div>
             </div>
-
-
-            <!---------------------Extra Video Lesson------------------------>
+        </div>
+        <!---------------------Extra Video Lesson------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_extra_video_lesson" class="form-label">Is Extra Video Lesson:</label>
@@ -310,16 +310,16 @@ $uniqueRandomNumber = uniqid();
                     </div>
                 </div>
             </div>
-           
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Extra Video Lesson Link</label>
-                    <input type="text" name="link_extra_video" class="form-control" placeholder="Extra Video Link">
+                    <input type="text" name="link_extra_video" class="form-control form-control-lg" placeholder="Extra Video Link">
                 </div>
             </div>
-
-
-            <!---------------------Extra Youtube Video Lesson------------------------>
+        </div>
+        <!---------------------Extra Youtube Video Lesson------------------------>
+        <div class="row pb-2 border-bottom mb-4">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group mb-3">
                     <label for="is_extra_youtube_video_lesson" class="form-label">Is Extra Youtube Video Lesson:</label>
@@ -337,19 +337,21 @@ $uniqueRandomNumber = uniqid();
                     </div>
                 </div>
             </div>
-           
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Extra Youtube Video Lesson Link</label>
-                    <input type="text" name="link_extra_youtube_video" class="form-control" placeholder="Extra Youtube Video Link">
+                    <input type="text" name="link_extra_youtube_video" class="form-control form-control-lg" placeholder="Extra Youtube Video Link">
                 </div>
             </div>
-           
+        </div>
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 text-end">
                 <button class="btn btn-success" type="submit" id="submit">Save Lesson</button>
             </div>
         </div>
-    </form>
+</div>
+</form>
 </div>
 
 <script>

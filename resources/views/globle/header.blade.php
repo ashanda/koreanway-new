@@ -19,12 +19,12 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 <style>
-	.btn-primary,
+	/* .btn-primary,
 	.btn-primary:hover {
 		background-color: #2E9D8A;
 		border-color: #2E9D8A;	
 		color: #ffffff;
-	}
+	} */
 </style>
 
 </head>

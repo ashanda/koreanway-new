@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
             <h3>Add New Batch</h3>
         </div>
@@ -30,19 +30,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group mb-3">
                 <label class="form-label">Batch Name:</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group mb-3">
                 <label class="form-label">Fee:</label>
-                <input type="text" name="fee" class="form-control" placeholder="Fee">
+                <input type="text" name="fee" class="form-control form-control-lg" placeholder="Fee">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group mb-3">
                 <label for="status" class="form-label">Status:</label>
-                <select class="form-control" name="status" id="status">
+                <select class="form-control form-control-lg" name="status" id="status">
                     <option value="1">Publish</option>
                     <option value="0">Unpublish</option>
                 </select>
@@ -51,7 +51,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group mb-3">
                 <label for="status" class="form-label">Status:</label>
-                <select class="form-control" name="visible" id="visible">
+                <select class="form-control form-control-lg" name="visible" id="visible">
                     <option value="1">Visible</option>
                     <option value="0">Unvisible</option>
                 </select>

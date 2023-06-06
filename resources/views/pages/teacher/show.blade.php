@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
             <h4> Show Teacher</h4>
         </div>

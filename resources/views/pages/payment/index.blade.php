@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-  <div class="col-lg-12 margin-tb">
+  <div class="col-lg-12 margin-tb mb-2">
     <div class="float-start">
       <h3>{{ $title }}</h3>
     </div>
@@ -150,7 +150,7 @@
         <td>{{ $payment->start_date }}</td>
         <td>{{ $payment->end_date }}</td>
         <td>
-          <form action="{{ route('lesson.destroy',$payment->id) }}" method="POST">
+          <form action="{{ route('lessons.destroy',$payment->id) }}" method="POST">
 
             <a id="payment-history-btn" data-id="{{ $payment->student_id }}" class="btn payment-history-btn btn-info">Payment History</a>
 

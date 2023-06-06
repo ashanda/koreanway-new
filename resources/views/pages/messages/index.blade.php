@@ -13,30 +13,31 @@
 </div>
 
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Course</th>
-            <th>Batch</th>
-            <th>Message</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($messages as $message)
+<div class="table-responsive mt-2">
+    <table id="dataTable" class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Title</th>
+                <th>Course</th>
+                <th>Batch</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($messages as $message)
             <tr>
                 <td>{{ $message->title }}</td>
                 <td>{{ $message->course_id }}</td>
                 <td>{{ $message->batch_id }}</td>
                 <td>{{ $message->message }}</td>
                 @if ($message->status == 1)
-                <td>{{ 'Published' }}</td> 
+                <td>{{ 'Published' }}</td>
                 @else
                 <td>{{ 'Unpublished' }}</td>
                 @endif
-                
+
                 <td>
                     <a href="{{ route('messages.show', $message) }}">View</a>
                     <a href="{{ route('messages.edit', $message) }}">Edit</a>
@@ -47,9 +48,10 @@
                     </form>
                 </td>
             </tr>
-        @endforeach
-    </tbody>
-</table>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 
 @endsection

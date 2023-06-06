@@ -26,25 +26,63 @@
                         <br><button name="fil_bt" type="submit" class="btn btn-dark">Filter</button>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="_14d25">
-                    <div class="row">
-                        
-                        @foreach ( $lessons as $lesson)
-                        <div class="col-lg-3 col-md-4">
-                            <div class="fcrse_1 mt-30">
-                                <a href="#" class="fcrse_img">
-                                    <img src="{{ asset('/lesson/img/' . $lesson->image) }}" class="pro_pick2">
-                                    <div class="course-overlay">
-                                        <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
-                                        <div class="crse_reviews">
-                                            <i class="fa fa-check-circle"></i> May
-                                        </div>
+        </div>
+        <div class="col-md-12">
+            <div class="_14d25">
+                <div class="row">
 
-                                        <div class="crse_timer">
-                                            Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                    @foreach ( $lessons as $lesson)
+                    <div class="col-lg-3 col-md-4">
+                        <div class="fcrse_1 mt-30">
+                            <a href="#" class="fcrse_img">
+                                <img src="{{ asset('/lesson/img/' . $lesson->image) }}" class="pro_pick2">
+                                <div class="course-overlay">
+                                    <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
+                                    <div class="crse_reviews">
+                                        <i class="fa fa-check-circle"></i> May
                                     </div>
+
+                                    <div class="crse_timer">
+                                        Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                                </div>
+                            </a>
+                            <div class="fcrse_content">
+                                <a href="#" class="crse14s">{{ $lesson->title }}</a>
+                                <div class="vdtodt">
+                                    <span class="vdt14 badge badge-primary" style="font-size:14px;">Start : 08:00:00 PM</span>
+                                    <span class="vdt14 badge badge-primary" style="font-size:14px;">End : 10:00:00 PM</span>
+                                </div>
+                                <div class="auth1lnkprce">
+                                    <p class="cr1fot">
+                                    </p>
+                                    <div class="user-status">
+                                        <div class="user-avatar">
+                                            <img src="../dashboard/images/teacher/1672646199Abhiman_Sir.jpg" class="pro_pick">
+                                        </div>
+                                        <p class="user-status-title"><span class="bold">{{ getTeacherData($lesson->teacher_id)->name }}</span></p>
+                                        <p class="user-status-tag online">Teacher</p>
+                                        <br>
+                                        @if (StudentPaymentCheck() == null)
+                                        <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</button>
+                                        @else
+                                        @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
+                                        @php
+                                        $encryptedLessontype = encrypt(['lessontype' => $lessontype]);
+                                        $encryptedLessonid = encrypt(['id' => $lesson->id]);
+                                        @endphp
+                                        <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a>
+                                        @elseif (StudentPaymentCheck()->status == 2)
+                                        <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
+                                        @else
+                                        <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</button>
+                                        @endif
+                                        @endif
+
+                                    </div>
+
+                                    <div class="crse_timer">
+                                        Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                                </div>
                                 </a>
                                 <div class="fcrse_content">
                                     <a href="#" class="crse14s">{{ $lesson->title }}</a>
@@ -63,7 +101,7 @@
                                             <p class="user-status-tag online">Teacher</p>
                                             <br>
                                             @if (StudentPaymentCheck() == null)
-                                            <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
+                                            <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</button>
                                             @else
                                             @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
                                             @php
@@ -74,84 +112,29 @@
                                             @elseif (StudentPaymentCheck()->status == 2)
                                             <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
                                             @else
-                                            <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
+                                            <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</button>
                                             @endif
                                             @endif
-
-
-
 
                                         </div>
 
-                                <div class="crse_timer">
-                                    Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
-                            </div>
-                        </a>
-                        <div class="fcrse_content">
-                            <a href="#" class="crse14s">{{ $lesson->title }}</a>
-                            <div class="vdtodt">
-                                <span class="vdt14 badge badge-primary" style="font-size:14px;">Start : 08:00:00 PM</span>
-                                <span class="vdt14 badge badge-primary" style="font-size:14px;">End : 10:00:00 PM</span>
-                            </div>
-                            <div class="auth1lnkprce">
-                                <p class="cr1fot">
-                                </p>
-                                <div class="user-status">
-                                    <div class="user-avatar">
-                                        <img src="../dashboard/images/teacher/1672646199Abhiman_Sir.jpg" class="pro_pick">
                                     </div>
-                                    <p class="user-status-title"><span class="bold">{{ getTeacherData($lesson->teacher_id)->name }}</span></p>
-                                    <p class="user-status-tag online">Teacher</p>
-                                    <br>
-                                    @if (StudentPaymentCheck() == null)
-                                    <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
-                                    @else
-                                    @if (StudentPaymentCheck()->status == 1 && StudentPaymentCheck()->end_date >= now()->toDateString() && StudentPaymentCheck()->end_date >= $lesson->published_date)
-                                    @php
-                                    $encryptedLessontype = encrypt(['lessontype' => $lessontype]);
-                                    $encryptedLessonid = encrypt(['id' => $lesson->id]);
-                                    @endphp
-                                    <a href="{{ route('single-lesson', ['lessontype' => $encryptedLessontype, 'id' => $encryptedLessonid]) }}" class="save_btn btn-block">Watch Lesson</a>
-                                    @elseif (StudentPaymentCheck()->status == 2)
-                                    <a href="student_profile.php" class="save_btn btn-block">Your Payment is Pending</a>
-                                    @else
-                                    <a href="#" onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="save_btn btn-block payment-here">Payment Here</a>
-                                    @endif
-                                    @endif
-
-
-
-
                                 </div>
-
                             </div>
-
-
-
-
 
                         </div>
                     </div>
-
                 </div>
+                @endforeach
             </div>
+
         </div>
-
-
-
-        @endforeach
     </div>
-
 </div>
-</div>
-</div>
-
-
-
 
 @else
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
             <h3>Classes</h3>
         </div>
@@ -193,7 +176,7 @@
                 <td>{{ getCourseData($lesson->course_id)->name }}</td>
                 <td><img width="50" src="{{ asset('/lesson/img/' . $lesson->background_image) }}" alt="Class Image"></td>
                 <td>{{ $lesson->published_date }}</td>
-                
+
                 <td>{{ $lesson->status }}</td>
                 <td>
                     <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">
