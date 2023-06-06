@@ -34,7 +34,7 @@
                     @else
                     <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="btn btn-success w-100">Payment Here</button>
                     @endif
-                    
+                    @endif
                 </div>
             </div>
         </div>
