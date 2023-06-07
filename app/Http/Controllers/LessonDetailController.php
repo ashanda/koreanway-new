@@ -12,8 +12,8 @@ class LessonDetailController extends Controller
      */
     public function index()
     {
-        $lessons = LessonDetail::latest()->paginate(5);
-        return view('pages.lesson.index', compact('lessons'))->with('i', (request()->input('page', 1) - 1) * 5);
+        // $lessons = LessonDetail::latest()->paginate(5);
+        // return view('pages.lesson.index', compact('lessons'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

@@ -90,8 +90,6 @@ Route::middleware(['auth.check', 'auth:admin'])->group(function () {
     Route::get('/get-teacher-data/{teacher_id}', [TeachersController::class, 'getTeacherData']);
 });
 
-
-
 //Admin & Teacher routes
 Route::middleware(['auth.check', 'auth:teacher,admin'])->group(function () {
 

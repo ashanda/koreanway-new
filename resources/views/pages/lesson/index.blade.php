@@ -37,13 +37,13 @@
                             <a href="#" class="fcrse_img">
                                 <img src="{{ asset('/lesson/img/' . $lesson->image) }}" class="pro_pick2">
                                 <div class="course-overlay">
-                                    <div class="badge_seller"><i class="uil uil-star"></i> May 23, 2023</div>
+                                    <div class="badge_seller"><i class="uil uil-star"></i> Sample Date </div>
                                     <div class="crse_reviews">
-                                        <i class="fa fa-check-circle"></i> May
+                                        <i class="fa fa-check-circle"></i> Sample Month
                                     </div>
 
                                     <div class="crse_timer">
-                                        Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                                        Sample Date </div>
                                 </div>
                             </a>
                             <div class="fcrse_content">
@@ -81,7 +81,7 @@
                                     </div>
 
                                     <div class="crse_timer">
-                                        Grade 11 - Science Paper Revision (SM) by අභිමන් සර් </div>
+                                        Sample Date </div>
                                 </div>
                                 </a>
                                 <div class="fcrse_content">
@@ -181,14 +181,14 @@
                 <td>
                     <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">
 
-                        <a class="btn  btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
+                        <a class="btn btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
 
-                        <a class="btn  btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn  btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
 

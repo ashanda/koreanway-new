@@ -27,19 +27,19 @@
     @csrf
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Teacher Name:</label>
                 <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Teacher Email:</label>
                 <input type="text" name="email" class="form-control form-control-lg" placeholder="Email address">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Teacher Password:</label>
                 <input type="text" name="password" class="form-control form-control-lg" placeholder="Password">

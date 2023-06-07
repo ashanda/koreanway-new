@@ -66,9 +66,9 @@
                             <a target="_blank" href="{{ $LessonDetail -> extra_youtube}}" class="btn btn-lg btn-danger w-100 mb-3">Additional Youtube Lessons</a>
                         </div>
                         @endif
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6">
                             <a target="_blank" href="https://www.pexels.com/search/mobile%20wallpaper/  " class="btn btn-lg btn-secondary w-100 mb-3">Seasons Wallpapers</a>
-                        </div>
+                        </div> -->
                         @if(($LessonDetail -> paper) == !null)
                         <div class="col-lg-6">
                             <a target="_blank" href="{{ $LessonDetail -> paper}}" class="btn btn-lg btn-info w-100 mb-3">Paper Exam</a>

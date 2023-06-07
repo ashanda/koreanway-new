@@ -7,89 +7,89 @@
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
         @if (Auth::guard('student')->check())
         <li>
-            <a href="{{ route('dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            <a href="{{ route('dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Dashboard</span> </a>
         </li>
         <li>
-            <a href="{{ route('smart-class-room') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Smart Class Room</span> </a>
+            <a href="{{ route('smart-class-room') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-book"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Smart Class Room</span> </a>
         </li>
         <li>
-            <a href="{{ route('profile') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-person"></i> <span class="ms-1 d-none d-sm-inline">Profile</span> </a>
+            <a href="{{ route('profile') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-person"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Profile</span> </a>
         </li>
         <li>
-            <a href="{{ route('investment') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-cash-coin"></i> <span class="ms-1 d-none d-sm-inline">Investment</span> </a>
+            <a href="{{ route('investment') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-cash-coin"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Investment</span> </a>
         </li>
 
 
         <!-- <li>
-            <a href="student_profile.php" class="nav-link px-0 align-middle"> <i class='uil uil-book-alt menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Main Menu</span> </a>
+            <a href="student_profile.php" class="nav-link px-0 align-middle"> <i class='uil uil-book-alt menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Main Menu</span> </a>
         </li>
         <li>
-            <a href="edit_profile.php" class="nav-link px-0 align-middle"> <i class='uil uil-analysis menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Edit My Profile</span> </a>
+            <a href="edit_profile.php" class="nav-link px-0 align-middle"> <i class='uil uil-analysis menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Edit My Profile</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Today Free Live Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'free-live-today']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Today Free Live Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Next Month's Free Live Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'free-live-next-day']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Next Month's Free Live Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">This Month's Free Class
+            <a href="{{ route('lesson', ['lessontype' => 'free-paper-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">This Month's Free Class
                     Paper</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">All Previous Free Class
+            <a href="{{ route('lesson', ['lessontype' => 'free-paper-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">All Previous Free Class
                     Paper</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">This Month's Free Recorded Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'free-video-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">This Month's Free Recorded Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">All Previous Free Recorded Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'free-video-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">All Previous Free Recorded Classes</span> </a>
         </li>
         <li>
-            <a href="exam_list.php?type=0" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Free Exams</span> </a>
+            <a href="exam_list.php?type=0" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Free Exams</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Today Paid Live Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-live-today']) }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Today Paid Live Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Next Month's Paid Live Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-live-next-day']) }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Next Month's Paid Live Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-bell menu--icon'></i> <span class="ms-1 d-none d-sm-inline">This Month's Paid Paper Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-bell menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">This Month's Paid Paper Classes</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-bell menu--icon'></i> <span class="ms-1 d-none d-sm-inline">All Previous Paid Paper Classes</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-paper-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-bell menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">All Previous Paid Paper Classes</span> </a>
         </li>
         <li>
-            <a href="exam_list.php?type=1" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Paid Exams</span> </a>
+            <a href="exam_list.php?type=1" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Paid Exams</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">This Month's Recordings</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-video-this-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">This Month's Recordings</span> </a>
         </li>
         <li>
-            <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 d-none d-sm-inline">All Previous Recordings</span> </a>
+            <a href="{{ route('lesson', ['lessontype' => 'paid-video-previous-month']) }}" class="nav-link px-0 align-middle"> <i class='uil uil-award menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">All Previous Recordings</span> </a>
         </li>
         <li>
-            <a href="paper_exam_list.php" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Paper Exams</span> </a>
+            <a href="paper_exam_list.php" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Paper Exams</span> </a>
         </li>
         <li>
-            <a href="reviews.php" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Rate Your Learning Experience</span> </a>
+            <a href="reviews.php" class="nav-link px-0 align-middle"> <i class='uil uil-star menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Rate Your Learning Experience</span> </a>
         </li>
         <li>
-            <a href="bank_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Bank Payments History</span> </a>
+            <a href="bank_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Bank Payments History</span> </a>
         </li>
         <li>
-            <a href="card_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Card Payments History</span> </a>
+            <a href="card_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Card Payments History</span> </a>
         </li>
         <li>
-            <a href="manual_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Manual Payments History</span> </a>
+            <a href="manual_payment.php" class="nav-link px-0 align-middle"> <i class='uil uil-dollar-sign menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Manual Payments History</span> </a>
         </li>
         <li>
-            <a href="../logout.php" class="nav-link px-0 align-middle"> <i class='uil uil-wallet menu--icon'></i> <span class="ms-1 d-none d-sm-inline">Logout</span> </a>
+            <a href="../logout.php" class="nav-link px-0 align-middle"> <i class='uil uil-wallet menu--icon'></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Logout</span> </a>
         </li>
         <li>
-            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Payments</span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                 <li class="w-100">
@@ -114,19 +114,19 @@
 
 
         <li>
-            <a href="{{ route('admin_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            <a href="{{ route('admin_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Dashboard</span> </a>
         </li>
         <li>
-            <a href="{{ route('teacher.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-microsoft-teams"></i> <span class="ms-1 d-none d-sm-inline">Teachers</span> </a>
+            <a href="{{ route('teacher.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-microsoft-teams"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Teachers</span> </a>
         </li>
 
         <li>
-            <a href="{{ route('messages.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Notice</span> </a>
+            <a href="{{ route('messages.index') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-speedometer2"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Notice</span> </a>
         </li>
         <li>
             <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-filter"></i> <span class="ms-1 d-none d-sm-inline">Filters</span> </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                <i class="fs-4 bi bi-filter"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Filters</span> </a>
+            <ul class="submenu collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                 <li class="w-100">
                     <a href="{{ route('batch.index') }}" class="nav-link px-0"> <span class="d-none d-sm-inline"></span> Batches </a>
                 </li>
@@ -137,9 +137,9 @@
         </li>
         <li>
             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Lesson</span>
+                <i class="fs-4 bi bi-book"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Lesson</span>
             </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+            <ul class="submenu collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                 <li class="w-100">
                     <a href="{{ route('lessons.index') }}" class="nav-link px-0">All<span class="d-none d-sm-inline"> Lessons</span> </a>
                 </li>
@@ -150,9 +150,9 @@
             </ul>
         </li>
         <li>
-            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Payments</span>
             </a>
-            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+            <ul class="submenu collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                 <li class="w-100">
                     <a href="{{ route('payment', ['paytype' => 'pending-bank-tranfer']) }}" class="nav-link px-0">Pending Bank<span class="d-none d-sm-inline"></span> </a>
                 </li>
@@ -266,12 +266,12 @@
         @elseif(Auth::guard('teacher')->check())
 
         <li>
-            <a href="{{ route('teacher_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            <a href="{{ route('teacher_dashboard') }}" class="nav-link px-0 align-middle"> <i class="fs-4 bi-people"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Dashboard</span> </a>
         </li>
 
         <li>
             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Lesson</span>
+                <i class="fs-4 bi bi-book"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Lesson</span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                 <li class="w-100">
@@ -314,7 +314,7 @@
                 </li>
             </ul>
         <li>
-            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 d-none d-sm-inline">Payments</span>
+            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle"> <i class="fs-4 bi bi-credit-card"></i> <span class="ms-1 ms-md-3 d-none d-sm-inline">Payments</span>
             </a>
             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                 <li class="w-100">

@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
-            <h3>Edit Batch</h3>
+            <h3>Edit Course</h3>
         </div>
         <div class="float-end">
             <a class="btn  btn-primary" href="{{ route('course.index') }}"> Back</a>
@@ -28,7 +28,7 @@
     @method('PUT')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label for="course_id" class="form-label">Batch:</label>
                 <select class="form-select form-select-lg" name="batch_id" id="batch_id">
@@ -38,7 +38,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label for="teacher_id" class="form-label">Teacher:</label>
                 <select class="form-select form-select-lg" name="teacher_id" id="teacher_id">
@@ -48,18 +48,18 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Course Name:</label>
                 <input type="text" name="name" value="{{ $course->name }}" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Status:</label>
                 <select class="form-select form-select-lg" name="status" id="status">
                     <option value="1" {{ $course->status == '1' ? 'selected' : '' }}>Publish</option>
-                    <option value="2" {{ $course->status == '0' ? 'selected' : '' }}>Unpublish</option>
+                    <option value="2" {{ $course->status == '2' ? 'selected' : '' }}>Unpublish</option>
                 </select>
             </div>
         </div>

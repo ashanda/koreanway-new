@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div class="title_sec text-center my-3">
+    <h1>Class List</h1>
+</div>
 <div class="row">
     @foreach ($lessonsPaginated as $lesson)
     <div class="col-sm-12 col-md-6 col-lg-4">

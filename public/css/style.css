@@ -8672,6 +8672,16 @@ a.nav-icon-list:hover {
 
 .nav li {
     width: 100%;
+    margin-bottom: 20px;
+}
+
+/* .submenu {
+    border: 2px #fff solid;
+    border-radius: .25rem;
+} */
+
+.collapse.nav li {
+    margin-bottom: 10px;
 }
 
 .nav .nav-link {
@@ -8910,4 +8920,3 @@ td {
     top: 0;
     right: 0;
 }
-

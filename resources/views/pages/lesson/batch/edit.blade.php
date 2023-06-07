@@ -28,19 +28,19 @@
     @method('PUT')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Batch Name:</label>
                 <input type="text" name="name" value="{{ $batch->name }}" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Batch Fee:</label>
-                <input type="text" name="name" value="{{ $batch->fee }}" class="form-control form-control-lg" placeholder="Fee">
+                <input type="text" name="fee" value="{{ $batch->fee }}" class="form-control form-control-lg" placeholder="Fee">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Status:</label>
                 <select class="form-select form-select-lg" name="status" id="status">
@@ -49,7 +49,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Register Form visibility:</label>
                 <select class="form-select form-select-lg" name="visible" id="visible">
@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-            <button type="submit" class="btn  btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </div>
 
