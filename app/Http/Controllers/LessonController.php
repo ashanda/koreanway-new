@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Models\Course;
 use App\Models\LessonDetail;
 use App\Models\UserCourse;
+use App\Models\Mcq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
@@ -72,7 +73,8 @@ class LessonController extends Controller
         $batch_data = Batch::all();
         $teacher_data = Teacher::all();
         $course_data = Course::all();
-        return view('pages.lesson.create', compact('batch_data', 'teacher_data', 'course_data'));
+        $exams = Mcq::all();
+        return view('pages.lesson.create', compact('batch_data', 'teacher_data', 'course_data','exams'));
     }
 
 
@@ -167,8 +169,9 @@ class LessonController extends Controller
 
 
 
-    public function show(Lesson $lesson)
+    public function show(LessonDetail $lesson)
     {
+       
         return view('pages.lesson.show', compact('lesson'));
     }
 

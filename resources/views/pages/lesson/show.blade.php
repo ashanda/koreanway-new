@@ -8,7 +8,7 @@
             <h3> Show Class</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ route('lesson.index') }}"> Back</a>
+            <a class="btn  btn-primary" href="{{ route('lessons.index') }}"> Back</a>
         </div>
     </div>
 </div>

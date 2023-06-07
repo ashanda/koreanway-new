@@ -40,25 +40,61 @@ class StudentsController extends Controller
 
     public function smartClass(){
         if(Auth::guard('student')->check()){
-            $StudentCourses = UserCourse::where('user_id',Auth::user()->id)->get();
+            $StudentCourses = UserCourse::where('user_id', Auth::user()->id)->get();
+            $StudentCoursesCount = $StudentCourses->count();
+            
             $StudentLessonDetails = LessonDetail::all();
+            $StudentLessonDetailsCount = $StudentLessonDetails->count();
+
+
             
             $filteredLessons = collect();
-            foreach($StudentCourses as $StudetCourse){
-                $matchingLesson = $StudentLessonDetails->where('course_id', $StudetCourse->course_id)
-                ->where('batch_id', $StudetCourse->batch_id)
-                ->first();
-        
-            if ($matchingLesson) {
-                $filteredLessons->push($matchingLesson);
-            }
+            if( $StudentCoursesCount > $StudentLessonDetailsCount){
 
-            }
+                foreach($StudentCourses as $StudetCourse){
+                    $matchingLesson = $StudentLessonDetails->where('course_id', $StudetCourse->course_id)
+                    ->where('batch_id', $StudetCourse->batch_id)
+                    ->first();
+            
+                if ($matchingLesson) {
+                    $filteredLessons->push($matchingLesson);
+                }
+    
+                }
+
+            }else if( $StudentCoursesCount < $StudentLessonDetailsCount){
+
+                foreach ($StudentCourses as $StudentCourse) {
+                    $matchingLessons = $StudentLessonDetails->where('course_id', $StudentCourse->course_id)
+                                                           ->where('batch_id', $StudentCourse->batch_id);
+                
+                    if ($matchingLessons->isNotEmpty()) {
+                        $matchingLessons->each(function ($lesson) use ($filteredLessons) {
+                            $filteredLessons->push($lesson);
+                        });
+                    }
+                }
+                
+
+            }else{
+
+                foreach($StudentCourses as $StudetCourse){
+                    $matchingLesson = $StudentLessonDetails->where('course_id', $StudetCourse->course_id)
+                    ->where('batch_id', $StudetCourse->batch_id)
+                    ->first();
+            
+                if ($matchingLesson) {
+                    $filteredLessons->push($matchingLesson);
+                }
+    
+                }
+            }    
+            
             $currentPage = request()->get('page', 1);
             $perPage = 5;
             $total = $filteredLessons->count();
             $lessons = $filteredLessons->forPage($currentPage, $perPage);
-            
+          
             $lessonsPaginated = new \Illuminate\Pagination\LengthAwarePaginator(
                 $lessons,
                 $total,
