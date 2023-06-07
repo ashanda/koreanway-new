@@ -51,6 +51,7 @@ Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::get('/user-profile', [StudentsController::class, 'profile'])->name('profile');
     Route::post('/user-profile-update', [StudentsController::class, 'profile'])->name('update-profile');
     Route::get('/investment', [StudentsController::class, 'investment'])->name('investment');
+    Route::get('/mcq/{id}', [McqController::class, 'mcq'])->name('mcq');
 });
 
 //teacher routes 

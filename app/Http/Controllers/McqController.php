@@ -144,4 +144,11 @@ class McqController extends Controller
     // Redirect back to the form or any other appropriate page
     return redirect()->back()->with('success', 'Question added successfully.');
 }
+
+public function mcq(Request $request, $id){
+    $exam = Mcq::find($id);
+    $questions = Question::where('exam_id',$exam->id)->get();
+    return view('pages.student.exam', compact('exam','questions'));
+}
+
 }

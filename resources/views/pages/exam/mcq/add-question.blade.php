@@ -30,7 +30,7 @@
                                                                             
                                             
 @if ($question_count < $exam->exam_question)
-<form method="POST" action="{{ route('add_question_db') }}" autocomplete="off" data-np-autofill-type="other" data-np-checked="1" data-np-watching="1">
+<form method="POST" action="{{ route('add_question_db') }}" enctype="multipart/form-data" >
     @csrf
     <div class="question-title">Question</div>
     <div class="form-group">
@@ -41,7 +41,7 @@
     </div>
     <div class="form-group">
         <label for="">Upload</label>
-        <input type="file" name="document" id="">
+        <input type="file" name="document">
     </div>
     <div class="form-group">
     <input name="ans_1" type="text" required="required" class="form-control" id="ans_1" placeholder="Answer 1" value="" required>

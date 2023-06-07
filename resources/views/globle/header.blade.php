@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 <link href="{{ asset('css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('css/jquery.quiz-min.css') }}" rel="stylesheet">
 
 <style>
 	/* .btn-primary,
