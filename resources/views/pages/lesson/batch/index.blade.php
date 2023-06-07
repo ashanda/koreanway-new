@@ -25,6 +25,7 @@
             <tr>
                 <th>No</th>
                 <th>Batch Name</th>
+                <th>Fee</th>
                 <th>Status</th>
                 <th>Form Visibility</th>
                 <th>Action</th>
@@ -39,6 +40,7 @@
             <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $batch->name }}</td>
+                <td>{{ $batch->fee }}</td>
                 @if ($batch->status == 1)
                 <td>{{ 'Published' }}</td>
                 @else
@@ -53,14 +55,14 @@
                 <td>
                     <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
 
-                        <a class="btn btn-info " href="{{ route('batch.show',$batch->id) }}">View</a>
+                        <a class="btn btn-info" href="{{ route('batch.show',$batch->id) }}">View</a>
 
-                        <a class="btn btn-primary " href="{{ route('batch.edit',$batch->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger ">Delete</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>

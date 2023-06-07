@@ -24,7 +24,7 @@
             <tr>
                 <th>No</th>
                 <th>Batch ID</th>
-                <th>Teacher</th>
+                <th>Teacher ID</th>
                 <th>Course Name</th>
                 <th>Status</th>
                 <th>Action</th>

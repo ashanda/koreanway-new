@@ -31,12 +31,12 @@ $uniqueRandomNumber = uniqid();
 <div class="row">
 
     <form id="form1" action="{{ route('lessons.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="row pb-2 border-bottom mb-4">
-            @csrf
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label class="form-label">Lesson Title</label>
-                    <input type="text" name="lesson_title" class="form-control form-control-lg" placeholder="Class Title">
+                    <input type="text" name="lesson_title" class="form-control form-control-lg" placeholder="Lesson Title">
                     <input type="hidden" name="lesson_id" value=" {{ $uniqueRandomNumber }}" readonly>
                 </div>
             </div>
@@ -102,7 +102,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Live Lessons------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_live_lesson" class="form-label">Is Live Lesson:</label>
                     <div class="form-check">
@@ -141,7 +141,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Video Lessons------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_video_lesson" class="form-label">Is Video Lesson:</label>
                     <div class="form-check">
@@ -181,7 +181,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------MCQ Lessons------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_mcq_exam" class="form-label">Is MCQ Exam:</label>
                     <div class="form-check">
@@ -214,7 +214,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Paper Exam------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_paper_exam" class="form-label">Is Paper Exam:</label>
                     <div class="form-check">
@@ -244,7 +244,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------tute------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_tute" class="form-label">Is Tute:</label>
                     <div class="form-check">
@@ -270,7 +270,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Audio------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_audio" class="form-label">Is Audio :</label>
                     <div class="form-check">
@@ -296,7 +296,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Extra Video Lesson------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_extra_video_lesson" class="form-label">Is Extra Video Lesson:</label>
                     <div class="form-check">
@@ -323,7 +323,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <!---------------------Extra Youtube Video Lesson------------------------>
         <div class="row pb-2 border-bottom mb-4">
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="form-group mb-3">
                     <label for="is_extra_youtube_video_lesson" class="form-label">Is Extra Youtube Video Lesson:</label>
                     <div class="form-check">
@@ -355,9 +355,9 @@ $uniqueRandomNumber = uniqid();
         </div>
 </div>
 </form>
-</div>
 
-<script>
+
+<!-- <script>
     function checkSchedule() {
         var checkBox = document.getElementById("lessonCheck1");
         var formSec = document.getElementById("schedule");
@@ -377,7 +377,7 @@ $uniqueRandomNumber = uniqid();
             formSec.style.display = "none";
         }
     }
-</script>
+</script> -->
 
 
 @endsection

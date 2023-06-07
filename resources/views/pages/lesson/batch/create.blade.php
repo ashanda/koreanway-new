@@ -7,7 +7,7 @@
             <h3>Add New Batch</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-primary" href="{{ route('batch.index') }}">Batches</a>
+            <a class="btn btn-primary" href="{{ route('batch.index') }}">Back</a>
         </div>
     </div>
 </div>
@@ -27,19 +27,19 @@
     @csrf
 
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Batch Name:</label>
                 <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
-                <label class="form-label">Fee:</label>
+                <label class="form-label">Batch Fee:</label>
                 <input type="text" name="fee" class="form-control form-control-lg" placeholder="Fee">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label for="status" class="form-label">Status:</label>
                 <select class="form-control form-control-lg" name="status" id="status">
@@ -48,9 +48,9 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
-                <label for="status" class="form-label">Status:</label>
+                <label for="status" class="form-label">Register Form visibility:</label>
                 <select class="form-control form-control-lg" name="visible" id="visible">
                     <option value="1">Visible</option>
                     <option value="0">Unvisible</option>

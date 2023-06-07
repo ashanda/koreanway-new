@@ -58,14 +58,14 @@ class TeachersController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
         ]);
 
         $teacher->name = $request['name'];
         $teacher->email = $request['email'];
-        if ($request->filled('password')) {
-            $teacher->password = encrypt($request['password']);
-        }
+        // if ($request->filled('password')) {
+        //     $teacher->password = encrypt($request['password']);
+        // }
         $teacher->save();
 
         return redirect()->route('teacher.index')->with('success', 'Teacher updated successfully');

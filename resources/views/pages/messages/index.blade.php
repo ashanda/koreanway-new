@@ -39,12 +39,13 @@
                 @endif
 
                 <td>
-                    <a href="{{ route('messages.show', $message) }}">View</a>
-                    <a href="{{ route('messages.edit', $message) }}">Edit</a>
+                    
                     <form action="{{ route('messages.destroy', $message) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('messages.show', $message) }}">View</a>
+                    <a class="btn btn-primary" href="{{ route('messages.edit', $message) }}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit">Delete</button>
+                        <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

@@ -25,7 +25,7 @@
             <th>No</th>
             <th>Teacher Name</th>
             <th>Teacher Email</th>
-            <th>Password</th>
+            <!-- <th>Password</th> -->
             <th>Action</th>
         </tr>
         @foreach ($teachers as $teacher)
@@ -33,7 +33,7 @@
             <td>{{ ++$i }}</td>
             <td>{{ $teacher->name }}</td>
             <td>{{ $teacher->email }}</td>
-            <td>{{ $teacher->password }}</td>
+            <!-- <td>{{ $teacher->password }}</td> -->
             <td>
                 <form action="{{ route('teacher.destroy',$teacher->id) }}" method="POST">
 

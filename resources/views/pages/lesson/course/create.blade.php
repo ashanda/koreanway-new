@@ -7,7 +7,7 @@
             <h3>Add New Course</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ route('course.index') }}"> Courses</a>
+            <a class="btn  btn-primary" href="{{ route('course.index') }}"> Back</a>
         </div>
     </div>
 </div>
