@@ -8,6 +8,7 @@ use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\LessonDetailController;
+use App\Http\Controllers\McqController;
 use App\Http\Controllers\UserPaymentController;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,7 @@ Route::middleware(['auth.check', 'auth:student'])->group(function () {
     Route::get('/user-profile', [StudentsController::class, 'profile'])->name('profile');
     Route::post('/user-profile-update', [StudentsController::class, 'profile'])->name('update-profile');
     Route::get('/investment', [StudentsController::class, 'investment'])->name('investment');
+    Route::get('/mcq/{id}', [McqController::class, 'mcq'])->name('mcq');
 });
 
 //teacher routes 
@@ -98,6 +100,9 @@ Route::middleware(['auth.check', 'auth:teacher,admin'])->group(function () {
     Route::post('/admin/lesson-live', [LessonController::class, 'live'])->name('lesson.live');
     Route::post('/admin/lesson-paper', [LessonController::class, 'paper'])->name('lesson.paper');
     Route::post('/admin/lesson-video', [LessonController::class, 'video'])->name('lesson.video');
+    Route::resource('/mcq-exams',McqController::class);
+    Route::get('/mcq-exams/add_question/{id}',[McqController::class,'add_question'])->name('add_question');
+    Route::post('/mcq-exams/add_question/',[McqController::class,'add_question_db'])->name('add_question_db');
 });
 //All Acessroutes
 Route::middleware(['auth.check', 'auth:teacher,admin,student'])->group(function () {

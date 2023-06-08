@@ -170,6 +170,20 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi bi-book"></i> <span class="ms-1 d-none d-sm-inline">Exams</span>
+            </a>
+            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                <li class="w-100">
+                    <a href="{{ route('mcq-exams.index') }}" class="nav-link px-0">All<span class="d-none d-sm-inline"> MCQ</span> </a>
+                </li>
+                <li class="w-100">
+                    <a href="{{ route('lessons.create') }}" class="nav-link px-0">All<span class="d-none d-sm-inline"> Paper</span> </a>
+                </li>
+
+            </ul>
+        </li>
         <!-- <li>
                     <a href="attendence.php" aria-expanded="false">
                         <i class="la la-file-text"></i>

@@ -64,6 +64,7 @@
 	</div>
 
 	@include('globle.footer')
+	
 </body>
 
 </html>

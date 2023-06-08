@@ -11,7 +11,7 @@
         <div class="cl_vid">
             <div class="card p-0">
                 <div class="vid_sec">
-                    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->background_image) }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('/lesson/img/' . $lesson->thumbnail) }}" alt="Card image cap">
                     @if (StudentPaymentCheck($lesson->course_id,$lesson->batch_id ) == null)
                     <div class="bg-lock">
                         <i class="bi bi-lock"></i>

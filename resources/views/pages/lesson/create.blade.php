@@ -203,8 +203,11 @@ $uniqueRandomNumber = uniqid();
                 <div class="form-group mb-3">
                     <label for="mcq_id" class="form-label">Add MCQ:</label>
                     <select class="form-control form-control-lg" name="mcq_id" id="mcq_id">
-                        <option value="123">MCQ1</option>
-                        <option value="124">MCQ2</option>
+                        @foreach ( $exams as $exam)
+                        <option value="{{ $exam->id }}">{{ $exam->title }}</option>
+                        @endforeach
+                        
+                        
                     </select>
                 </div>
             </div>
