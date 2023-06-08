@@ -7,7 +7,7 @@
             <h3>Edit Notice</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ route('messages.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('messages.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-            <button class="btn btn-primary" type="submit">Update</button>
+            <button class="btn btn-lg btn-primary" type="submit">Update</button>
         </div>
     </div>
 </form>

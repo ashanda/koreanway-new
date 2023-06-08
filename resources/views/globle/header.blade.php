@@ -5,7 +5,7 @@
 
 <!-- Bootstrap icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-<!-- font-awesome cdn -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
  <!-- YouTube API -->
@@ -20,13 +20,5 @@
 <link href="{{ asset('css/vertical-responsive-menu.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<style>
-	/* .btn-primary,
-	.btn-primary:hover {
-		background-color: #2E9D8A;
-		border-color: #2E9D8A;	
-		color: #ffffff;
-	} */
-</style>
 
 </head>

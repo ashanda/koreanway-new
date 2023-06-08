@@ -8,7 +8,7 @@
             <h3>Add New Class</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ url()->previous() }}">Classes</a>
+            <a class="btn btn-lg btn-primary" href="{{ url()->previous() }}">Classes</a>
         </div>
     </div>
 </div>
@@ -347,7 +347,7 @@ $uniqueRandomNumber = uniqid();
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 text-end">
-                <button class="btn btn-success" type="submit" id="submit">Save Lesson</button>
+                <button class="btn btn-lg btn-success" type="submit" id="submit">Save Lesson</button>
             </div>
         </div>
 </div>

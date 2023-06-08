@@ -104,7 +104,7 @@
 
     <div class="mb-3 row">
         <div class="col-md-6 offset-md-4">
-            <input type="submit" class="btn btn-primary" value="Update">
+            <input type="submit" class="btn btn-lg btn-primary" value="Update">
         </div>
     </div>
 </form>

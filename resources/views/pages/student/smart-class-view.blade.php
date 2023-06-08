@@ -8,7 +8,7 @@
     @if(($LessonDetail -> audio) == !null)
     <audio id="bgMusic" src="{{ asset('/lesson/audio/' . $LessonDetail->audio) }}" loop></audio>
     <div class="pl_btn">
-        <button id="toggleBtn" class="btn btn-primary rounded-circle"><i class="bi bi-play-fill"></i></button>
+        <button id="toggleBtn" class="btn btn-lg btn-primary rounded-circle"><i class="bi bi-play-fill"></i></button>
     </div>
     @endif
     <div class="container bg-tpdark p-3 p-md-5 rounded">
@@ -41,7 +41,7 @@
             <div class="col-md-12 mt-3">
                 @if( ($LessonDetail -> video_link) == !null && ($LessonDetail -> live_link) == !null)
                 <div class="text-center">
-                    <a class="btn btn-info btn-lg infinite-zoom hover-3d mb-4" target="_blank" href="{{ $LessonDetail -> live_link}}">Join {{ $LessonDetail -> live_title}}</a>
+                    <a class="btn btn-lg btn-info btn-lg infinite-zoom hover-3d mb-4" target="_blank" href="{{ $LessonDetail -> live_link}}">Join {{ $LessonDetail -> live_title}}</a>
                 </div>
                 @endif
                 <div class="btn_sec p-3">

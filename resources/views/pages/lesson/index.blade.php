@@ -139,7 +139,7 @@
             <h3>Classes</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-success" href="{{ route('lessons.create') }}"> Create New Class</a>
+            <a class="btn btn-lg btn-success" href="{{ route('lessons.create') }}"> Create New Class</a>
         </div>
     </div>
 </div>
@@ -181,14 +181,14 @@
                 <td>
                     <form action="{{ route('lessons.destroy',$lesson->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
+                        <a class="btn btn-lg btn-info" href="{{ route('lessons.show',$lesson->id) }}">View</a>
 
-                        <a class="btn btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
+                        <a class="btn btn-lg btn-primary" href="{{ route('lessons.edit',$lesson->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-lg btn-danger">Delete</button>
                     </form>
                 </td>
 

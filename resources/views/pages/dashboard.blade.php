@@ -380,7 +380,7 @@ Teacher Dashboard
                         <div class="row mb-2">
                                 <div class="col-5">
                                         <div class="text-left">
-                                                <a href="{{ route('profile') }}" class="btn btn-danger">Edit Profile</a>
+                                                <a href="{{ route('profile') }}" class="btn btn-lg btn-danger">Edit Profile</a>
                                         </div>
                                 </div>
                                 <div class="col-7">

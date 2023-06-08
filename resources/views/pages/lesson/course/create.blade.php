@@ -7,7 +7,7 @@
             <h3>Add New Course</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ route('course.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('course.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-            <button type="submit" class="btn  btn-primary">Submit</button>
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
         </div>
     </div>
 

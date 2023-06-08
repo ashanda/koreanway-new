@@ -22,7 +22,7 @@
                     <div class="alert alert-light text-center m-0 fw-bold">{{ $lesson->lecture_title }}</div>
                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                     @if (StudentPaymentCheck($lesson->course_id,$lesson->batch_id ) == null)
-                    <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="btn btn-danger w-100 fw-bold">No Acess | Payment Here</button>
+                    <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="btn btn-lg btn-danger w-100 fw-bold">No Acess | Payment Here</button>
                     @else
                     @if (StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->status == 1 && StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->end_date >= now()->toDateString() && StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->end_date >= $lesson->published_date)
                     @php
@@ -35,7 +35,7 @@
                     @elseif (StudentPaymentCheck($lesson->course_id,$lesson->batch_id)->status == 2)
                     <div class="alert alert-warning text-center m-0">Your Payment is Pending</div>
                     @else
-                    <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="btn btn-success w-100">Payment Here</button>
+                    <button onclick="openModel({{ $lesson->course_id }}, {{ $lesson->batch_id }},{{ $lesson->teacher_id }})" class="btn btn-lg btn-success w-100">Payment Here</button>
                     @endif
                     @endif
                 </div>
@@ -77,7 +77,7 @@
                         <label for="file">Upload File:</label>
                         <input type="file" name="image" class="form-control form-control-lg">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
                 </form>
             </div>
             <div class="modal-footer">

@@ -7,7 +7,7 @@
             <h3>Edit Class</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-primary" href="{{ route('lessons.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('lessons.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -157,7 +157,7 @@ $uniqueRandomNumber = uniqid();
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-end pt-2">
-            <button type="submit" class="btn  btn-primary">Update</button>
+            <button type="submit" class="btn btn-lg btn-primary">Update</button>
         </div>
     </div> -->
     <div class="row pb-2 border-bottom mb-4">
@@ -493,7 +493,7 @@ $uniqueRandomNumber = uniqid();
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 text-end">
-            <button class="btn btn-success" type="submit" id="submit">Update</button>
+            <button class="btn btn-lg btn-success" type="submit" id="submit">Update</button>
         </div>
     </div>
 

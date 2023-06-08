@@ -7,7 +7,7 @@
             <h3>Courses</h3>
         </div>
         <div class="float-end">
-            <a class="btn  btn-success" href="{{ route('course.create') }}"> Create New Course</a>
+            <a class="btn btn-lg btn-success" href="{{ route('course.create') }}"> Create New Course</a>
         </div>
     </div>
 </div>
@@ -44,14 +44,14 @@
                 <td>
                     <form action="{{ route('course.destroy',$course->id) }}" method="POST">
 
-                        <a class="btn  btn-info" href="{{ route('course.show',$course->id) }}">View</a>
+                        <a class="btn btn-lg btn-info" href="{{ route('course.show',$course->id) }}">View</a>
 
-                        <a class="btn  btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
+                        <a class="btn btn-lg btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn  btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-lg btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>

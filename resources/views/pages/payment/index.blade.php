@@ -86,7 +86,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-end">
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-lg btn-primary" value="Submit">
     </div>
   </div>
 </form>
@@ -152,15 +152,15 @@
         <td>
           <form action="{{ route('lessons.destroy',$payment->id) }}" method="POST">
 
-            <a id="payment-history-btn" data-id="{{ $payment->student_id }}" class="btn payment-history-btn btn-info">Payment History</a>
+            <a id="payment-history-btn" data-id="{{ $payment->student_id }}" class="btn payment-history-btn btn-lg btn-info">Payment History</a>
 
 
-            <a class="btn  btn-primary edit-btn" @if($paytype !='paid-manual-payments' || $paytype !='paid-online-payments' ) data-image="{{ asset('/payments/slips/' . $payment->file_name) }}" @endif data-id="{{ $payment->id }}" data-amount="{{ $payment->amount }}">Edit</a>
+            <a class="btn btn-lg btn-primary edit-btn" @if($paytype !='paid-manual-payments' || $paytype !='paid-online-payments' ) data-image="{{ asset('/payments/slips/' . $payment->file_name) }}" @endif data-id="{{ $payment->id }}" data-amount="{{ $payment->amount }}">Edit</a>
 
             @csrf
             @method('DELETE')
 
-            <button type="submit" class="btn  btn-danger">Delete</button>
+            <button type="submit" class="btn btn-lg btn-danger">Delete</button>
           </form>
         </td>
 
@@ -233,7 +233,7 @@
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-lg btn-primary">Save</button>
           </div>
         </form>
       </div>

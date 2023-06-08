@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="single-form">
-                                    <input name="login" type="submit" value="Login" class="btn btn-primary btn-block">
+                                    <input name="login" type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
                                 </div>
                             </div>
                         </div>

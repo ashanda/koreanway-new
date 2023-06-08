@@ -7,7 +7,7 @@
             <h3>Batches</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-success " href="{{ route('batch.create') }}"> Create New Batch</a>
+            <a class="btn btn-lg btn-success " href="{{ route('batch.create') }}"> Create New Batch</a>
         </div>
     </div>
 </div>
@@ -55,14 +55,14 @@
                 <td>
                     <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('batch.show',$batch->id) }}">View</a>
+                        <a class="btn btn-lg btn-info" href="{{ route('batch.show',$batch->id) }}">View</a>
 
-                        <a class="btn btn-primary" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
+                        <a class="btn btn-lg btn-primary" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-lg btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>

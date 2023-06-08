@@ -5,7 +5,7 @@
     <div class="col-lg-12 margin-tb mb-2">
         <div class="d-flex justify-content-between align-items-center">
             <h3 class="mb-0">Show Course</h3>
-            <a class="btn btn-primary" href="{{ route('batch.index') }}">Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('batch.index') }}">Back</a>
         </div>
     </div>
 </div>

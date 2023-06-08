@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
-            <h4>Teachers</h4>
+            <h3>Teachers</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-success" href="{{ route('teacher.create') }}"> Create New Teacher</a>
+            <a class="btn btn-lg btn-success" href="{{ route('teacher.create') }}"> Create New Teacher</a>
         </div>
     </div>
 </div>
@@ -37,14 +37,14 @@
             <td>
                 <form action="{{ route('teacher.destroy',$teacher->id) }}" method="POST">
 
-                    <a class="btn btn-info mb-1" href="{{ route('teacher.show',$teacher->id) }}">View</a>
+                    <a class="btn btn-lg btn-info mb-1" href="{{ route('teacher.show',$teacher->id) }}">View</a>
 
-                    <a class="btn btn-primary mb-1" href="{{ route('teacher.edit',$teacher->id) }}">Edit</a>
+                    <a class="btn btn-lg btn-primary mb-1" href="{{ route('teacher.edit',$teacher->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-lg btn-danger">Delete</button>
                 </form>
             </td>
         </tr>

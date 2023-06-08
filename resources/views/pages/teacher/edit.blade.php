@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
-            <h4>Edit Teacher</h4>
+            <h3>Edit Teacher</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-primary" href="{{ route('teacher.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -47,7 +47,7 @@
             </div>
         </div> -->
         <div class="col-xs-12 col-sm-12 col-md-12 text-end mt-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
         </div>
     </div>
 

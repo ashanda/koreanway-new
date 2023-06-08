@@ -7,7 +7,7 @@
             <h3>Notice</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-success " href="{{ route('messages.create') }}"> Create New Notice</a>
+            <a class="btn btn-lg btn-success " href="{{ route('messages.create') }}"> Create New Notice</a>
         </div>
     </div>
 </div>
@@ -39,13 +39,13 @@
                 @endif
 
                 <td>
-                    
+
                     <form action="{{ route('messages.destroy', $message) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('messages.show', $message) }}">View</a>
-                    <a class="btn btn-primary" href="{{ route('messages.edit', $message) }}">Edit</a>
+                        <a class="btn btn-lg btn-info" href="{{ route('messages.show', $message) }}">View</a>
+                        <a class="btn btn-lg btn-primary" href="{{ route('messages.edit', $message) }}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-lg btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

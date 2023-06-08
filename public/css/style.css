@@ -8648,7 +8648,9 @@ a.nav-icon-list:hover {
     margin-top: 70px;
     min-height: calc(100vh - 115px);
 }
-
+.minvh{
+    min-height: calc(100vh - 115px);
+}
 
 .header_right .nav-item a {
     text-decoration: none;
@@ -8669,7 +8671,6 @@ a.nav-icon-list:hover {
     color: #fff;
 }
 
-
 .nav li {
     width: 100%;
     margin-bottom: 20px;
@@ -8686,6 +8687,7 @@ a.nav-icon-list:hover {
 
 .nav .nav-link {
     transition: .5s;
+    line-height: 1;
 }
 
 .dropdown-item.active,
@@ -8696,7 +8698,7 @@ a.nav-icon-list:hover {
 @media screen and (min-width: 576px) {
     .nav-pills .nav-link:hover {
         background-color: #253473;
-        padding-left: 8px !important;
+        /* padding-left: 8px !important; */
     }
 }
 
@@ -8848,33 +8850,6 @@ td {
     padding-top: 0;
 }
 
-
-/* Tab responsive */
-@media screen and (max-width: 768px) {
-    .sm_cl {
-        height: 150px;
-    }
-
-    .ban_cap {
-        width: 100%;
-    }
-
-    .carousel-item {
-        height: 200px;
-    }
-}
-
-/* Mobile responsive */
-@media screen and (max-width: 576px) {
-    .nav-link {
-        font-size: 14px;
-    }
-
-    .ban_cap .h1 {
-        font-size: 20px;
-    }
-}
-
 /* Single lesson animation */
 .btn:hover {
     color: #fff;
@@ -8920,3 +8895,40 @@ td {
     top: 0;
     right: 0;
 }
+.nav .bi{
+    font-size: 50px;
+}
+
+
+/* Tab responsive */
+@media screen and (max-width: 768px) {
+    .sm_cl {
+        height: 150px;
+    }
+
+    .ban_cap {
+        width: 100%;
+    }
+
+    .carousel-item {
+        height: 200px;
+    }
+    .nav .bi{
+        font-size: 50px;
+    }
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 576px) {
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .ban_cap .h1 {
+        font-size: 20px;
+    }
+    .nav .bi{
+        font-size: 20px;
+    }
+}
+
