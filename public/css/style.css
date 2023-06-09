@@ -8891,14 +8891,19 @@ td {
 }
 
 .pl_btn {
-    position: absolute;
-    top: 0;
-    right: 0;
+	position: fixed;
+	top: 5px;
+	right: 70px;
+	z-index: 9999;
 }
 .nav .bi{
-    font-size: 50px;
+    font-size: 40px;
 }
-
+.sing_lesson{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 /* Tab responsive */
 @media screen and (max-width: 768px) {
@@ -8914,7 +8919,7 @@ td {
         height: 200px;
     }
     .nav .bi{
-        font-size: 50px;
+        font-size: 30px;
     }
 }
 

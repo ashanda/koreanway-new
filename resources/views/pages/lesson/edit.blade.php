@@ -7,7 +7,7 @@
             <h3>Edit Class</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ route('lessons.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('lessons.index') }}"><i class="bi bi-caret-left-fill"></i> Classes</a>
         </div>
     </div>
 </div>

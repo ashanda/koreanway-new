@@ -7,7 +7,7 @@
             <h3>Edit Teacher</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('teacher.index') }}"><i class="bi bi-caret-left-fill"></i> Teachers</a>
         </div>
     </div>
 </div>

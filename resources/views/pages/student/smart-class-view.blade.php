@@ -74,9 +74,9 @@
                             <a target="_blank" href="{{ $LessonDetail -> paper}}" class="btn btn-lg btn-info w-100 mb-3">Paper Exam</a>
                         </div>
                         @endif
-                        @if(($LessonDetail -> mcq) == !null)
+                        @if(($LessonDetail -> mcq_id) == !null)
                         <div class="col-lg-6">
-                            <a target="_blank" href="{{ $LessonDetail -> mcq}}" class="btn btn-lg btn-warning w-100 mb-3">MCQ Exam</a>
+                            <a target="_blank" href="{{ route('mcq', ['id' => $LessonDetail->mcq_id]) }}" class="btn btn-lg btn-warning w-100 mb-3">MCQ Exam</a>
                         </div>
                         @endif
                         @if(($LessonDetail -> homework) == !null)
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <!-- {{ $LessonDetail}} -->
+    {{ $LessonDetail}}
 
     <script>
         var bgMusic = document.getElementById('bgMusic');

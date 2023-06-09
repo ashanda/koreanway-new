@@ -8,7 +8,7 @@
             <h3>Add New Class</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ url()->previous() }}">Classes</a>
+            <a class="btn btn-lg btn-secondary" href="{{ url()->previous() }}"><i class="bi bi-caret-left-fill"></i> Classes</a>
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@
             <h3>Add New Notice</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ url()->previous() }}">Notices</a>
+            <a class="btn btn-lg btn-primary" href="{{ url()->previous() }}"><i class="bi bi-caret-left-fill"></i> Notices</a>
         </div>
     </div>
 </div>

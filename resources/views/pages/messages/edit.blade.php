@@ -7,7 +7,7 @@
             <h3>Edit Notice</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ route('messages.index') }}"> Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('messages.index') }}"><i class="bi bi-caret-left-fill"></i> Notices</a>
         </div>
     </div>
 </div>
@@ -42,7 +42,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="form-group mb-3">
                 <label class="form-label">Image</label>
-                <img width="100" src="{{ asset('/notice/img/' . $message->image) }}" alt="Class Image">
+                <br>
+                <img class="w-50" src="{{ asset('/notice/img/' . $message->image) }}" alt="Class Image">
                 <input type="file" name="image" class="form-control form-control-lg">
             </div>
         </div>

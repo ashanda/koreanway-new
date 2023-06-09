@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 margin-tb mb-2">
         <div class="float-start">
             <h3>Notice</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-success " href="{{ route('messages.create') }}"> Create New Notice</a>
+            <a class="btn btn-lg btn-success" href="{{ route('messages.create') }}"> Create New Notice</a>
         </div>
     </div>
 </div>

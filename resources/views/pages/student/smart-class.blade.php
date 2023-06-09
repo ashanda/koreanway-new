@@ -50,8 +50,6 @@
 
 <!-- Add more fields as needed -->
 
-
-
 <div class="modal" id="paymentModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

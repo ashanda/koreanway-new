@@ -7,7 +7,7 @@
             <h3>Add New Batch</h3>
         </div>
         <div class="float-end">
-            <a class="btn btn-lg btn-primary" href="{{ route('batch.index') }}">Back</a>
+            <a class="btn btn-lg btn-primary" href="{{ route('batch.index') }}"><i class="bi bi-caret-left-fill"></i> Batchs</a>
         </div>
     </div>
 </div>
