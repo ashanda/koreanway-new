@@ -180,7 +180,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit Payment</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button onclick="closeEditModel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -232,7 +232,7 @@
           <!-- Add more form fields for editing payment data -->
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button onclick="closeEditModel()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-lg btn-primary">Save</button>
           </div>
         </form>
@@ -247,7 +247,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="payment-history-modal-label">Payment History</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button onclick="closeHistoryModel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -269,7 +269,7 @@
         </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="closeHistoryModel()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

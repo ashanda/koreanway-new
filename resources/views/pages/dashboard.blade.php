@@ -85,7 +85,7 @@
                                 </div>
                         </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-2">
+                <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-2">
                         <div class="widget-stat card bg-main-col">
                                 <div class="card-body">
                                         <div class="row">
@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="col-sm-8 col-md-9 col-lg-8 col-xl-9">
                                                         <p class="mb-0 text-white">Total Video Lessons</p>
-                                                        <h3 class="text-white">{{ getVideoLessoncount() }}</h3>
+                                                        <h3 class="text-white"></h3>
                                                         <div class="progress mt-1">
                                                                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
@@ -104,8 +104,8 @@
                                         </div>
                                 </div>
                         </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-2">
+                </div> -->
+                <!-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-2">
                         <div class="widget-stat card bg-main-col">
                                 <div class="card-body">
                                         <div class="row">
@@ -116,7 +116,7 @@
                                                 </div>
                                                 <div class="col-sm-8 col-md-9 col-lg-8 col-xl-9">
                                                         <p class="mb-0 text-white">Total live Lessons</p>
-                                                        <h3 class="text-white">{{ getLiveLessoncount() }}</h3>
+                                                        <h3 class="text-white"></h3>
                                                         <div class="progress mt-1">
                                                                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
@@ -124,7 +124,7 @@
                                         </div>
                                 </div>
                         </div>
-                </div>
+                </div> -->
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mt-2">
                         <div class="widget-stat card bg-main-col">
                                 <div class="card-body">

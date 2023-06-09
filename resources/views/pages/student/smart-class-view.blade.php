@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    {{ $LessonDetail}}
+    <!-- {{ $LessonDetail}} -->
 
     <script>
         var bgMusic = document.getElementById('bgMusic');

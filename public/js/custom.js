@@ -70,6 +70,12 @@ function openModel(course_id, batch_id, teacher_id) {
 function closeModel(){
 	$('#paymentModal').modal('hide');
 }
+function closeHistoryModel(){
+	$('#payment-history-modal').modal('hide');
+}
+function closeEditModel(){
+	$('#editModal').modal('hide');
+}
 
 $(document).ready(function () {
 	$('.edit-btn').click(function () {
