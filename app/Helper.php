@@ -74,6 +74,12 @@ function  getUserData($userID) {
     return $teacherdata;
 }
 
+function getLectureTitle($lessonID) {
+    $lessonDetail = LessonDetail::findOrFail($lessonID)->first();
+    return $lessonDetail;
+}
+
+
 function getUserLesseonData($lessons) {
 	$UserCourseDatas = UserCourse::where('user_id', Auth::user()->id)->get();
 	

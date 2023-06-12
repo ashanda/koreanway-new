@@ -16,14 +16,14 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label class="form-label">Batch ID:</label>
-                    <input type="text" class="form-control form-control-lg" value="{{ $course->batch_id }}" readonly>
+                    <label class="form-label">Batch:</label>
+                    <input type="text" class="form-control form-control-lg" value="{{ getBatchData($course->batch_id)->name }}" readonly>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label class="form-label">Teacher ID:</label>
-                    <input type="text" class="form-control form-control-lg" value="{{ $course->teacher_id }}" readonly>
+                    <label class="form-label">Teacher:</label>
+                    <input type="text" class="form-control form-control-lg" value="{{ getTeacherData($course->teacher_id)->name }}" readonly>
                 </div>
             </div>
             <div class="col-md-6">

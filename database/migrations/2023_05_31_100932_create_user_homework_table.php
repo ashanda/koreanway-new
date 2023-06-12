@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_homework', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('lession_id');
+            $table->string('lesson_id');
             $table->bigInteger('user_id');
             $table->string('document');
             $table->timestamps();

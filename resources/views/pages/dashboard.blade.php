@@ -186,7 +186,7 @@
                         </div>
                 </div>
         </div>
-        <p class="h4 my-3 fw-bold">Class Team Wise Total Student Couting</p>
+        <!-- <p class="h4 my-3 fw-bold">Class Team Wise Total Student Couting</p>
 
         <div class="row">
 
@@ -231,7 +231,7 @@
                                 </div>
                         </div>
                 </div>
-        </div>
+        </div> -->
 </div>
 
 

@@ -45,7 +45,7 @@
                 </div>
                 @endif
                 <div class="btn_sec p-3">
-                    <div class="row text-center">
+                    <div class="row">
                         @if(($LessonDetail -> extra_video) == !null)
                         <div class="col-lg-6">
                             <a target="_blank" href="{{ $LessonDetail -> extra_video}}" class="btn btn-lg btn-primary w-100 mb-3">Discuss Addtional Questions</a>
@@ -79,16 +79,45 @@
                             <a target="_blank" href="{{ route('mcq', ['id' => $LessonDetail->mcq_id]) }}" class="btn btn-lg btn-warning w-100 mb-3">MCQ Exam</a>
                         </div>
                         @endif
-                        @if(($LessonDetail -> homework) == !null)
                         <div class="col-lg-6">
-                            <a target="_blank" href="{{ $LessonDetail -> homework}}" class="btn btn-lg btn-dark w-100 mb-3">Upload Today HomeWork</a>
+                            <!-- <a target="_blank" href="{{ $LessonDetail -> lesson_id}}" class="btn btn-lg btn-dark w-100 mb-3">Upload Today HomeWork</a> -->
+                            <button type="button" class="btn btn-lg btn-dark w-100 mb-3" data-bs-toggle="modal" data-bs-target="#homeworkModel">
+                                Upload Today HomeWork
+                            </button>
+                            <!-- Homework Modal -->
+                            <div class="modal fade" id="homeworkModel" tabindex="-1" aria-labelledby="homeworkModelLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Upload Your Homework</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('homeworks.store') }}" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="lesson_id" value="{{ $LessonDetail -> lesson_id}}">
+                                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="homeworkFile">Homework File</label>
+                                                    <input type="file" class="form-control form-control-lg" id="homeworkFile" name="homeworkFile">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- {{ $LessonDetail}} -->
 
     <script>

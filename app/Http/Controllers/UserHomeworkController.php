@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use App\Models\UserHomework;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
 class UserHomeworkController extends Controller
@@ -12,7 +14,9 @@ class UserHomeworkController extends Controller
      */
     public function index()
     {
-        //
+        $student_data = Student::all();
+        $userhomeworks = UserHomework::latest()->get();
+        return view('pages.homeworks.index', compact('userhomeworks','student_data'));
     }
 
     /**
@@ -28,7 +32,23 @@ class UserHomeworkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $homework = new UserHomework;
+        $homework->lesson_id = $request->input('lesson_id');
+        $homework->user_id = $request->input('user_id');
+
+        if ($request->file('homeworkFile')) {
+            $file = $request->file('homeworkFile');
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('/lesson/homework'), $filename);
+            $homework->document = $filename;
+        }
+        $homework->save();
+        // Show the success message with SweetAlert
+        Alert::success('Success', 'Your homework has been successfully uploaded.');
+
+        // Redirect back
+        return redirect()->back();
     }
 
     /**
@@ -36,7 +56,7 @@ class UserHomeworkController extends Controller
      */
     public function show(UserHomework $userHomework)
     {
-        //
+       //
     }
 
     /**
@@ -60,6 +80,6 @@ class UserHomeworkController extends Controller
      */
     public function destroy(UserHomework $userHomework)
     {
-        //
+        //       
     }
 }

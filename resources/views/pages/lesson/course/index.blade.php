@@ -23,8 +23,8 @@
         <thead class="thead-dark">
             <tr>
                 <th>No</th>
-                <th>Batch ID</th>
-                <th>Teacher ID</th>
+                <th>Batch</th>
+                <th>Teacher</th>
                 <th>Course Name</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -37,8 +37,8 @@
             @endphp
             <tr>
                 <td>{{ $i }}</td>
-                <td>{{ $course->batch_id }}</td>
-                <td>{{ $course->teacher_id }}</td>
+                <td>{{ getBatchData($course->batch_id)->name }}</td>
+                <td>{{ getTeacherData($course->teacher_id)->name }}</td>
                 <td>{{ $course->name}}</td>
                 <td>{{ $course->status }}</td>
                 <td>
