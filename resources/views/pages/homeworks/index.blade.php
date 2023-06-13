@@ -29,7 +29,7 @@
             <tr>
                 <td>{{ $i }}</td>
                 <td>{{ $userhomework->lesson_id }}</td>
-                <td>{{getUserData($userhomework->user_id)->fullname }}</td>
+                <td>{{ getUserData($userhomework->user_id)->fullname }}</td>
                 <td><a href="{{ asset('/lesson/homework/' . $userhomework->document) }}"><img width="50" src="{{ asset('/lesson/homework/' . $userhomework->document) }}" alt="Class Image"></a></td>
             </tr>
             @php
